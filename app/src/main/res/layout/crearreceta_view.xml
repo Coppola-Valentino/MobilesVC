@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etClaveTF4"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="Intervalo entre Dosis"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etClaveTF3"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etClaveTF3"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="Dosis"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etClaveTF"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etClaveTF"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="Cantidad"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etUsuarioTF"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/btIniciarSesion3"
+        android:layout_width="387dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#2C6D01"
+        android:paddingVertical="14dp"
+        android:text="Añadir al Recetado"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toTopOf="@+id/btRestablecerClave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
+    <Button
+        android:id="@+id/btRestablecerClave"
+        android:layout_width="388dp"
+        android:layout_height="59dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#4E4E4E"
+        android:paddingVertical="10dp"
+        android:text="Cancelar"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btIniciarSesion" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etUsuarioTF"
+        android:layout_width="362dp"
+        android:layout_height="46dp"
+        android:hint="Nombre del Medicamento"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="353dp"
+        android:layout_height="42dp"
+        android:text="Añadir Medicamento"
+        android:textAlignment="center"
+        android:textColor="#1F1F1F"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="67dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
