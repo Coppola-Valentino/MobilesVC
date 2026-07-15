@@ -1,6 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/vGenero"
+            android:layout_width="364dp"
+            android:layout_height="46dp"
+            android:clickable="false"
+            android:hint="Genero"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="496dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/vEdad"
+            android:layout_width="364dp"
+            android:layout_height="46dp"
+            android:clickable="false"
+            android:hint="Edad"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="557dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Perfil"
+            android:textColor="#000000"
+            android:textStyle="bold|italic"
+            tools:layout_editor_absoluteX="172dp"
+            tools:layout_editor_absoluteY="61dp"
+            tools:textSize="26sp" />
+
+        <Button
+            android:id="@+id/vVolverPerfil"
+            android:layout_width="370dp"
+            android:layout_height="53dp"
+            android:layout_marginHorizontal="24dp"
+            android:backgroundTint="#4E4E4E"
+            android:paddingVertical="10dp"
+            android:text="Cancelar"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:cornerRadius="@dimen/item_transform_image_length"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="631dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vDni"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="false"
+        android:hint="Dni"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="437dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vEmail"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="false"
+        android:hint="Email"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vDireccion"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="false"
+        android:hint="Direccion"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vPassword"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="false"
+        android:hint="Contraseña"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="205dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vTelefono"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="false"
+        android:hint="Numero de Telefono"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="323dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vNombre"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="false"
+        android:hint="Usuario"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="147dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vGeneroEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Genero"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="453dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vEdadEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Edad"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="512dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vDniEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Dni"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="399dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vEmailRegister3"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Email"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="342dp" />
+
+    <Button
+        android:id="@+id/vCrearUsuario2"
+        android:layout_width="387dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="92dp"
+        android:backgroundTint="@color/primary"
+        android:paddingVertical="14dp"
+        android:text="Iniciar Sesion"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vDireccionEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Direccion"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="220dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vPasswordEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Contraseña"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="157dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Editar Perfil"
+        android:textColor="#000000"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="32dp"
+        tools:textSize="26sp" />
+
+    <Button
+        android:id="@+id/vVolverRegister2"
+        android:layout_width="387dp"
+        android:layout_height="53dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#4E4E4E"
+        android:paddingVertical="10dp"
+        android:text="Cancelar"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btIniciarSesion" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vTelefonoEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Numero de Telefono"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vNombreEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Usuario"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="99dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

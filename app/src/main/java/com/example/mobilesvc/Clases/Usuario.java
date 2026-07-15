@@ -4,15 +4,17 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
     private int IDUser, telefono, edad;
-    private String nombre, rol, password, direccion, genero;
+    private String nombre, rol, password, direccion, genero, email, dni;
     public Usuario() {}
-    public Usuario(int IDUser, int telefono, int edad, String nombre, String rol, String password, String direccion, String genero) {
+    public Usuario(int IDUser, int telefono, int edad, String nombre, String dni, String email, String rol, String password, String direccion, String genero) {
         this.IDUser = IDUser;
         this.telefono = telefono;
         this.edad = edad;
         this.nombre = nombre;
         this.rol = rol;
+        this.email = email;
         this.password = password;
+        this.dni = dni;
         this.direccion = direccion;
         this.genero = genero;
     }
@@ -46,6 +48,12 @@ public class Usuario implements Serializable {
     public void setRol(String rol) {
         this.rol = rol;
     }
+    public String getDni() {
+        return dni;
+    }
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
     public String getPassword() {
         return password;
     }
@@ -57,6 +65,12 @@ public class Usuario implements Serializable {
     }
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+    public String getEMail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
     public String getGenero() {
         return genero;
@@ -74,6 +88,7 @@ public class Usuario implements Serializable {
                 "Telefono='" + telefono + '\'' +
                 "Genero='" + genero + '\'' +
                 "Direccion='" + direccion + '\'' +
+                "Email='" + email + '\'' +
                 '}';
     }
 }

@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -62,6 +61,8 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
         TextView rol;
         TextView password;
         TextView direccion;
+        TextView email;
+        TextView dni;
         TextView genero;
         Button verMas;
 
@@ -69,10 +70,12 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
             super(itemView);
             telefono = itemView.findViewById(R.id.vTelefono);
             edad = itemView.findViewById(R.id.vEdad);
-            nombre = itemView.findViewById(R.id.vNombre);
+            nombre = itemView.findViewById(R.id.vNombreLogin);
             rol = itemView.findViewById(R.id.vRol);
-            password = itemView.findViewById(R.id.vPassword);
+            password = itemView.findViewById(R.id.vPasswordLogin);
+            dni = itemView.findViewById(R.id.vDni);
             direccion = itemView.findViewById(R.id.vDireccion);
+            email = itemView.findViewById(R.id.vEmail);
             genero = itemView.findViewById(R.id.vGenero);
             verMas = itemView.findViewById(R.id.vVerMas);
         }
