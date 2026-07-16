@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vIntervaloCrear"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Intervalo"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vCantidadCrear"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:hint="Cantidad de Repeticiones"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <Button
+        android:id="@+id/vVolverCrearRecordatorio"
+        android:layout_width="383dp"
+        android:layout_height="53dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#4E4E4E"
+        android:paddingVertical="10dp"
+        android:text="Cancelar"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btIniciarSesion" />
+
+    <Button
+        android:id="@+id/vCrearRecordatorio"
+        android:layout_width="387dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="84dp"
+        android:backgroundTint="@color/primary"
+        android:paddingVertical="14dp"
+        android:text="Iniciar Sesion"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Añadir Recordatorio"
+        android:textColor="#000000"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="51dp"
+        tools:textSize="26sp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

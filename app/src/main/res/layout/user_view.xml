@@ -46,7 +46,7 @@
             android:layout_marginHorizontal="24dp"
             android:backgroundTint="#4E4E4E"
             android:paddingVertical="10dp"
-            android:text="Cancelar"
+            android:text="Volver"
             android:textSize="12sp"
             android:textStyle="bold"
             android:visibility="visible"
