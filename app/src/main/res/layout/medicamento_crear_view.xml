@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/vCrearMedicamento"
+        android:layout_width="387dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#2C6D01"
+        android:paddingVertical="14dp"
+        android:text="Añadir"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vIntervaloMedicamentoCrear"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="342dp"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Intervalo" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vDosisCrear"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="417dp"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Dosis" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Crear Medicamento"
+        android:textColor="#000000"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="71dp"
+        tools:textSize="26sp" />
+
+    <Button
+        android:id="@+id/vVolverMedicamentoCrear"
+        android:layout_width="370dp"
+        android:layout_height="53dp"
+        android:layout_marginHorizontal="24dp"
+        android:backgroundTint="#4E4E4E"
+        android:paddingVertical="10dp"
+        android:text="Volver"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="645dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vCantidadMedicamentoCrear"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="262dp"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Cantidad" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vNombreMedicamentoCrear"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="177dp"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Nombre" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/vEditMedicamento"
+        android:layout_width="387dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#000000"
+        android:paddingVertical="14dp"
+        android:text="Confirmar"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vIntervaloMedicamentoEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Intervalo"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="342dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vDosisEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Dosis"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="417dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Editar Medicamento"
+        android:textColor="#000000"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="68dp"
+        tools:textSize="26sp" />
+
+    <Button
+        android:id="@+id/vVolverMedicamentoEdit"
+        android:layout_width="370dp"
+        android:layout_height="53dp"
+        android:layout_marginHorizontal="24dp"
+        android:backgroundTint="#4E4E4E"
+        android:paddingVertical="10dp"
+        android:text="Volver"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:cornerRadius="@dimen/item_transform_image_length"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="642dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vCantidadMedicamentoEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Cantidad"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vNombreMedicamentoEdit"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:clickable="true"
+        android:hint="Nombre"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="177dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

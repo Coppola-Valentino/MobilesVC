@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteY="186dp">
 
     <Button
-        android:id="@+id/btIniciarSesion5"
+        android:id="@+id/vPacientes"
         android:layout_width="412dp"
         android:layout_height="66dp"
         android:backgroundTint="#505050"
@@ -16,7 +16,7 @@
         android:text="Lista de Pacientes"
         android:textStyle="bold"
         app:cornerRadius="@dimen/item_transform_image_length"
-        app:layout_constraintBottom_toTopOf="@+id/btIniciarSesion4"
+        app:layout_constraintBottom_toTopOf="@+id/vRecetas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.693" />
 
     <Button
-        android:id="@+id/btIniciarSesion4"
+        android:id="@+id/vRecetas"
         android:layout_width="412dp"
         android:layout_height="64dp"
         android:layout_marginTop="48dp"
@@ -50,7 +50,7 @@
         tools:layout_editor_absoluteY="69dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/vCurrentUser"
         android:layout_width="157dp"
         android:layout_height="34dp"
         android:hint="Usuario"
