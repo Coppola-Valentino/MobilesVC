@@ -9,7 +9,10 @@ android {
             minorApiLevel = 1
         }
     }
-
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.mobilesvc"
         minSdk = 33
