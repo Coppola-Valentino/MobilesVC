@@ -32,10 +32,10 @@ public class Receta implements Serializable {
     public void setMedID(int MedID) {
         this.MedID = MedID;
     }
-    public Date getfecha() {
+    public Date getFecha() {
         return fecha;
     }
-    public void setfecha(Date fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

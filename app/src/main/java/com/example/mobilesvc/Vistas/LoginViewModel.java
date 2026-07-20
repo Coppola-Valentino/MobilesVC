@@ -1,4 +1,4 @@
 package com.example.mobilesvc.Vistas;
 
-public class MedicamentoVIewModel {
+public class LoginViewModel {
 }

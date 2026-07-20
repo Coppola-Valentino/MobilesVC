@@ -14,7 +14,6 @@ import com.example.mobilesvc.Clases.Usuario;
 public class UsuarioViewModel extends AndroidViewModel {
 
     private MutableLiveData<Usuario> usuarioMutable = new MutableLiveData<>();
-    private MutableLiveData<String> textoDisponibilidadM = new MutableLiveData<>();
 
     public UsuarioViewModel(@NonNull Application application) {
         super(application);
