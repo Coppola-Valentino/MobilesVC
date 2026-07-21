@@ -17,12 +17,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobilesvc.databinding.ActivityMainBinding;
-//import com.example.mobilesvc.request.ApiClient;
+import com.example.mobilesvc.databinding.MainMenuViewBinding;
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Vistas.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding b;
+    private MainMenuViewBinding b;
     private MainViewModel vm;
     private AppBarConfiguration appBarConfiguration;
     private NavController navController;
@@ -30,40 +30,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        b = ActivityMainBinding.inflate(getLayoutInflater());
+        b = MainMenuViewBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
-        setSupportActionBar(b.appBarMain.toolbar); // iniciar el ToolBar
+        setSupportActionBar(b.appBarMain.toolbar);
 
         initNavigation();
         initDrawerMenu();
 
-        // ----- Cosas del ViewModel ----- //
         vm = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(MainViewModel.class);
 
         vm.getToastMessage().observe(this, message -> {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         });
 
-        // Cargar el encabezado del menú hamburgueza
-        vm.getPropietario().observe(this, p -> {
-            cambiarEncabezado(p.getNombre(), p.getApellido(), p.getDni(), p.getEmail());
+        vm.getUsuario().observe(this, p -> {
+            cambiarEncabezado(p.getNombre(), p.getDni(), p.getEmail());
         });
     }
 
     @SuppressLint("SetTextI18n")
-    private void cambiarEncabezado(String nombre, String apellido, String dni, String email) {
+    private void cambiarEncabezado(String nombre, String dni, String email) {
         View headerView = b.navView.getHeaderView(0);
 
-        TextView tvImageDrawer = headerView.findViewById(R.id.tvUserImageDrawer);
-        TextView tvNombreDrawer = headerView.findViewById(R.id.tvNombreDrawer);
-        TextView tvMailDrawer = headerView.findViewById(R.id.tvMailDrawer);
-        TextView tvDatosDrawer = headerView.findViewById(R.id.tvDatosDrawer);
+        TextView vNombreBar = headerView.findViewById(R.id.vNombreBar);
+        TextView vEmailBar = headerView.findViewById(R.id.vEmailBar);
+        TextView vDniBar = headerView.findViewById(R.id.vDniBar);
 
-        tvImageDrawer.setText(nombre.charAt(0)+""+apellido.charAt(0));
-        tvNombreDrawer.setText(nombre+" "+apellido);
-        tvMailDrawer.setText(email);
-        tvDatosDrawer.setText("PROPIETARIO - DNI "+dni);
+        vNombreBar.setText(nombre);
+        vEmailBar.setText(email);
+        vDniBar.setText(dni);
     }
     private void initNavigation() {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
@@ -73,11 +69,10 @@ public class MainActivity extends AppCompatActivity {
         navController = navHostFragment.getNavController();
 
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.inicioFragment,
-                R.id.perfilFragment,
-                R.id.inmueblesFragment,
-                R.id.inquilinosFragment,
-                R.id.contratosFragment
+                R.id.MainMenuViewFragment,
+                R.id.UsuarioFragment,
+                R.id.RecordatoriosFragment,
+                R.id.RecetasFragment,
         )
                 .setOpenableLayout(b.drawerLayout)
                 .build();
@@ -92,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         b.drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerOpened(View drawerView) {
-                cargarPropietario();
+                cargarUsuario();
             }
         });
 
@@ -111,8 +106,8 @@ public class MainActivity extends AppCompatActivity {
     private void showLogoutDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("Logout")
-                .setMessage("¿Estás seguro que querés salir de la sesión?")
-                .setPositiveButton("Sí", (dialog, which) -> {
+                .setMessage("¿Estas seguro que quierés cerrar sesion?")
+                .setPositiveButton("Si", (dialog, which) -> {
                     logout();
                 })
                 .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
@@ -135,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void cargarPropietario() {
-        vm.cargarPropietario();
+    public void cargarUsuario() {
+        vm.cargarUsuario();
     }
 }

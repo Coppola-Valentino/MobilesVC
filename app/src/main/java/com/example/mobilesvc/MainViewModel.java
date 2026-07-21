@@ -8,6 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Clases.Usuario;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class MainViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public LiveData<Usuario> getPropietario() {
+    public LiveData<Usuario> getUsuario() {
         if (mUsuario==null) {
             mUsuario = new MutableLiveData<>();
         }
