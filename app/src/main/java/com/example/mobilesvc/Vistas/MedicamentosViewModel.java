@@ -11,7 +11,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.mobilesvc.Clases.Receta;
+import com.example.mobilesvc.Clases.Medicamento;
 import com.example.mobilesvc.Api.ApiClient;
 
 import java.util.List;
@@ -20,23 +20,23 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RecetasViewModel extends AndroidViewModel {
-    private MutableLiveData<List<Receta>> recetaM;
+public class MedicamentosViewModel extends AndroidViewModel {
+    private MutableLiveData<List<Medicamento>> medicamentoM;
     private MutableLiveData<String> mToastMessage;
     private MutableLiveData<String> mMessage;
     private MutableLiveData<Integer> mMessageVisible;
     private Context context;
 
-    public RecetasViewModel(@NonNull Application application) {
+    public MedicamentosViewModel(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
     }
 
-    public LiveData<List<Receta>> getRecetas() {
-        if (recetaM == null) {
-            recetaM = new MutableLiveData<>();
+    public LiveData<List<Medicamento>> getMedicamentos() {
+        if (medicamentoM == null) {
+            medicamentoM = new MutableLiveData<>();
         }
-        return recetaM;
+        return medicamentoM;
     }
     public LiveData<String> getToastMessage() {
         if (mToastMessage==null) {
@@ -57,28 +57,28 @@ public class RecetasViewModel extends AndroidViewModel {
         return mMessageVisible;
     }
 
-    public void cargarRecetas() {
+    public void cargarMedicamentos() {
         String token = ApiClient.obtenerToken(context);
         ApiClient.MiServicio servicio = ApiClient.getServicio();
 
-        Call<List<Receta>> call = servicio.getRecetas(token);
+        Call<List<Medicamento>> call = servicio.getMedicamentoPorReceta(token);
 
         call.enqueue(new Callback<>() {
             @Override
-            public void onResponse(Call<List<Receta>> call, Response<List<Receta>> response) {
+            public void onResponse(Call<List<Medicamento>> call, Response<List<Medicamento>> response) {
                 if (response.isSuccessful()) {
-                    recetaM.postValue(response.body());
+                    medicamentoM.postValue(response.body());
                     mMessageVisible.postValue(INVISIBLE);
                 } else {
                     manejarErrorHttp(response.code());
-                    mMessage.postValue("No se encontraron las recetas");
+                    mMessage.postValue("No se encontraron los medicamentos");
                 }
             }
             @Override
-            public void onFailure(Call<List<Receta>> call, Throwable t) {
+            public void onFailure(Call<List<Medicamento>> call, Throwable t) {
                 Log.e("API_ERROR", "Fallo lista recordatorios: " + t.getMessage());
                 mToastMessage.postValue("Sin conexion con el servidor");
-                mMessage.postValue("No se encontraron las recetas");
+                mMessage.postValue("No se encontraron los medicamentos");
             }
         });
     }

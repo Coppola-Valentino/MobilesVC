@@ -11,8 +11,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.vertacnik.inmobiliaria.modelo.Inmueble;
-import com.vertacnik.inmobiliaria.request.ApiClient;
+import com.example.mobilesvc.Clases.Recordatorio;
+import com.example.mobilesvc.Api.ApiClient;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecordatoriosViewModel extends AndroidViewModel {
-    private MutableLiveData<List<Inmueble>> inmuebleM;
+    private MutableLiveData<List<Recordatorio>> recordatorioM;
     private MutableLiveData<String> mToastMessage;
     private MutableLiveData<String> mMessage;
     private MutableLiveData<Integer> mMessageVisible;
@@ -32,11 +32,11 @@ public class RecordatoriosViewModel extends AndroidViewModel {
         context = application.getApplicationContext();
     }
 
-    public LiveData<List<Inmueble>> getInmuebles() {
-        if (inmuebleM == null) {
-            inmuebleM = new MutableLiveData<>();
+    public LiveData<List<Recordatorio>> getRecordatorios() {
+        if (recordatorioM == null) {
+            recordatorioM = new MutableLiveData<>();
         }
-        return inmuebleM;
+        return recordatorioM;
     }
     public LiveData<String> getToastMessage() {
         if (mToastMessage==null) {
@@ -57,28 +57,28 @@ public class RecordatoriosViewModel extends AndroidViewModel {
         return mMessageVisible;
     }
 
-    public void cargarInmueblesVigentes() {
+    public void cargarRecordatorios() {
         String token = ApiClient.obtenerToken(context);
-        ApiClient.MiServicioInmobiliaria servicio = ApiClient.getServicio();
+        ApiClient.MiServicio servicio = ApiClient.getServicio();
 
-        Call<List<Inmueble>> call = servicio.getInmueblesConContratoVigente(token);
+        Call<List<Recordatorio>> call = servicio.getRecordatorios(token);
 
         call.enqueue(new Callback<>() {
             @Override
-            public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
+            public void onResponse(Call<List<Recordatorio>> call, Response<List<Recordatorio>> response) {
                 if (response.isSuccessful()) {
-                    inmuebleM.postValue(response.body());
+                    recordatorioM.postValue(response.body());
                     mMessageVisible.postValue(INVISIBLE);
                 } else {
                     manejarErrorHttp(response.code());
-                    mMessage.postValue("No se encontraron los inmuebles vigentes");
+                    mMessage.postValue("No se encontraron los recordatorios");
                 }
             }
             @Override
-            public void onFailure(Call<List<Inmueble>> call, Throwable t) {
-                Log.e("API_ERROR", "Fallo lista inmuebles: " + t.getMessage());
-                mToastMessage.postValue("Sin conexión con el servidor");
-                mMessage.postValue("No se encontraron los inmuebles vigentes");
+            public void onFailure(Call<List<Recordatorio>> call, Throwable t) {
+                Log.e("API_ERROR", "Fallo lista recordatorios: " + t.getMessage());
+                mToastMessage.postValue("Sin conexion con el servidor");
+                mMessage.postValue("No se encontraron los recordatorios");
             }
         });
     }

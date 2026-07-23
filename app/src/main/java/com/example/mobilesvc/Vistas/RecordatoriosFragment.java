@@ -14,46 +14,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.vertacnik.inmobiliaria.databinding.ActivityLoginBinding;
-import com.vertacnik.inmobiliaria.databinding.FragmentInquilinosBinding;
-import com.vertacnik.inmobiliaria.modelo.Inquilino;
-import com.vertacnik.inmobiliaria.R;
+import com.example.mobilesvc.Adapters.RecordatorioAdapter;
+import com.example.mobilesvc.databinding.LoginViewBinding;
+import com.example.mobilesvc.databinding.RecordatoriosViewBinding;
+import com.example.mobilesvc.Clases.Recordatorio;
+import com.example.mobilesvc.R;
 
 public class RecordatoriosFragment extends Fragment {
-    private FragmentInquilinosBinding binding;
-    private InquilinosViewModel mViewModel;
-    private InquilinoAdapter inquilinoAdapter;
+    private RecordatoriosViewBinding binding;
+    private RecordatoriosViewModel mViewModel;
+    private RecordatorioAdapter recordatorioAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = FragmentInquilinosBinding.inflate(inflater, container, false);
+        binding = RecordatoriosViewBinding.inflate(inflater, container, false);
 
-        mViewModel = new ViewModelProvider(this).get(InquilinosViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(RecordatoriosViewModel.class);
 
-        mViewModel.getInmuebles().observe(getViewLifecycleOwner(), inmuebles -> {
-            inquilinoAdapter = new InquilinoAdapter(inmuebles,getContext(), getLayoutInflater());
+        mViewModel.getRecordatorios().observe(getViewLifecycleOwner(), recordatorios -> {
+            recordatorioAdapter = new RecordatorioAdapter(recordatorios,getContext(), getLayoutInflater());
 
             GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
 
-            binding.rvListaInq.setLayoutManager(glm);
-            binding.rvListaInq.setAdapter(inquilinoAdapter);
+            binding.vRecordatoriosList.setLayoutManager(glm);
+            binding.vRecordatoriosList.setAdapter(recordatorioAdapter);
         });
 
         mViewModel.getToastMessage().observe(getViewLifecycleOwner(), message -> {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         });
 
-        mViewModel.getMessage().observe(getViewLifecycleOwner(), message -> {
-            binding.tvMensajeCargandoInmueblesVigentes.setText(message);
-        });
+        //mViewModel.getMessage().observe(getViewLifecycleOwner(), message -> {
+        //    binding.vMensajeCargandoRecordatorios.setText(message);
+        //});
 
-        mViewModel.getMessageVisible().observe(getViewLifecycleOwner(), visible -> {
-            binding.tvMensajeCargandoInmueblesVigentes.setVisibility(visible);
-        });
+        //mViewModel.getMessageVisible().observe(getViewLifecycleOwner(), visible -> {
+        //    binding.vMensajeCargandoRecordatorios.setVisibility(visible);
+        //);
 
-        mViewModel.cargarInmueblesVigentes();
+        mViewModel.cargarRecordatorios();
 
         return binding.getRoot();
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.mobilesvc.Clases.Medicamento;
+import com.example.mobilesvc.Clases.Recordatorio;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.example.mobilesvc.Clases.Usuario;
@@ -49,6 +50,8 @@ public class ApiClient {
         Call<List<Usuario>> getUsuarios(@Header("Authorization") String token);
         @GET("api/Recetas")
         Call<List<Receta>> getRecetas(@Header("Authorization") String token);
+        @GET("api/Recordatorios")
+        Call<List<Recordatorio>> getRecordatorios(@Header("Authorization") String token);
 
         @GET("api/Medicamento/Receta/{id}")
         Call<Medicamento> getMedicamentoPorReceta(@Header("Authorization") String token, @Path("id") int idReceta);

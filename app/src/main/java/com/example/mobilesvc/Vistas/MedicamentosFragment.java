@@ -14,29 +14,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.mobilesvc.Adapters.RecetaAdapter;
-import com.example.mobilesvc.databinding.RecetasViewBinding;
+import com.example.mobilesvc.Adapters.MedicamentoAdapter;
+import com.example.mobilesvc.databinding.MedicamentosViewBinding;
 
-public class RecetasFragment extends Fragment {
-    private RecetasViewBinding binding;
-    private RecetasViewModel mViewModel;
-    private RecetaAdapter recetaAdapter;
+public class MedicamentosFragment extends Fragment {
+    private MedicamentosViewBinding binding;
+    private MedicamentosViewModel mViewModel;
+    private MedicamentoAdapter recetaAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = RecetasViewBinding.inflate(inflater, container, false);
+        binding = MedicamentosViewBinding.inflate(inflater, container, false);
 
-        mViewModel = new ViewModelProvider(this).get(RecetasViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(MedicamentosViewModel.class);
 
-        mViewModel.getRecetas().observe(getViewLifecycleOwner(), recetas -> {
-            recetaAdapter = new RecetaAdapter(recetas,getContext(), getLayoutInflater());
+        mViewModel.getMedicamentos().observe(getViewLifecycleOwner(), medicamentos -> {
+            recetaAdapter = new MedicamentoAdapter(medicamentos,getContext(), getLayoutInflater());
 
             GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
 
-            binding.vRecetasList.setLayoutManager(glm);
-            binding.vRecetasList.setAdapter(recetaAdapter);
+            binding.vMedicamentosList.setLayoutManager(glm);
+            binding.vMedicamentosList.setAdapter(recetaAdapter);
         });
 
         mViewModel.getToastMessage().observe(getViewLifecycleOwner(), message -> {
@@ -51,7 +51,7 @@ public class RecetasFragment extends Fragment {
         //    binding.vMensajeCargandoRecordatorios.setVisibility(visible);
         //);
 
-        mViewModel.cargarRecetas();
+        mViewModel.cargarMedicamentos();
 
         return binding.getRoot();
     }
