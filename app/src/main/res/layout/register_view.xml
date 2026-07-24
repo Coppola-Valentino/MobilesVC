@@ -14,14 +14,6 @@
         tools:layout_editor_absoluteY="452dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/vEdadRegister"
-        android:layout_width="364dp"
-        android:layout_height="46dp"
-        android:hint="Edad"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="511dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vDniRegister"
         android:layout_width="364dp"
         android:layout_height="46dp"
@@ -75,14 +67,6 @@
         tools:layout_editor_absoluteY="342dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/vTelefonoRegister"
-        android:layout_width="364dp"
-        android:layout_height="46dp"
-        android:hint="Numero de Telefono"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="289dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vDireccionRegister"
         android:layout_width="364dp"
         android:layout_height="46dp"
@@ -117,4 +101,24 @@
         tools:layout_editor_absoluteX="140dp"
         tools:layout_editor_absoluteY="42dp"
         tools:textSize="26sp" />
+
+    <EditText
+        android:id="@+id/vTelefonoRegister"
+        android:layout_width="365dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:hint="Telefono"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <EditText
+        android:id="@+id/vEdadRegister"
+        android:layout_width="365dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:hint="Edad"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="510dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

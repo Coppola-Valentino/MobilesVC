@@ -22,7 +22,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.chip.Chip;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.RegisterViewBinding;
 
@@ -51,52 +50,25 @@ public class UsuarioCrearFragment extends Fragment {
         binding.vCrearUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String direccion = binding.etDireccion.getText().toString();
-                String precio = binding.etPrecio.getText().toString();
-                boolean comercial = binding.rbComercial.isChecked();
-                boolean resindecial = binding.rbResidencial.isChecked();
-                String ambiente = binding.srAmbientes.getSelectedItem().toString();
-                boolean disponible = binding.cbDisponible.isChecked();
-                String superficie = binding.etSuperficie.getText().toString();
-                String latitud = binding.etSuperficie.getText().toString();
-                String longitud = binding.etSuperficie.getText().toString();
-
-                int chipsId = binding.chipGroupTipo.getCheckedChipId();
+                String nombre = binding.vNombreRegister.getText().toString();
+                String password = binding.vPasswordRegister.getText().toString();
+                String direccion = binding.vDireccionRegister.getText().toString();
+                String dni = binding.vDniRegister.getText().toString();
+                String email = binding.vEmailRegister.getText().toString();
+                String genero = binding.vGeneroRegister.getText().toString();
+                String Telefono = binding.vTelefonoRegister.getText().toString();
+                int telefono = Telefono.isEmpty() ? 0 : Integer.parseInt(Telefono);
+                String Edad = binding.vEdadRegister.getText().toString();
+                int edad = Edad.isEmpty() ? 0 : Integer.parseInt(Edad);
 
                 mViewModel.evaluarChipSeleccionado(chipsId);
-                mViewModel.crearNuevoInmueble(direccion, precio, comercial, resindecial, ambiente,
-                        disponible, superficie, latitud, longitud);
+                mViewModel.crearNuevoUsuario(nombre, password, direccion, dni, email,
+                        genero, telefono, edad);
 
             }
         });
 
-        mViewModel.getUriFotoMutable().observe(getViewLifecycleOwner(), new Observer<Uri>() {
-            @Override
-            public void onChanged(Uri uri) {
-                binding.ivFotoInmueble.setImageURI(uri);
-                binding.ivFotoIcono.setVisibility(View.GONE);
-                binding.tvTocaFoto.setVisibility(View.GONE);
-                binding.ivFotoInmueble.setVisibility(View.VISIBLE);
-            }
-        });
-
-        abrirGaleria();
         return binding.getRoot();
-    }
-
-    //Quiero que la galeria se inicialice al tocar el boton
-    private void abrirGaleria(){
-        //Instanciamos el intent para abrir la galeria
-        intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        //Instanciamos el selector
-        selector = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult resultado) {
-                        mViewModel.recibirFoto(resultado);
-                        Log.d("galeria","onActivityResult"+resultado);
-                    }
-                });
     }
 
 }

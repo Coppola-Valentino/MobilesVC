@@ -66,7 +66,10 @@ public class ApiClient {
         Call<Void> cambiarClave(@Header("Authorization") String token,
                                 @Field("currentPassword") String actual,
                                 @Field("newPassword") String nueva);
-
+        @Multipart
+        @POST("api/Usuarios/crear")
+        Call<Usuario> CrearUsuario(@Header("Authorization") String token,
+                                      @Part("usuario") RequestBody usuarioBody);
     }
     public static void guardarToken(Context context, String token) {
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);

@@ -32,145 +32,71 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UsuarioCrearViewModel extends AndroidViewModel {
-    private MutableLiveData<Inmueble> inmuebleMutable;
-    private  MutableLiveData<String> tipoInmuebleSeleccionado;
-    private MutableLiveData<Uri> uriFotoMutable;
+    private MutableLiveData<Usuario> usuarioMutable;
+    private  MutableLiveData<String> tipoUsuarioSeleccionado;
 
-    public InmuebleNuevoViewModel(@NonNull Application application) {
+    public UsuarioCrearViewModel(@NonNull Application application) {
         super(application);
 
-        tipoInmuebleSeleccionado = new MutableLiveData<>();
+        tipoUsuarioSeleccionado = new MutableLiveData<>();
 
     }
 
-    public MutableLiveData<Inmueble> getInmuebleMutable() {
-        if (inmuebleMutable == null) {
-            inmuebleMutable = new MutableLiveData<>();
+    public MutableLiveData<Usuario> getUsuarioMutable() {
+        if (usuarioMutable == null) {
+            usuarioMutable = new MutableLiveData<>();
         }
-        return inmuebleMutable;
+        return usuarioMutable;
     }
-    public MutableLiveData<String> getTipoInmuebleSeleccionado() {
-        if (tipoInmuebleSeleccionado == null) {
-            tipoInmuebleSeleccionado = new MutableLiveData<>();
+    public MutableLiveData<String> getTipoUsuarioSeleccionado() {
+        if (tipoUsuarioSeleccionado == null) {
+            tipoUsuarioSeleccionado = new MutableLiveData<>();
         }
-        return tipoInmuebleSeleccionado;
+        return tipoUsuarioSeleccionado;
     }
-    public MutableLiveData<Uri> getUriFotoMutable() {
-        if (uriFotoMutable == null) {
-            uriFotoMutable = new MutableLiveData<>();
-        }
-        return uriFotoMutable;
-    }
-
-    public void evaluarChipSeleccionado(int checkedId) {
-        String tipo = "";
-
-
-        if (checkedId == R.id.chipCasa) {
-            tipo = "Casa";
-        } else if (checkedId == R.id.chipDepartamento) {
-            tipo = "Departamento";
-        } else if (checkedId == R.id.chipLocal) {
-            tipo = "Local";
-        } else if (checkedId == R.id.chipPH) {
-            tipo = "PH";
-        } else if (checkedId == R.id.chipCochera) {
-            tipo = "Cochera";
-        }
-
-        if (!tipo.isEmpty()) {
-            tipoInmuebleSeleccionado.setValue(tipo);
-        }
-    }
-    public void crearNuevoInmueble(String direccion, String precio, boolean comercial,
-                                   boolean residencial, String ambiente, boolean disponible,
-                                   String superficie, String latitud, String longitud){
+    public void crearNuevoUsuario(String nombre,String password,String direccion,String dni,String email,
+                                  String genero,int telefono,int edad){
 
         try {
-            if (direccion.isBlank() || precio.isEmpty() || ambiente.isEmpty() || superficie.isEmpty() ||
-                    latitud.isEmpty() || longitud.isEmpty()) {
+            if (nombre.isBlank() || password.isEmpty() || direccion.isEmpty() || dni.isEmpty() ||
+                    email.isEmpty() || genero.isEmpty() || telefono == 0 || edad == 0) {
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
             }else{
-                Inmueble nuevoInmueble = new Inmueble();
+                Usuario nuevoUsuario = new Usuario();
 
-                nuevoInmueble.setAmbientes(Integer.parseInt(ambiente));
-                nuevoInmueble.setDireccion(direccion);
-                nuevoInmueble.setValor(Integer.parseInt(precio));
-                nuevoInmueble.setTipo(tipoInmuebleSeleccionado.getValue());
-                nuevoInmueble.setSuperficie(Integer.parseInt(superficie));
-                nuevoInmueble.setLatitud(Integer.parseInt(latitud));
-                nuevoInmueble.setLongitud(Integer.parseInt(longitud));
+                nuevoUsuario.setNombre(nombre);
+                nuevoUsuario.setPassword(password);
+                nuevoUsuario.setDni(dni);
+                nuevoUsuario.setDireccion(direccion);
+                nuevoUsuario.setGenero(genero);
+                nuevoUsuario.setEdad(edad);
+                nuevoUsuario.setEmail(email);
+                nuevoUsuario.setTelefono(telefono);
 
-                if (comercial) {
-                    nuevoInmueble.setUso("Comercial");
-                } else if (residencial) {
-                    nuevoInmueble.setUso("Residencial");
-                }
-                if (disponible) {
-                    nuevoInmueble.setDisponible(true);
-                } else {
-                    nuevoInmueble.setDisponible(false);
-                }
+                String usuarioJson = new Gson().toJson(nuevoUsuario);
+                RequestBody usuarioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), usuarioJson);
+                ApiClient.MiServicio servicio = ApiClient.getServicio();
+                String token = ApiClient.obtenerToken(getApplication());
+                Call<Usuario> call = servicio.CrearUsuario(token, usuarioBody);
+                call.enqueue(new Callback<Usuario>() {
+                     @Override
+                     public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                         if (response.isSuccessful()) {
+                             usuarioMutable.postValue(response.body());
+                             Toast.makeText(getApplication(), "usuario creado", Toast.LENGTH_LONG).show();
+                         }else {
+                             Toast.makeText(getApplication(), "Error al crear el usuario", Toast.LENGTH_LONG).show();
+                         }
+                     }
 
-                byte[] foto = parseUri();
-
-                if (foto.length==0){
-                    Toast.makeText(getApplication(), "Debe ingresar una foto", Toast.LENGTH_LONG).show();
-                    return;
-                }else {
-                    String inmuebleJson = new Gson().toJson(nuevoInmueble);
-                    RequestBody inmuebleBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), inmuebleJson);
-                    RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), foto);
-                    MultipartBody.Part imagenPart = MultipartBody.Part.createFormData("imagen", "foto.jpg", requestFile);
-                    ApiClient.MiServicioInmobiliaria servicio = ApiClient.getServicio();
-                    String token = ApiClient.obtenerToken(getApplication());
-                    Call<Inmueble> call = servicio.CargarInmueble(token, imagenPart, inmuebleBody);
-                    call.enqueue(new Callback<Inmueble>() {
-                        @Override
-                        public void onResponse(Call<Inmueble> call, Response<Inmueble> response) {
-                            if (response.isSuccessful()) {
-                                inmuebleMutable.postValue(response.body());
-                                Toast.makeText(getApplication(), "Inmueble creado", Toast.LENGTH_LONG).show();
-                            }else {
-                                Toast.makeText(getApplication(), "Error al crear el inmueble", Toast.LENGTH_LONG).show();
-                            }
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<Inmueble> call, Throwable t) {
-                            Toast.makeText(getApplication(), "Error del servidor.", Toast.LENGTH_LONG).show();
-                        }
-                    });
-
-                }
+                     @Override
+                     public void onFailure(Call<Usuario> call, Throwable t) {
+                         Toast.makeText(getApplication(), "Error del servidor.", Toast.LENGTH_LONG).show();
+                     }
+                 });
             }
         }catch (NumberFormatException e){
             Toast.makeText(getApplication(), "Debe ingresar un numero valido", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void recibirFoto(ActivityResult resultado) {
-        //Trabajamos con el resultado del intent (uri de la foto)
-        if (resultado.getResultCode() == Activity.RESULT_OK){
-            Intent data = resultado.getData();
-            Uri uri = data.getData();
-            Log.d("galeria","uri: "+uri.toString());
-            uriFotoMutable.setValue(uri);
-
-        }
-    }
-    public byte[] parseUri(){
-        try {
-            Uri uri = uriFotoMutable.getValue();
-            InputStream inputStream = getApplication().getContentResolver().openInputStream(uri);
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-            return byteArrayOutputStream.toByteArray();
-        } catch (FileNotFoundException ex) {
-            Toast.makeText(getApplication(), "Debe ingresar una foto", Toast.LENGTH_LONG).show();
-            return new byte[]{};
         }
     }
 }
