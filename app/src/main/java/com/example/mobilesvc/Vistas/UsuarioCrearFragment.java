@@ -61,7 +61,7 @@ public class UsuarioCrearFragment extends Fragment {
                 String Edad = binding.vEdadRegister.getText().toString();
                 int edad = Edad.isEmpty() ? 0 : Integer.parseInt(Edad);
 
-                mViewModel.evaluarChipSeleccionado(chipsId);
+                //mViewModel.evaluarChipSeleccionado(chipsId);
                 mViewModel.crearNuevoUsuario(nombre, password, direccion, dni, email,
                         genero, telefono, edad);
 

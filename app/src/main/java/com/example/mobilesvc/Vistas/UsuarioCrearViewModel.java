@@ -33,12 +33,9 @@ import retrofit2.Response;
 
 public class UsuarioCrearViewModel extends AndroidViewModel {
     private MutableLiveData<Usuario> usuarioMutable;
-    private  MutableLiveData<String> tipoUsuarioSeleccionado;
 
     public UsuarioCrearViewModel(@NonNull Application application) {
         super(application);
-
-        tipoUsuarioSeleccionado = new MutableLiveData<>();
 
     }
 
@@ -47,12 +44,6 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
             usuarioMutable = new MutableLiveData<>();
         }
         return usuarioMutable;
-    }
-    public MutableLiveData<String> getTipoUsuarioSeleccionado() {
-        if (tipoUsuarioSeleccionado == null) {
-            tipoUsuarioSeleccionado = new MutableLiveData<>();
-        }
-        return tipoUsuarioSeleccionado;
     }
     public void crearNuevoUsuario(String nombre,String password,String direccion,String dni,String email,
                                   String genero,int telefono,int edad){

@@ -35,7 +35,7 @@ public class Medicamento implements Serializable{
     public Double getIntervalo() {
         return intervalo;
     }
-    public void setIntevalo(Double intervalo) {
+    public void setIntervalo(Double intervalo) {
         this.intervalo = intervalo;
     }
     public Double getDosis() {

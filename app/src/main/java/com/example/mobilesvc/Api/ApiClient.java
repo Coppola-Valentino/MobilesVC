@@ -70,6 +70,18 @@ public class ApiClient {
         @POST("api/Usuarios/crear")
         Call<Usuario> CrearUsuario(@Header("Authorization") String token,
                                       @Part("usuario") RequestBody usuarioBody);
+        @Multipart
+        @POST("api/Recordatorio/crear")
+        Call<Recordatorio> CrearRecordatorio(@Header("Authorization") String token,
+                                   @Part("recordatorio") RequestBody recordatorioBody);
+        @Multipart
+        @POST("api/Recordatorio/crear")
+        Call<Receta> CrearReceta(@Header("Authorization") String token,
+                                             @Part("receta") RequestBody recetaBody);
+        @Multipart
+        @POST("api/Recordatorio/crear")
+        Call<Medicamento> CrearMedicamento(@Header("Authorization") String token,
+                                             @Part("medicamento") RequestBody medicamentoBody);
     }
     public static void guardarToken(Context context, String token) {
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);

@@ -5,14 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/vFechaCrear"
-        android:layout_width="364dp"
-        android:layout_height="46dp"
-        android:hint="Fecha de finalizacion"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="181dp" />
-
     <Button
         android:id="@+id/vVolverCrearReceta"
         android:layout_width="383dp"
@@ -61,4 +53,14 @@
         tools:layout_editor_absoluteX="125dp"
         tools:layout_editor_absoluteY="63dp"
         tools:textSize="26sp" />
+
+    <EditText
+        android:id="@+id/vFechaCrear"
+        android:layout_width="373dp"
+        android:layout_height="51dp"
+        android:ems="10"
+        android:hint="Fecha de Finalizacion"
+        android:inputType="date"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="254dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
