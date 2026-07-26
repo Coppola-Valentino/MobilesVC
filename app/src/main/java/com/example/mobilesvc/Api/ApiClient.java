@@ -59,8 +59,13 @@ public class ApiClient {
         Call<Void> restablecerUsuario3();
 
         @PUT("api/Usuarios/editar")
-        Call<Usuario> actualizarUsuario(@Header("Authorization") String token, @Body Usuario usuario);
-
+        Call<Usuario> editarUsuario(@Header("Authorization") String token, @Body Usuario usuario);
+        @PUT("api/Medicamentos/editar")
+        Call<Medicamento> editarMedicamento(@Header("Authorization") String token, @Body Medicamento medicamento);
+        @PUT("api/Receta/editar")
+        Call<Receta> editarReceta(@Header("Authorization") String token, @Body Receta receta);
+        @PUT("api/Recordatorio/editar")
+        Call<Recordatorio> editarRecordatorio(@Header("Authorization") String token, @Body Recordatorio recordatorio);
         @FormUrlEncoded
         @PUT("api/Usuarios/changePassword")
         Call<Void> cambiarClave(@Header("Authorization") String token,
