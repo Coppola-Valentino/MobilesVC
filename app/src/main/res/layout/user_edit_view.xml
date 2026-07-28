@@ -30,7 +30,7 @@
         tools:layout_editor_absoluteY="399dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/vEmailRegister3"
+        android:id="@+id/vEmailEdit"
         android:layout_width="364dp"
         android:layout_height="46dp"
         android:hint="Email"
@@ -38,7 +38,7 @@
         tools:layout_editor_absoluteY="342dp" />
 
     <Button
-        android:id="@+id/vCrearUsuario2"
+        android:id="@+id/vEditUsuario"
         android:layout_width="387dp"
         android:layout_height="64dp"
         android:layout_marginTop="48dp"

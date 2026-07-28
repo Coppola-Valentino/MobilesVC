@@ -64,8 +64,6 @@ public class MedicamentoEditFragment extends Fragment {
 
             );
         });
-
         return b.getRoot();
     }
-
 }

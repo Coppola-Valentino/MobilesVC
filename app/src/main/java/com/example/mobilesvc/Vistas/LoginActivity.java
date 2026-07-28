@@ -25,10 +25,10 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         });
 
-        v.vLogIn.setOnClickListener(v -> {
+        v.vLogIn.setOnClickListener(b -> {
             vm.iniciarSesion(
-                    v.vNombreLogin.getEditText().getText().toString(),
-                    v.vPasswordLogin.getEditText().getText().toString()
+                    v.vNombreLogin.getText().toString(),
+                    v.vPasswordLogin.getText().toString()
             );
         });
 

@@ -83,5 +83,6 @@ public class MedicamentoEditViewModel extends AndroidViewModel {
             public void onFailure(Call<Medicamento> call, Throwable t) {
                 mToastMessage.postValue("Error de conexión");
             }
-        });    }
+        });
+    }
 }
