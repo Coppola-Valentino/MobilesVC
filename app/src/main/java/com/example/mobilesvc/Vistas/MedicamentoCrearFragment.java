@@ -41,7 +41,7 @@ public class MedicamentoCrearFragment extends Fragment {
             bundle.putInt("Medicamento ID", medicamento.getIDMedicamento());
 
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_inmuebleNuevoFragment_to_inmueblesFragment, bundle);
+                    .navigate(R.id.action_medicamentoCrearFragment_to_medicamentosFragment, bundle);
         });
 
 

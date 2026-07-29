@@ -9,85 +9,174 @@
         android:id="@+id/mainActivity"
         android:name="com.example.mobilesvc.MainActivity"
         android:label="login_view"
-        tools:layout="@layout/main_menu_view" />
+        tools:layout="@layout/main_menu_view" >
+        <action
+            android:id="@+id/action_mainActivity_to_usuariosFragment"
+            app:destination="@id/UsuariosFragment" />
+        <action
+            android:id="@+id/action_mainActivity_to_recetasFragment"
+            app:destination="@id/recetasFragment" />
+    </activity>
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.mobilesvc.Vistas.LoginActivity"
         android:label="LoginActivity"
-        tools:layout="@layout/login_view"/>
+        tools:layout="@layout/login_view">
+        <action
+            android:id="@+id/loginActivity_to_usuarioCrearFragment"
+            app:destination="@id/usuarioCrearFragment" />
+    </activity>
     <fragment
         android:id="@+id/medicamentoCrearFragment"
         android:name="com.example.mobilesvc.Vistas.MedicamentoCrearFragment"
         android:label="MedicamentoCrearFragment"
-        tools:layout="@layout/medicamento_crear_view"/>
+        tools:layout="@layout/medicamento_crear_view">
+        <action
+            android:id="@+id/action_medicamentoCrearFragment_to_medicamentosFragment"
+            app:destination="@id/medicamentosFragment" />
+    </fragment>
     <fragment
         android:id="@+id/medicamentoEditFragment"
         android:name="com.example.mobilesvc.Vistas.MedicamentoEditFragment"
         android:label="MedicamentoEditFragment"
-        tools:layout="@layout/medicamento_edit_view"/>
+        tools:layout="@layout/medicamento_edit_view">
+        <action
+            android:id="@+id/action_medicamentoEditFragment_to_medicamentoFragment"
+            app:destination="@id/medicamentoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/medicamentoFragment"
         android:name="com.example.mobilesvc.Vistas.MedicamentoFragment"
         android:label="MedicamentoFragment"
-        tools:layout="@layout/medicamento_view"/>
+        tools:layout="@layout/medicamento_view">
+        <action
+            android:id="@+id/action_medicamentoFragment_to_medicamentoEditFragment"
+            app:destination="@id/medicamentoEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/medicamentosFragment"
         android:name="com.example.mobilesvc.Vistas.MedicamentosFragment"
         android:label="MedicamentosFragment"
-        tools:layout="@layout/medicamentos_view"/>
+        tools:layout="@layout/medicamentos_view">
+        <action
+            android:id="@+id/action_medicamentosFragment_to_medicamentoCrearFragment"
+            app:destination="@id/medicamentoCrearFragment" />
+        <action
+            android:id="@+id/action_medicamentosFragment_to_medicamentoFragment"
+            app:destination="@id/medicamentoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recetaCrearFragment"
         android:name="com.example.mobilesvc.Vistas.RecetaCrearFragment"
         android:label="RecetaCrearFragment"
-        tools:layout="@layout/receta_crear_view"/>
+        tools:layout="@layout/receta_crear_view">
+        <action
+            android:id="@+id/action_recetaCrearFragment_to_recetasFragment"
+            app:destination="@id/recetasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recetaEditFragment"
         android:name="com.example.mobilesvc.Vistas.RecetaEditFragment"
         android:label="RecetaEditFragment"
-        tools:layout="@layout/receta_edit_view"/>
+        tools:layout="@layout/receta_edit_view">
+        <action
+            android:id="@+id/action_recetaEditFragment_to_recetaFragment"
+            app:destination="@id/recetaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recetaFragment"
         android:name="com.example.mobilesvc.Vistas.RecetaFragment"
         android:label="RecetaFragment"
-        tools:layout="@layout/receta_view"/>
+        tools:layout="@layout/receta_view">
+        <action
+            android:id="@+id/action_recetaFragment_to_recetaEditFragment"
+            app:destination="@id/recetaEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recetasFragment"
         android:name="com.example.mobilesvc.Vistas.RecetasFragment"
         android:label="RecetasFragment"
-        tools:layout="@layout/recetas_view"/>
+        tools:layout="@layout/recetas_view">
+        <action
+            android:id="@+id/action_recetasFragment_to_recetaCrearFragment"
+            app:destination="@id/recetaCrearFragment" />
+        <action
+            android:id="@+id/action_recetasFragment_to_recetaFragment"
+            app:destination="@id/recetaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recordatorioCrearFragment"
         android:name="com.example.mobilesvc.Vistas.RecordatorioCrearFragment"
         android:label="RecordatorioCrearFragment"
-        tools:layout="@layout/recordatorio_crear_view"/>
+        tools:layout="@layout/recordatorio_crear_view">
+        <action
+            android:id="@+id/action_recordatorioCrearFragment_to_recordatoriosFragment"
+            app:destination="@id/recordatoriosFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recordatorioEditFragment"
         android:name="com.example.mobilesvc.Vistas.RecordatorioEditFragment"
         android:label="RecordatorioEditFragment"
-        tools:layout="@layout/recordatorio_edit_view"/>
+        tools:layout="@layout/recordatorio_edit_view">
+        <action
+            android:id="@+id/action_recordatorioEditFragment_to_recordatorioFragment"
+            app:destination="@id/recordatorioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recordatorioFragment"
         android:name="com.example.mobilesvc.Vistas.RecordatorioFragment"
         android:label="RecordatorioFragment"
-        tools:layout="@layout/recordatorio_view"/>
+        tools:layout="@layout/recordatorio_view">
+        <action
+            android:id="@+id/action_recordatorioFragment_to_recordatorioEditFragment"
+            app:destination="@id/recordatorioEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recordatoriosFragment"
         android:name="com.example.mobilesvc.Vistas.RecordatoriosFragment"
         android:label="RecordatoriosFragment"
-        tools:layout="@layout/recordatorios_view"/>
+        tools:layout="@layout/recordatorios_view">
+        <action
+            android:id="@+id/action_recordatoriosFragment_to_recordatorioCrearFragment"
+            app:destination="@id/recordatorioCrearFragment" />
+        <action
+            android:id="@+id/action_recordatoriosFragment_to_recordatorioFragment"
+            app:destination="@id/recordatorioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/usuarioCrearFragment"
         android:name="com.example.mobilesvc.Vistas.UsuarioCrearFragment"
         android:label="UsuarioCrearFragment"
-        tools:layout="@layout/register_view"/>
+        tools:layout="@layout/register_view">
+        <action
+            android:id="@+id/action_usuarioCrearFragment_to_usuariosFragment"
+            app:destination="@id/usuariosFragment" />
+    </fragment>
     <fragment
         android:id="@+id/usuarioEditFragment"
         android:name="com.example.mobilesvc.Vistas.UsuarioEditFragment"
         android:label="UsuarioEditFragment"
-        tools:layout="@layout/user_edit_view"/>
+        tools:layout="@layout/user_edit_view">
+        <action
+            android:id="@+id/action_usuarioEditFragment_to_usuarioFragment"
+            app:destination="@id/usuarioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/usuarioFragment"
         android:name="com.example.mobilesvc.Vistas.UsuarioFragment"
         android:label="UsuarioFragment"
-        tools:layout="@layout/user_view"/>
+        tools:layout="@layout/user_view">
+        <action
+            android:id="@+id/action_usuarioFragment_to_usuarioEditFragment"
+            app:destination="@id/usuarioEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usuariosFragment"
+        android:name="com.example.mobilesvc.Vistas.UsuariosFragment"
+        android:label="UsuariosFragment"
+        tools:layout="@layout/users_view">
+        <action
+            android:id="@+id/action_usuariosFragment_to_usuarioFragment"
+            app:destination="@id/usuarioFragment" />
+    </fragment>
 </navigation>

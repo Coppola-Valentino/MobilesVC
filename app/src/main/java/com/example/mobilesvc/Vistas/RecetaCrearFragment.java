@@ -41,7 +41,7 @@ public class RecetaCrearFragment extends Fragment {
             bundle.putInt("Receta ID", receta.getIDReceta());
 
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_inmuebleNuevoFragment_to_inmueblesFragment, bundle);
+                    .navigate(R.id.action_recetaCrearFragment_to_recetasFragment, bundle);
         });
 
 

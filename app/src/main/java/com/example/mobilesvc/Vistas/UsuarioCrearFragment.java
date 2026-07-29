@@ -43,7 +43,7 @@ public class UsuarioCrearFragment extends Fragment {
             bundle.putInt("User ID", usuario.getIDUser());
 
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_inmuebleNuevoFragment_to_inmueblesFragment, bundle);
+                    .navigate(R.id.action_usuarioCrearFragment_to_usuariosFragment, bundle);
         });
 
 

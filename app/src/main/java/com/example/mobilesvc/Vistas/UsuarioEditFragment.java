@@ -53,7 +53,7 @@ public class UsuarioEditFragment extends Fragment {
 
         vm.getDatosCambiados().observe(getViewLifecycleOwner(), result -> {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_perfilCambiarClaveFragment_to_perfilFragment);
+                    .navigate(R.id.action_usuarioEditFragment_to_usuarioFragment);
         });
 
 

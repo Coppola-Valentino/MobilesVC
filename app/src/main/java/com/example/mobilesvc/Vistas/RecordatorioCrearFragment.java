@@ -43,7 +43,7 @@ public class RecordatorioCrearFragment extends Fragment {
             bundle.putInt("Recordatorio ID", recordatorio.getIDRec());
 
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_inmuebleNuevoFragment_to_inmueblesFragment, bundle);
+                    .navigate(R.id.action_recordatorioCrearFragment_to_recordatoriosFragment, bundle);
         });
 
 
