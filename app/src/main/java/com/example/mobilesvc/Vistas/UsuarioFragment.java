@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.mobilesvc.Clases.Usuario;
 import com.example.mobilesvc.databinding.UserViewBinding;
@@ -24,27 +25,31 @@ public class UsuarioFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = UserViewBinding.inflate(inflater, container, false);
-
+        Bundle bundle = new Bundle();
         mViewModel = new ViewModelProvider(this).get(UsuarioViewModel.class);
 
-        mViewModel.getUsuarioMutable().observe(getViewLifecycleOwner(), new Observer<Usuario>() {
-            @Override
-            public void onChanged(Usuario usuario) {
-                binding.vNombre.setText(usuario.getNombre());
-                binding.vPassword.setText(usuario.getPassword());
-                binding.vDireccion.setText(usuario.getDireccion());
-                binding.vTelefono.setText(String.valueOf(usuario.getTelefono()));
-                binding.vEmail.setText(usuario.getEmail());
-                binding.vDni.setText(usuario.getDni());
-                binding.vGenero.setText(usuario.getGenero());
-                binding.vEdad.setText(String.valueOf(usuario.getEdad()));
-            }
+        mViewModel.getUsuarioMutable().observe(getViewLifecycleOwner(), u -> {
+                binding.vNombre.setText(u.getNombre());
+                binding.vPassword.setText(u.getPassword());
+                binding.vDireccion.setText(u.getDireccion());
+                binding.vTelefono.setText(String.valueOf(u.getTelefono()));
+                binding.vEmail.setText(u.getEmail());
+                binding.vDni.setText(u.getDni());
+                binding.vGenero.setText(u.getGenero());
+                binding.vEdad.setText(String.valueOf(u.getEdad()));
+
+                bundle.putSerializable("usuario", u);
         });
 
         mViewModel.cargarUsuario(getArguments());
 
         binding.vVolverPerfil.setOnClickListener(v -> {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
+        binding.vToEditUsuario.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
         });
 
         return binding.getRoot();

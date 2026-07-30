@@ -45,6 +45,10 @@ public class UsuariosFragment extends Fragment {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         });
 
+        binding.vVolverUserList.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         mViewModel.cargarUsuarios();
 
         return binding.getRoot();

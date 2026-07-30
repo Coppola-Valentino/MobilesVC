@@ -62,6 +62,10 @@ public class RecetaCrearFragment extends Fragment {
             }
         });
 
+        binding.vVolverCrearReceta.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return binding.getRoot();
     }
 

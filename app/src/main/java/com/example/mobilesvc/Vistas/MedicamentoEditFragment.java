@@ -64,6 +64,11 @@ public class MedicamentoEditFragment extends Fragment {
 
             );
         });
+
+        b.vVolverMedicamentoEdit.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return b.getRoot();
     }
 }

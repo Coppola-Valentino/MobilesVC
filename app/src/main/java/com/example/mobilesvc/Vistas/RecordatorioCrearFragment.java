@@ -61,6 +61,10 @@ public class RecordatorioCrearFragment extends Fragment {
             }
         });
 
+        binding.vVolverCrearRecordatorio.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return binding.getRoot();
     }
 

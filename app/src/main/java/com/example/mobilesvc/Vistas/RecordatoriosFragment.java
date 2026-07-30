@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
@@ -53,6 +54,15 @@ public class RecordatoriosFragment extends Fragment {
         //mViewModel.getMessageVisible().observe(getViewLifecycleOwner(), visible -> {
         //    binding.vMensajeCargandoRecordatorios.setVisibility(visible);
         //);
+
+        binding.vVolverRecordatoriosList.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
+        binding.vToRecordatorioCrear.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_recordatoriosFragment_to_recordatorioCrearFragment);
+        });
 
         mViewModel.cargarRecordatorios();
 

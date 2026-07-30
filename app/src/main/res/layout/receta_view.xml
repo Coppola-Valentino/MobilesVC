@@ -9,6 +9,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/vToMedicamentosList"
+            android:layout_width="370dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="172dp"
+            android:backgroundTint="#015A75"
+            android:paddingVertical="14dp"
+            android:text="Medicamentos Asignados"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/item_transform_image_length"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
+        <Button
+            android:id="@+id/vToRecetaEdit"
+            android:layout_width="370dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="108dp"
+            android:backgroundTint="#015A75"
+            android:paddingVertical="14dp"
+            android:text="Cambiar Fecha"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/item_transform_image_length"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/vFecha"
             android:layout_width="364dp"

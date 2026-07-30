@@ -73,6 +73,11 @@ public class UsuarioEditFragment extends Fragment {
                     b.vDniEdit.getText().toString()
             );
         });
+
+        b.vVolverUserEdit.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return b.getRoot();
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mobilesvc.Adapters.MedicamentoAdapter;
+import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.MedicamentosViewBinding;
 
 public class MedicamentosFragment extends Fragment {
@@ -50,6 +52,15 @@ public class MedicamentosFragment extends Fragment {
         //mViewModel.getMessageVisible().observe(getViewLifecycleOwner(), visible -> {
         //    binding.vMensajeCargandoRecordatorios.setVisibility(visible);
         //);
+
+        binding.vVolverMedicamentosList.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
+        binding.vToMedicamentoCrear.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_medicamentosFragment_to_medicamentoCrearFragment);
+        });
 
         mViewModel.cargarMedicamentos();
 

@@ -68,6 +68,10 @@ public class UsuarioCrearFragment extends Fragment {
             }
         });
 
+        binding.vVolverRegister.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return binding.getRoot();
     }
 

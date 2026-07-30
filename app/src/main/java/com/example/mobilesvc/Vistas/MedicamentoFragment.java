@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.mobilesvc.Clases.Medicamento;
 import com.example.mobilesvc.databinding.MedicamentoViewBinding;
@@ -41,6 +42,11 @@ public class MedicamentoFragment extends Fragment {
 
         binding.vVolverMedicamento.setOnClickListener(v -> {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
+        binding.vToEditMedicamento.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
         });
 
         return binding.getRoot();

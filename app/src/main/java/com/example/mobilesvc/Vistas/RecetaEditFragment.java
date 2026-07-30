@@ -58,6 +58,11 @@ public class RecetaEditFragment extends Fragment {
                 fecha
             );
         });
+
+        b.vVolverRecetaEdit.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return b.getRoot();
     }
 }

@@ -91,6 +91,9 @@
         <action
             android:id="@+id/action_recetaFragment_to_recetaEditFragment"
             app:destination="@id/recetaEditFragment" />
+        <action
+            android:id="@+id/action_recetaFragment_to_medicamentosFragment"
+            app:destination="@id/medicamentosFragment" />
     </fragment>
     <fragment
         android:id="@+id/recetasFragment"

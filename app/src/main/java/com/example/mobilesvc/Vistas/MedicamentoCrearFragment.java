@@ -62,6 +62,10 @@ public class MedicamentoCrearFragment extends Fragment {
             }
         });
 
+        binding.vVolverMedicamentoCrear.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return binding.getRoot();
     }
 

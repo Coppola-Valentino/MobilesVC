@@ -61,6 +61,11 @@ public class RecordatorioEditFragment extends Fragment {
                     cantidad
             );
         });
+
+        b.vVolverRecordatorioEdit.setOnClickListener(v -> {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
         return b.getRoot();
     }
 }
