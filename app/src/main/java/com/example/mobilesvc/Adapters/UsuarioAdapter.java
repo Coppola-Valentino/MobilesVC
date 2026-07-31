@@ -41,7 +41,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
     public void onBindViewHolder(@NonNull UsuariosViewHolder holder, int position) {
         Usuario usuarioActual = usuarios.get(position);
 
-        holder.verMas.setOnClickListener(v -> {
+        holder.toUser.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("usuario", usuarioActual);
             Navigation.findNavController(v)
@@ -56,28 +56,18 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
 
     public class UsuariosViewHolder extends RecyclerView.ViewHolder {
         TextView telefono;
-        TextView edad;
         TextView nombre;
-        TextView rol;
-        TextView password;
-        TextView direccion;
         TextView email;
         TextView dni;
-        TextView genero;
-        Button verMas;
+        Button toUser;
 
         public UsuariosViewHolder(@NonNull View itemView) {
             super(itemView);
-            telefono = itemView.findViewById(R.id.vTelefono);
-            edad = itemView.findViewById(R.id.vEdad);
-            nombre = itemView.findViewById(R.id.vNombreLogin);
-            rol = itemView.findViewById(R.id.vRol);
-            password = itemView.findViewById(R.id.vPasswordLogin);
-            dni = itemView.findViewById(R.id.vDni);
-            direccion = itemView.findViewById(R.id.vDireccion);
-            email = itemView.findViewById(R.id.vEmail);
-            genero = itemView.findViewById(R.id.vGenero);
-            verMas = itemView.findViewById(R.id.vVerMas);
+            telefono = itemView.findViewById(R.id.vCantidadCard);
+            nombre = itemView.findViewById(R.id.vNombreCard);
+            dni = itemView.findViewById(R.id.vDniCard);
+            email = itemView.findViewById(R.id.vEmailCard);
+            toUser = itemView.findViewById(R.id.vToUsuario);
         }
     }
 }

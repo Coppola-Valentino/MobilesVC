@@ -24,7 +24,7 @@ import com.example.mobilesvc.Vistas.LoginActivity;
 public class MainActivity extends AppCompatActivity {
     private MainMenuViewBinding b;
     private MainViewModel vm;
-    private AppBarConfiguration appBarConfiguration;
+    //private AppBarConfiguration appBarConfiguration;
     private NavController navController;
 
     @Override
@@ -33,10 +33,8 @@ public class MainActivity extends AppCompatActivity {
         b = MainMenuViewBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
-        setSupportActionBar(b.appBarMain.toolbar);
-
         initNavigation();
-        initDrawerMenu();
+        //initDrawerMenu();
 
         vm = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(MainViewModel.class);
 
@@ -45,21 +43,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         vm.getUsuario().observe(this, p -> {
-            cambiarEncabezado(p.getNombre(), p.getDni(), p.getEmail());
+           b.vCurrentUser.setText(p.getNombre());
         });
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void cambiarEncabezado(String nombre, String dni, String email) {
-        View headerView = b.navView.getHeaderView(0);
-
-        TextView vNombreBar = headerView.findViewById(R.id.vNombreBar);
-        TextView vEmailBar = headerView.findViewById(R.id.vEmailBar);
-        TextView vDniBar = headerView.findViewById(R.id.vDniBar);
-
-        vNombreBar.setText(nombre);
-        vEmailBar.setText(email);
-        vDniBar.setText(dni);
     }
     private void initNavigation() {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
@@ -67,41 +52,6 @@ public class MainActivity extends AppCompatActivity {
         if (navHostFragment == null) return;
 
         navController = navHostFragment.getNavController();
-
-        appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.MainActivity,
-                R.id.UsuarioFragment,
-                R.id.RecordatoriosFragment,
-                R.id.RecetasFragment,
-        )
-                .setOpenableLayout(b.drawerLayout)
-                .build();
-
-        NavigationUI.setupActionBarWithNavController(
-                this,
-                navController,
-                appBarConfiguration
-        );
-    }
-    private void initDrawerMenu() {
-        b.drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                cargarUsuario();
-            }
-        });
-
-        b.navView.setNavigationItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.nav_logout) {
-                showLogoutDialog();
-                return true;
-            }
-            boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
-            if (handled) {
-                b.drawerLayout.closeDrawers();
-            }
-            return handled;
-        });
     }
     private void showLogoutDialog() {
         new AlertDialog.Builder(this)
@@ -113,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
                 .setCancelable(false)
                 .show();
-
-        b.drawerLayout.closeDrawers();
     }
     private void logout() {
         ApiClient.eliminarCredenciales(getApplication());
@@ -123,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+//        return NavigationUI.navigateUp(navController, appBarConfiguration)
+//                || super.onSupportNavigateUp();
+//    }
 
     public void cargarUsuario() {
         vm.cargarUsuario();

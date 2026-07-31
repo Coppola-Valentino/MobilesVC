@@ -19,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MedicamentoEditViewModel extends AndroidViewModel {
-    private MutableLiveData<Medicamento> mMedicamento
+    private MutableLiveData<Medicamento> mMedicamento;
     private MutableLiveData<String> mToastMessage;
     private MutableLiveData<Boolean> mDatosCambiados;
 

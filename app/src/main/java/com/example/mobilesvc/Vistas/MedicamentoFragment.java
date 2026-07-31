@@ -25,17 +25,16 @@ public class MedicamentoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = MedicamentoViewBinding.inflate(inflater, container, false);
-
+        Bundle bundle = new Bundle();
         mViewModel = new ViewModelProvider(this).get(MedicamentoViewModel.class);
 
-        mViewModel.getMedicamentoMutable().observe(getViewLifecycleOwner(), new Observer<Medicamento>() {
-            @Override
-            public void onChanged(Medicamento medicamento) {
-                binding.vNombreMedicamento.setText(medicamento.getNombre());
-                binding.vCantidadMedicamento.setText(String.valueOf(medicamento.getCantidad()));
-                binding.vIntervaloMedicamento.setText(String.valueOf(medicamento.getIntervalo()));
-                binding.vDosis.setText(String.valueOf(medicamento.getDosis()));
-            }
+        mViewModel.getMedicamentoMutable().observe(getViewLifecycleOwner(), m -> {
+                binding.vNombreMedicamento.setText(m.getNombre());
+                binding.vCantidadMedicamento.setText(String.valueOf(m.getCantidad()));
+                binding.vIntervaloMedicamento.setText(String.valueOf(m.getIntervalo()));
+                binding.vDosis.setText(String.valueOf(m.getDosis()));
+                bundle.putSerializable("medicamento", m);
+
         });
 
         mViewModel.cargarMedicamento(getArguments());
@@ -44,7 +43,7 @@ public class MedicamentoFragment extends Fragment {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();
         });
 
-        binding.vToEditMedicamento.setOnClickListener(v -> {
+        binding.vToMedicamentoEdit.setOnClickListener(v -> {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
         });

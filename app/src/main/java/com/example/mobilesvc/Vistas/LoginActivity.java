@@ -37,10 +37,9 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         v.vRegister.setOnClickListener(v -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_loginFragment_to_registerFragment);
-            //arreglar, quizas cambiar login a fragment y ya?
-            //luego ir al main activity/vm
+            Navigation.findNavController(this, R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_loginActivity_to_usuarioCrearFragment);
+
         });
 
     }

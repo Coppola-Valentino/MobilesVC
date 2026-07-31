@@ -42,7 +42,7 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
     public void onBindViewHolder(@NonNull MedicamentoViewHolder holder, int position) {
         Medicamento medicamentoActual = medicamentos.get(position);
 
-        holder.verMas.setOnClickListener(v -> {
+        holder.toMedicamento.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("medicamento", medicamentoActual);
             Navigation.findNavController(v)
@@ -60,15 +60,15 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
         TextView cantidad;
         TextView dosis;
         TextView intervalo;
-        Button verMas;
+        Button toMedicamento;
 
         public MedicamentoViewHolder(@NonNull View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.vMedicamentoNombre);
-            cantidad = itemView.findViewById(R.id.vMedicamentoCantidad);
-            dosis = itemView.findViewById(R.id.vMedicamentoDosis);
-            intervalo = itemView.findViewById(R.id.vMedicamentoIntervalo);
-            verMas = itemView.findViewById(R.id.vVerMas);
+            nombre = itemView.findViewById(R.id.vNombreMedCard);
+            cantidad = itemView.findViewById(R.id.vCantidadMedCard);
+            dosis = itemView.findViewById(R.id.vDosisMedCard);
+            intervalo = itemView.findViewById(R.id.vIntervaloMedCard);
+            toMedicamento = itemView.findViewById(R.id.vToMedicamento);
 
         }
     }

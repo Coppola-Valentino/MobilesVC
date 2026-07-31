@@ -23,7 +23,7 @@
         android:label="LoginActivity"
         tools:layout="@layout/login_view">
         <action
-            android:id="@+id/loginActivity_to_usuarioCrearFragment"
+            android:id="@+id/action_loginActivity_to_usuarioCrearFragment"
             app:destination="@id/usuarioCrearFragment" />
     </activity>
     <fragment

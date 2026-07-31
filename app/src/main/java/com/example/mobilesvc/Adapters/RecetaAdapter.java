@@ -42,7 +42,7 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
     public void onBindViewHolder(@NonNull RecetaViewHolder holder, int position) {
         Receta recetaActual = receta.get(position);
 
-        holder.verMas.setOnClickListener(v -> {
+        holder.toReceta.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("receta", recetaActual);
             Navigation.findNavController(v)
@@ -57,12 +57,12 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
 
     public class RecetaViewHolder extends RecyclerView.ViewHolder {
         TextView fecha; //cambiar luego a date algo
-        Button verMas;
+        Button toReceta;
 
         public RecetaViewHolder(@NonNull View itemView) {
             super(itemView);
-            fecha = itemView.findViewById(R.id.vRecetaFecha);
-            verMas = itemView.findViewById(R.id.vVerMas);
+            fecha = itemView.findViewById(R.id.vFechaCard);
+            toReceta = itemView.findViewById(R.id.vToReceta);
         }
     }
 }
