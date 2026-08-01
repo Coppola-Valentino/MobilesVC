@@ -8,18 +8,26 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vGeneroRegister"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="12dp"
         android:hint="Genero"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="452dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vEdadRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vDniRegister"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="11dp"
         android:hint="Dni"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="395dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vGeneroRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vVolverRegister"
@@ -34,12 +42,10 @@
         android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btIniciarSesion" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vCrearUsuario"
@@ -51,74 +57,102 @@
         android:paddingVertical="14dp"
         android:text="Iniciar Sesion"
         android:textStyle="bold"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vEmailRegister"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="7dp"
         android:hint="Email"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="342dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vDniRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vDireccionRegister"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="11dp"
         android:hint="Direccion"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="231dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vTelefonoRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vPasswordRegister"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="12dp"
         android:hint="Contraseña"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="173dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vDireccionRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vNombreRegister"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="9dp"
         android:hint="Usuario"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="118dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vPasswordRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="41dp"
         android:fontFamily="sans-serif"
         android:text="Registrarse"
         android:textColor="#000000"
         android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/vNombreRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:textSize="26sp" />
 
     <EditText
         android:id="@+id/vTelefonoRegister"
         android:layout_width="365dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Telefono"
         android:inputType="number"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="288dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vEmailRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/vEdadRegister"
         android:layout_width="365dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="27dp"
         android:ems="10"
         android:hint="Edad"
         android:inputType="number"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="510dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vCrearUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

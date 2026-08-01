@@ -57,11 +57,11 @@ public class MedicamentosViewModel extends AndroidViewModel {
         return mMessageVisible;
     }
 
-    public void cargarMedicamentos() {
+    public void cargarMedicamentos(int idReceta) {
         String token = ApiClient.obtenerToken(context);
         ApiClient.MiServicio servicio = ApiClient.getServicio();
 
-        Call<List<Medicamento>> call = servicio.getMedicamentoPorReceta(token);
+        Call<List<Medicamento>> call = servicio.getMedicamentosPorReceta(token, idReceta);
 
         call.enqueue(new Callback<>() {
             @Override

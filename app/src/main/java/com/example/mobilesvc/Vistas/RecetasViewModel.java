@@ -57,11 +57,11 @@ public class RecetasViewModel extends AndroidViewModel {
         return mMessageVisible;
     }
 
-    public void cargarRecetas() {
+    public void cargarRecetas(int idUsuario) {
         String token = ApiClient.obtenerToken(context);
         ApiClient.MiServicio servicio = ApiClient.getServicio();
 
-        Call<List<Receta>> call = servicio.getRecetas(token);
+        Call<List<Receta>> call = servicio.getRecetasPorUsuario(token, idUsuario);
 
         call.enqueue(new Callback<>() {
             @Override

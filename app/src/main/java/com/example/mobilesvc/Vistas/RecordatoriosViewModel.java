@@ -57,11 +57,11 @@ public class RecordatoriosViewModel extends AndroidViewModel {
         return mMessageVisible;
     }
 
-    public void cargarRecordatorios() {
+    public void cargarRecordatorios(int idUsuario) {
         String token = ApiClient.obtenerToken(context);
         ApiClient.MiServicio servicio = ApiClient.getServicio();
 
-        Call<List<Recordatorio>> call = servicio.getRecordatorios(token);
+        Call<List<Recordatorio>> call = servicio.getRecordatoriosPorUsuario(token, idUsuario);
 
         call.enqueue(new Callback<>() {
             @Override

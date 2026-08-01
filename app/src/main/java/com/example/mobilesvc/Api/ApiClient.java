@@ -54,7 +54,11 @@ public class ApiClient {
         Call<List<Recordatorio>> getRecordatorios(@Header("Authorization") String token);
 
         @GET("api/Medicamento/Receta/{id}")
-        Call<Medicamento> getMedicamentoPorReceta(@Header("Authorization") String token, @Path("id") int idReceta);
+        Call<List<Medicamento>> getMedicamentosPorReceta(@Header("Authorization") String token, @Path("id") int idReceta);
+        @GET("api/Receta/Usuario/{id}")
+        Call<List<Receta>> getRecetasPorUsuario(@Header("Authorization") String token, @Path("id") int idUsuario);
+        @GET("api/Recordatorio/Usuario/{id}")
+        Call<List<Recordatorio>> getRecordatoriosPorUsuario(@Header("Authorization") String token, @Path("id") int idUsuario);
         @PUT("api/Usuarios/fix-id3")
         Call<Void> restablecerUsuario3();
 

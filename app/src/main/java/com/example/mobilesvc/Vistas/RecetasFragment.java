@@ -62,7 +62,8 @@ public class RecetasFragment extends Fragment {
                     .navigate(R.id.action_recetasFragment_to_recetaCrearFragment);
         });
 
-        mViewModel.cargarRecetas();
+        int idUsuario = getArguments() != null ? getArguments().getInt("idUsuario") : -1;
+        mViewModel.cargarRecetas(idUsuario);
 
         return binding.getRoot();
     }

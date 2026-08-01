@@ -12,7 +12,7 @@
         tools:layout="@layout/main_menu_view" >
         <action
             android:id="@+id/action_mainActivity_to_usuariosFragment"
-            app:destination="@id/UsuariosFragment" />
+            app:destination="@id/usuariosFragment" />
         <action
             android:id="@+id/action_mainActivity_to_recetasFragment"
             app:destination="@id/recetasFragment" />

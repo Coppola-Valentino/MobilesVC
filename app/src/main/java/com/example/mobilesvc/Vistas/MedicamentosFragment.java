@@ -62,7 +62,8 @@ public class MedicamentosFragment extends Fragment {
                     .navigate(R.id.action_medicamentosFragment_to_medicamentoCrearFragment);
         });
 
-        mViewModel.cargarMedicamentos();
+        int idReceta = getArguments() != null ? getArguments().getInt("idReceta") : -1;
+        mViewModel.cargarMedicamentos(idReceta);
 
         return binding.getRoot();
     }

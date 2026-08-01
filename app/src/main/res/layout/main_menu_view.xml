@@ -9,70 +9,79 @@
 
     <Button
         android:id="@+id/vLogOut"
-        android:layout_width="412dp"
+        android:layout_width="370dp"
         android:layout_height="64dp"
         android:layout_marginTop="48dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="128dp"
         android:backgroundTint="#575757"
         android:paddingVertical="14dp"
         android:text="Log Out"
         android:textStyle="bold"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etClave" />
 
     <Button
         android:id="@+id/vPacientes"
-        android:layout_width="412dp"
+        android:layout_width="370dp"
         android:layout_height="66dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:backgroundTint="#505050"
         android:paddingVertical="14dp"
         android:text="Lista de Pacientes"
         android:textStyle="bold"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toTopOf="@+id/vRecetas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.693" />
+        app:layout_constraintVertical_bias="0.763" />
 
     <Button
         android:id="@+id/vRecetas"
-        android:layout_width="412dp"
+        android:layout_width="370dp"
         android:layout_height="64dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="268dp"
+        android:layout_marginBottom="264dp"
         android:backgroundTint="#575757"
         android:paddingVertical="14dp"
         android:text="Recetas"
         android:textStyle="bold"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="131dp"
         android:layout_height="33dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="128dp"
         android:text="Bienvenido"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="69dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vPacientes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <TextView
         android:id="@+id/vCurrentUser"
         android:layout_width="157dp"
         android:layout_height="34dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="128dp"
         android:hint="Usuario"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="69dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vPacientes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.965" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

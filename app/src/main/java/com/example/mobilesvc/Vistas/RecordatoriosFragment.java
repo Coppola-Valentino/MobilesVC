@@ -64,7 +64,8 @@ public class RecordatoriosFragment extends Fragment {
                     .navigate(R.id.action_recordatoriosFragment_to_recordatorioCrearFragment);
         });
 
-        mViewModel.cargarRecordatorios();
+        int idUsuario = getArguments() != null ? getArguments().getInt("idUsuario") : -1;
+        mViewModel.cargarRecordatorios(idUsuario);
 
         return binding.getRoot();
     }

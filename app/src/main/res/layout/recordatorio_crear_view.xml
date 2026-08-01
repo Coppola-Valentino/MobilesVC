@@ -8,18 +8,26 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vIntervaloCrear"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="79dp"
         android:hint="Intervalo"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="181dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vCantidadCrear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vCantidadCrear"
         android:layout_width="364dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="231dp"
         android:hint="Cantidad de Repeticiones"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="306dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vCrearRecordatorio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vVolverCrearRecordatorio"
@@ -34,12 +42,10 @@
         android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btIniciarSesion" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vCrearRecordatorio"
@@ -51,22 +57,24 @@
         android:paddingVertical="14dp"
         android:text="Añadir"
         android:textStyle="bold"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="92dp"
         android:fontFamily="sans-serif"
         android:text="Añadir Recordatorio"
         android:textColor="#000000"
         android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="51dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:textSize="26sp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

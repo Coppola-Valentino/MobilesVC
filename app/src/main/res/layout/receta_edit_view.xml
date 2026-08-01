@@ -11,27 +11,30 @@
         android:layout_height="64dp"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="92dp"
-        android:backgroundTint="@color/primary"
         android:paddingVertical="14dp"
         android:text="Confirmar"
         android:textStyle="bold"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="76dp"
         android:fontFamily="sans-serif"
         android:text="Editar Receta"
         android:textColor="#000000"
         android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="85dp"
+        app:layout_constraintBottom_toTopOf="@+id/vFechaEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:textSize="26sp" />
 
     <Button
@@ -47,20 +50,22 @@
         android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:cornerRadius="@dimen/item_transform_image_length"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btIniciarSesion" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/vFechaEdit"
         android:layout_width="366dp"
         android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="331dp"
         android:ems="10"
         android:hint="Fecha de Finalizacion"
         android:inputType="date"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="196dp" />
+        app:layout_constraintBottom_toTopOf="@+id/vEditReceta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

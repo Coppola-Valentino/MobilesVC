@@ -19,41 +19,53 @@
             android:paddingVertical="14dp"
             android:text="Cambiar Recordatorio"
             android:textStyle="bold"
-            app:cornerRadius="@dimen/item_transform_image_length"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etClave" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/vCantidad"
             android:layout_width="364dp"
-            android:layout_height="46dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="100dp"
             android:clickable="false"
             android:hint="Cantidad de repeticiones"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="196dp" />
+            app:layout_constraintBottom_toTopOf="@+id/vIntervalo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/vIntervalo"
             android:layout_width="364dp"
-            android:layout_height="46dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="198dp"
             android:clickable="false"
             android:hint="Intervalo"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="342dp" />
+            app:layout_constraintBottom_toTopOf="@+id/vToEditRecordatorio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="133dp"
+            android:layout_marginBottom="110dp"
             android:fontFamily="sans-serif"
             android:text="Recordatorio"
             android:textColor="#000000"
             android:textStyle="bold|italic"
-            tools:layout_editor_absoluteX="133dp"
-            tools:layout_editor_absoluteY="51dp"
+            app:layout_constraintBottom_toTopOf="@+id/vCantidad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:textSize="26sp" />
 
         <Button
@@ -61,15 +73,20 @@
             android:layout_width="370dp"
             android:layout_height="53dp"
             android:layout_marginHorizontal="24dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="27dp"
             android:backgroundTint="#4E4E4E"
             android:paddingVertical="10dp"
             android:text="Volver"
             android:textSize="12sp"
             android:textStyle="bold"
             android:visibility="visible"
-            app:cornerRadius="@dimen/item_transform_image_length"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="651dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vToEditRecordatorio" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
