@@ -3,29 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/loginFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.mobilesvc.MainActivity"
-        android:label="login_view"
+<!--    <activity-->
+<!--        android:id="@+id/mainActivity"-->
+<!--        android:name="com.example.mobilesvc.MainActivity"-->
+<!--        android:label="login_view"-->
+<!--        tools:layout="@layout/main_menu_view" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_mainActivity_to_usuariosFragment"-->
+<!--            app:destination="@id/usuariosFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_mainActivity_to_recetasFragment"-->
+<!--            app:destination="@id/recetasFragment" />-->
+<!--    </activity>-->
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.mobilesvc.Vistas.mainMenuFragment"
+        android:label="main_menu_view"
         tools:layout="@layout/main_menu_view" >
         <action
-            android:id="@+id/action_mainActivity_to_usuariosFragment"
+            android:id="@+id/action_mainMenuFragment_to_usuariosFragment"
             app:destination="@id/usuariosFragment" />
         <action
-            android:id="@+id/action_mainActivity_to_recetasFragment"
+            android:id="@+id/action_mainMenuFragment_to_recetasFragment"
             app:destination="@id/recetasFragment" />
-    </activity>
-    <activity
-        android:id="@+id/loginActivity"
-        android:name="com.example.mobilesvc.Vistas.LoginActivity"
-        android:label="LoginActivity"
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mobilesvc.Vistas.LoginFragment"
+        android:label="LoginFragment"
         tools:layout="@layout/login_view">
         <action
-            android:id="@+id/action_loginActivity_to_usuarioCrearFragment"
+            android:id="@+id/action_loginFragment_to_usuarioCrearFragment"
             app:destination="@id/usuarioCrearFragment" />
-    </activity>
+        <action
+            android:id="@+id/action_loginFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
     <fragment
         android:id="@+id/medicamentoCrearFragment"
         android:name="com.example.mobilesvc.Vistas.MedicamentoCrearFragment"
