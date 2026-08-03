@@ -56,11 +56,16 @@ public class RecetaCrearViewModel extends AndroidViewModel {
 
                 nuevoReceta.setFecha(fecha);
 
-                String recetaJson = new Gson().toJson(nuevoReceta);
-                RequestBody recetaBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recetaJson);
-                ApiClient.MiServicio servicio = ApiClient.getServicio();
-                String token = ApiClient.obtenerToken(getApplication());
-                Call<Receta> call = servicio.CrearReceta(token, recetaBody);
+//                String recetaJson = new Gson().toJson(nuevoReceta);
+//                RequestBody recetaBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recetaJson);
+//                ApiClient.MiServicio servicio = ApiClient.getServicio();
+//                String token = ApiClient.obtenerToken(getApplication());
+//                Call<Receta> call = servicio.CrearReceta(token, recetaBody);
+
+                  ApiClient.MiServicio servicio = ApiClient.getServicio();
+                  String token = ApiClient.obtenerToken(getApplication());
+                  Call<Receta> call = servicio.CrearReceta(token, nuevoReceta);
+
                 call.enqueue(new Callback<Receta>() {
                     @Override
                     public void onResponse(Call<Receta> call, Response<Receta> response) {

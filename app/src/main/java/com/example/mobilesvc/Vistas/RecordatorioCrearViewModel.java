@@ -56,11 +56,16 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
                 nuevoRecordatorio.setCantidad(cantidad);
                 nuevoRecordatorio.setIntervalo(intervalo);
 
-                String recordatorioJson = new Gson().toJson(nuevoRecordatorio);
-                RequestBody recordatorioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recordatorioJson);
-                ApiClient.MiServicio servicio = ApiClient.getServicio();
-                String token = ApiClient.obtenerToken(getApplication());
-                Call<Recordatorio> call = servicio.CrearRecordatorio(token, recordatorioBody);
+//                String recordatorioJson = new Gson().toJson(nuevoRecordatorio);
+//                RequestBody recordatorioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recordatorioJson);
+//                ApiClient.MiServicio servicio = ApiClient.getServicio();
+//                String token = ApiClient.obtenerToken(getApplication());
+//                Call<Recordatorio> call = servicio.CrearRecordatorio(token, recordatorioBody);
+
+                  ApiClient.MiServicio servicio = ApiClient.getServicio();
+                  String token = ApiClient.obtenerToken(getApplication());
+                  Call<Recordatorio> call = servicio.CrearRecordatorio(token, nuevoRecordatorio);
+
                 call.enqueue(new Callback<Recordatorio>() {
                     @Override
                     public void onResponse(Call<Recordatorio> call, Response<Recordatorio> response) {

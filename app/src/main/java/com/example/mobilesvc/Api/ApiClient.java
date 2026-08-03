@@ -34,12 +34,18 @@ public class ApiClient {
         Gson gson = new GsonBuilder().setLenient().create();
 
         Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://10.0.2.2/mobiles/")
+                .baseUrl("https://capacitacion.alwaysdata.net/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         return retrofit.create(MiServicio.class);
     }
     public interface MiServicio {
+//        @FormUrlEncoded
+//        @POST("login.php")
+//        Call<String> iniciarSesion(@Field("Usuario") String usuario, @Field("Password") String password);
+
         @FormUrlEncoded
         @POST("api/Usuarios/login")
         Call<String> iniciarSesion(@Field("Usuario") String usuario, @Field("Password") String password);
@@ -75,22 +81,14 @@ public class ApiClient {
         Call<Void> cambiarClave(@Header("Authorization") String token,
                                 @Field("currentPassword") String actual,
                                 @Field("newPassword") String nueva);
-        @Multipart
         @POST("api/Usuarios/crear")
-        Call<Usuario> CrearUsuario(@Header("Authorization") String token,
-                                      @Part("usuario") RequestBody usuarioBody);
-        @Multipart
+        Call<Usuario> CrearUsuario(@Header("Authorization") String token, @Body Usuario usuarioBody);
         @POST("api/Recordatorio/crear")
-        Call<Recordatorio> CrearRecordatorio(@Header("Authorization") String token,
-                                   @Part("recordatorio") RequestBody recordatorioBody);
-        @Multipart
-        @POST("api/Recordatorio/crear")
-        Call<Receta> CrearReceta(@Header("Authorization") String token,
-                                             @Part("receta") RequestBody recetaBody);
-        @Multipart
-        @POST("api/Recordatorio/crear")
-        Call<Medicamento> CrearMedicamento(@Header("Authorization") String token,
-                                             @Part("medicamento") RequestBody medicamentoBody);
+        Call<Recordatorio> CrearRecordatorio(@Header("Authorization") String token, @Body Recordatorio recordatorioBody);
+        @POST("api/Receta/crear")
+        Call<Receta> CrearReceta(@Header("Authorization") String token, @Body Receta recetaBody);
+        @POST("api/Medicamento/crear")
+        Call<Medicamento> CrearMedicamento(@Header("Authorization") String token, @Body Medicamento medicamentoBody);
     }
     public static void guardarToken(Context context, String token) {
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);

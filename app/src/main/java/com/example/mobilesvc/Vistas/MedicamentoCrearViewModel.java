@@ -15,6 +15,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mobilesvc.Clases.Receta;
 import com.google.gson.Gson;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.Clases.Medicamento;
@@ -58,11 +59,16 @@ public class MedicamentoCrearViewModel extends AndroidViewModel {
                 nuevoMedicamento.setCantidad(cantidad);
                 nuevoMedicamento.setIntervalo(intervalo);
 
-                String medicamentoJson = new Gson().toJson(nuevoMedicamento);
-                RequestBody medicamentoBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), medicamentoJson);
+//                String medicamentoJson = new Gson().toJson(nuevoMedicamento);
+//                RequestBody medicamentoBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), medicamentoJson);
+//                ApiClient.MiServicio servicio = ApiClient.getServicio();
+//                String token = ApiClient.obtenerToken(getApplication());
+//                Call<Medicamento> call = servicio.CrearMedicamento(token, medicamentoBody);
+
                 ApiClient.MiServicio servicio = ApiClient.getServicio();
                 String token = ApiClient.obtenerToken(getApplication());
-                Call<Medicamento> call = servicio.CrearMedicamento(token, medicamentoBody);
+                Call<Medicamento> call = servicio.CrearMedicamento(token, nuevoMedicamento);
+
                 call.enqueue(new Callback<Medicamento>() {
                     @Override
                     public void onResponse(Call<Medicamento> call, Response<Medicamento> response) {

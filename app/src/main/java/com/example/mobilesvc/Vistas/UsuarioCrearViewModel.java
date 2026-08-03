@@ -64,11 +64,16 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
                 nuevoUsuario.setEmail(email);
                 nuevoUsuario.setTelefono(telefono);
 
-                String usuarioJson = new Gson().toJson(nuevoUsuario);
-                RequestBody usuarioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), usuarioJson);
-                ApiClient.MiServicio servicio = ApiClient.getServicio();
-                String token = ApiClient.obtenerToken(getApplication());
-                Call<Usuario> call = servicio.CrearUsuario(token, usuarioBody);
+//                String usuarioJson = new Gson().toJson(nuevoUsuario);
+//                RequestBody usuarioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), usuarioJson);
+//                ApiClient.MiServicio servicio = ApiClient.getServicio();
+//                String token = ApiClient.obtenerToken(getApplication());
+//                Call<Usuario> call = servicio.CrearUsuario(token, usuarioBody);
+
+                  ApiClient.MiServicio servicio = ApiClient.getServicio();
+                  String token = ApiClient.obtenerToken(getApplication());
+                  Call<Usuario> call = servicio.CrearUsuario(token, nuevoUsuario);
+
                 call.enqueue(new Callback<Usuario>() {
                      @Override
                      public void onResponse(Call<Usuario> call, Response<Usuario> response) {
@@ -77,6 +82,7 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
                              Toast.makeText(getApplication(), "usuario creado", Toast.LENGTH_LONG).show();
                          }else {
                              Toast.makeText(getApplication(), "Error al crear el usuario", Toast.LENGTH_LONG).show();
+                             
                          }
                      }
 
