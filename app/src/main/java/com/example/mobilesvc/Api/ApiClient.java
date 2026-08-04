@@ -34,21 +34,25 @@ public class ApiClient {
         Gson gson = new GsonBuilder().setLenient().create();
 
         Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("http://10.0.2.2/mobiles/")
-                .baseUrl("https://capacitacion.alwaysdata.net/")
+                .baseUrl("http://10.0.2.2/mobiles/")
+//                .baseUrl("https://mobil_1.alwaysdata.net/")
+//                .baseUrl("mysql://avnadmin:AVNS_taltKqMHud0XJn74sSk@mobiles-mobiles.b.aivencloud.com:22615/defaultdb?ssl-mode=REQUIRED")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         return retrofit.create(MiServicio.class);
     }
     public interface MiServicio {
-//        @FormUrlEncoded
-//        @POST("login.php")
-//        Call<String> iniciarSesion(@Field("Usuario") String usuario, @Field("Password") String password);
-
         @FormUrlEncoded
-        @POST("api/Usuarios/login")
-        Call<String> iniciarSesion(@Field("Usuario") String usuario, @Field("Password") String password);
+        @POST("login.php")
+        Call<String> iniciarSesion(@Field("Nombre") String Nombre, @Field("Password") String Password);
+
+        @POST("crear_usuario.php")
+        Call<Usuario> CrearUsuario(@Header("Authorization") String token, @Body Usuario usuarioBody);
+
+//        @FormUrlEncoded
+//        @POST("api/Usuarios/login")
+//        Call<String> iniciarSesion(@Field("Usuario") String usuario, @Field("Password") String password);
 
         @GET("api/Usuario")
         Call<Usuario> getUsuario(@Header("Authorization") String token);
@@ -81,8 +85,8 @@ public class ApiClient {
         Call<Void> cambiarClave(@Header("Authorization") String token,
                                 @Field("currentPassword") String actual,
                                 @Field("newPassword") String nueva);
-        @POST("api/Usuarios/crear")
-        Call<Usuario> CrearUsuario(@Header("Authorization") String token, @Body Usuario usuarioBody);
+//        @POST("api/Usuarios/crear")
+//        Call<Usuario> CrearUsuario(@Header("Authorization") String token, @Body Usuario usuarioBody);
         @POST("api/Recordatorio/crear")
         Call<Recordatorio> CrearRecordatorio(@Header("Authorization") String token, @Body Recordatorio recordatorioBody);
         @POST("api/Receta/crear")

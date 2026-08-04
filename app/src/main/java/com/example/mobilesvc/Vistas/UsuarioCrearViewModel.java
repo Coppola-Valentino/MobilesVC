@@ -22,6 +22,7 @@ import com.example.mobilesvc.Api.ApiClient;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 
 import okhttp3.MediaType;
@@ -81,13 +82,21 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
                              usuarioMutable.postValue(response.body());
                              Toast.makeText(getApplication(), "usuario creado", Toast.LENGTH_LONG).show();
                          }else {
+                             try {
+                                 Log.e("PHP_ERROR", response.errorBody().string());
+                             } catch (IOException e) {
+                                 throw new RuntimeException(e);
+                             }
                              Toast.makeText(getApplication(), "Error al crear el usuario", Toast.LENGTH_LONG).show();
-                             
+                             //se atasca en este error al intentar crear un usuario, ta mas cerca que antes
+                             //hacer lo de la database, va a tardar decadas en hacer funcionar
                          }
                      }
 
                      @Override
                      public void onFailure(Call<Usuario> call, Throwable t) {
+                         Log.e("REGISTRATION_FAILURE", "Error: ", t);
+                         Toast.makeText(getApplication(), "Failure: " + t.getMessage(), Toast.LENGTH_LONG).show();
                          Toast.makeText(getApplication(), "Error del servidor.", Toast.LENGTH_LONG).show();
                      }
                  });

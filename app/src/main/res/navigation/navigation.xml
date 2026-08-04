@@ -166,9 +166,9 @@
         android:name="com.example.mobilesvc.Vistas.UsuarioCrearFragment"
         android:label="UsuarioCrearFragment"
         tools:layout="@layout/register_view">
-        <action
-            android:id="@+id/action_usuarioCrearFragment_to_usuariosFragment"
-            app:destination="@id/usuariosFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_usuarioCrearFragment_to_usuariosFragment"-->
+<!--            app:destination="@id/usuariosFragment" />-->
     </fragment>
     <fragment
         android:id="@+id/usuarioEditFragment"
