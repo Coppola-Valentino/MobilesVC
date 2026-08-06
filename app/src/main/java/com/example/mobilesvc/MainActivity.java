@@ -17,7 +17,7 @@ import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Vistas.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
-    private MainMenuViewBinding b;
+    //private MainMenuViewBinding b;
     private ContentMainBinding binding;
     private MainViewModel vm;
     //private AppBarConfiguration appBarConfiguration;
@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         });
 
-        vm.getUsuario().observe(this, p -> {
-           b.vCurrentUser.setText(p.getNombre());
-        });
+//        vm.getUsuario().observe(this, p -> {
+//           b.vCurrentUser.setText(p.getNombre());
+//        });
 //
 //        b.vPacientes.setOnClickListener(b -> {
 //            Navigation.findNavController(this, R.id.nav_host_fragment_content_main)

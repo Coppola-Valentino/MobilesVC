@@ -64,7 +64,7 @@ public class RecetaCrearViewModel extends AndroidViewModel {
 
                   ApiClient.MiServicio servicio = ApiClient.getServicio();
                   String token = ApiClient.obtenerToken(getApplication());
-                  Call<Receta> call = servicio.CrearReceta(token, nuevoReceta);
+                  Call<Receta> call = servicio.CrearReceta(nuevoReceta);
 
                 call.enqueue(new Callback<Receta>() {
                     @Override

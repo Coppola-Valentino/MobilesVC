@@ -73,7 +73,7 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
 
                   ApiClient.MiServicio servicio = ApiClient.getServicio();
                   String token = ApiClient.obtenerToken(getApplication());
-                  Call<Usuario> call = servicio.CrearUsuario(token, nuevoUsuario);
+                  Call<Usuario> call = servicio.CrearUsuario(nuevoUsuario);
 
                 call.enqueue(new Callback<Usuario>() {
                      @Override

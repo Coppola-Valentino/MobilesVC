@@ -64,7 +64,7 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
 
                   ApiClient.MiServicio servicio = ApiClient.getServicio();
                   String token = ApiClient.obtenerToken(getApplication());
-                  Call<Recordatorio> call = servicio.CrearRecordatorio(token, nuevoRecordatorio);
+                  Call<Recordatorio> call = servicio.CrearRecordatorio(nuevoRecordatorio);
 
                 call.enqueue(new Callback<Recordatorio>() {
                     @Override

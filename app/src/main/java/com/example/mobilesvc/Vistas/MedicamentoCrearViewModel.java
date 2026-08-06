@@ -67,7 +67,7 @@ public class MedicamentoCrearViewModel extends AndroidViewModel {
 
                 ApiClient.MiServicio servicio = ApiClient.getServicio();
                 String token = ApiClient.obtenerToken(getApplication());
-                Call<Medicamento> call = servicio.CrearMedicamento(token, nuevoMedicamento);
+                Call<Medicamento> call = servicio.CrearMedicamento(nuevoMedicamento);
 
                 call.enqueue(new Callback<Medicamento>() {
                     @Override

@@ -49,7 +49,7 @@ public class LoginViewModel extends AndroidViewModel {
             return;
         }
         loginExitoso.setValue(false);
-        ApiClient.MiServicio servicio = ApiClient.getServicio();
+        //ApiClient.MiServicio servicio = ApiClient.getServicio();
 
         ApiClient.getServicio().iniciarSesion(nombre, pass).enqueue(new Callback<String>() {
 
@@ -61,9 +61,9 @@ public class LoginViewModel extends AndroidViewModel {
                     ApiClient.guardarToken(getApplication(), token);
                     Log.d("LOG_LOGIN", token);
                     loginExitoso.postValue(true);
-                    Intent i = new Intent(getApplication(), MainActivity.class);
-                    i.addFlags(FLAG_ACTIVITY_NEW_TASK);
-                    getApplication().startActivity(i);
+//                    Intent i = new Intent(getApplication(), MainActivity.class);
+//                    i.addFlags(FLAG_ACTIVITY_NEW_TASK);
+//                    getApplication().startActivity(i);
                 } else {
                     Log.d("LOG_LOGIN_ERROR", "Código: " + response.code());
                     try {
@@ -77,6 +77,7 @@ public class LoginViewModel extends AndroidViewModel {
             }
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                Log.e("LOGIN_FAILURE",t.getMessage());
                 mToastMessage.postValue("Usuario o Contraseña incorrectos");
             }
         });
@@ -84,7 +85,7 @@ public class LoginViewModel extends AndroidViewModel {
 
         public void restablecerUsuario () {
             ApiClient.MiServicio servicio = ApiClient.getServicio();
-            Call<Void> call = servicio.restablecerUsuario3();
+            Call<Void> call = servicio.restablecerUsuario();
 
             call.enqueue(new Callback<>() {
                 @Override

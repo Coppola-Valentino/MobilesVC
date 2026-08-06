@@ -34,21 +34,23 @@ public class ApiClient {
         Gson gson = new GsonBuilder().setLenient().create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2/mobiles/")
+//                .baseUrl("http://10.0.2.2/mobiles/")
+                .baseUrl("http://10.0.2.2:3000/")
 //                .baseUrl("https://mobil_1.alwaysdata.net/")
 //                .baseUrl("mysql://avnadmin:AVNS_taltKqMHud0XJn74sSk@mobiles-mobiles.b.aivencloud.com:22615/defaultdb?ssl-mode=REQUIRED")
-                .addConverterFactory(GsonConverterFactory.create(gson))
+//                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         return retrofit.create(MiServicio.class);
     }
     public interface MiServicio {
         @FormUrlEncoded
-        @POST("login.php")
+        @POST("api/Usuarios/login")
         Call<String> iniciarSesion(@Field("Nombre") String Nombre, @Field("Password") String Password);
 
-        @POST("crear_usuario.php")
-        Call<Usuario> CrearUsuario(@Header("Authorization") String token, @Body Usuario usuarioBody);
+//        @POST("api/Usuarios/perfil")
+//        Call<Usuario> CrearUsuario(@Header("Authorization") String token, @Body Usuario usuarioBody);
 
 //        @FormUrlEncoded
 //        @POST("api/Usuarios/login")
@@ -56,7 +58,7 @@ public class ApiClient {
 
         @GET("api/Usuario")
         Call<Usuario> getUsuario(@Header("Authorization") String token);
-        @GET("/api/Usuarios")
+        @GET("api/Usuarios")
         Call<List<Usuario>> getUsuarios(@Header("Authorization") String token);
         @GET("api/Recetas")
         Call<List<Receta>> getRecetas(@Header("Authorization") String token);
@@ -69,8 +71,8 @@ public class ApiClient {
         Call<List<Receta>> getRecetasPorUsuario(@Header("Authorization") String token, @Path("id") int idUsuario);
         @GET("api/Recordatorio/Usuario/{id}")
         Call<List<Recordatorio>> getRecordatoriosPorUsuario(@Header("Authorization") String token, @Path("id") int idUsuario);
-        @PUT("api/Usuarios/fix-id3")
-        Call<Void> restablecerUsuario3();
+        @PUT("api/Usuarios/fix-id")
+        Call<Void> restablecerUsuario();
 
         @PUT("api/Usuarios/editar")
         Call<Usuario> editarUsuario(@Header("Authorization") String token, @Body Usuario usuario);
@@ -85,14 +87,14 @@ public class ApiClient {
         Call<Void> cambiarClave(@Header("Authorization") String token,
                                 @Field("currentPassword") String actual,
                                 @Field("newPassword") String nueva);
-//        @POST("api/Usuarios/crear")
-//        Call<Usuario> CrearUsuario(@Header("Authorization") String token, @Body Usuario usuarioBody);
+        @POST("api/Usuarios/crear")
+        Call<Usuario> CrearUsuario(@Body Usuario usuario);
         @POST("api/Recordatorio/crear")
-        Call<Recordatorio> CrearRecordatorio(@Header("Authorization") String token, @Body Recordatorio recordatorioBody);
+        Call<Recordatorio> CrearRecordatorio(@Body Recordatorio recordatorio);
         @POST("api/Receta/crear")
-        Call<Receta> CrearReceta(@Header("Authorization") String token, @Body Receta recetaBody);
+        Call<Receta> CrearReceta(@Body Receta receta);
         @POST("api/Medicamento/crear")
-        Call<Medicamento> CrearMedicamento(@Header("Authorization") String token, @Body Medicamento medicamentoBody);
+        Call<Medicamento> CrearMedicamento(@Body Medicamento medicamento);
     }
     public static void guardarToken(Context context, String token) {
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);
