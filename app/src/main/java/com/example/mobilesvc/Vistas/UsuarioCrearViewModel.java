@@ -33,7 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UsuarioCrearViewModel extends AndroidViewModel {
-    private MutableLiveData<Usuario> usuarioMutable;
+    private MutableLiveData<Usuario> usuarioMutable = new MutableLiveData<>();
 
     public UsuarioCrearViewModel(@NonNull Application application) {
         super(application);

@@ -21,10 +21,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecordatoriosViewModel extends AndroidViewModel {
-    private MutableLiveData<List<Recordatorio>> recordatorioM;
-    private MutableLiveData<String> mToastMessage;
-    private MutableLiveData<String> mMessage;
-    private MutableLiveData<Integer> mMessageVisible;
+    private MutableLiveData<List<Recordatorio>> recordatorioM = new MutableLiveData<>();
+    private MutableLiveData<String> mToastMessage = new MutableLiveData<>();
+    private MutableLiveData<String> mMessage = new MutableLiveData<>();
+    private MutableLiveData<Integer> mMessageVisible = new MutableLiveData<>();
     private Context context;
 
     public RecordatoriosViewModel(@NonNull Application application) {

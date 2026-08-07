@@ -19,9 +19,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MedicamentoEditViewModel extends AndroidViewModel {
-    private MutableLiveData<Medicamento> mMedicamento;
-    private MutableLiveData<String> mToastMessage;
-    private MutableLiveData<Boolean> mDatosCambiados;
+    private MutableLiveData<Medicamento> mMedicamento = new MutableLiveData<>();
+    private MutableLiveData<String> mToastMessage = new MutableLiveData<>();
+    private MutableLiveData<Boolean> mDatosCambiados = new MutableLiveData<>();
 
     public MedicamentoEditViewModel(@NonNull Application application) {
         super(application);

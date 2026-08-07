@@ -20,9 +20,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecetaEditViewModel extends AndroidViewModel {
-    private MutableLiveData<Receta> mReceta;
-    private MutableLiveData<String> mToastMessage;
-    private MutableLiveData<Boolean> mDatosCambiados;
+    private MutableLiveData<Receta> mReceta = new MutableLiveData<>();
+    private MutableLiveData<String> mToastMessage = new MutableLiveData<>();
+    private MutableLiveData<Boolean> mDatosCambiados = new MutableLiveData<>();
 
     public RecetaEditViewModel(@NonNull Application application) {
         super(application);

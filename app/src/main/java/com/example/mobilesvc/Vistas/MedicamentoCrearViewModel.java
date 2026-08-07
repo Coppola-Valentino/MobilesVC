@@ -33,7 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MedicamentoCrearViewModel extends AndroidViewModel {
-    private MutableLiveData<Medicamento> medicamentoMutable;
+    private MutableLiveData<Medicamento> medicamentoMutable = new MutableLiveData<>();
 
     public MedicamentoCrearViewModel(@NonNull Application application) {
         super(application);

@@ -20,9 +20,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecordatorioEditViewModel extends AndroidViewModel {
-    private MutableLiveData<Recordatorio> mRecordatorio;
-    private MutableLiveData<String> mToastMessage;
-    private MutableLiveData<Boolean> mDatosCambiados;
+    private MutableLiveData<Recordatorio> mRecordatorio = new MutableLiveData<>();
+    private MutableLiveData<String> mToastMessage = new MutableLiveData<>();
+    private MutableLiveData<Boolean> mDatosCambiados = new MutableLiveData<>();
 
     public RecordatorioEditViewModel(@NonNull Application application) {
         super(application);

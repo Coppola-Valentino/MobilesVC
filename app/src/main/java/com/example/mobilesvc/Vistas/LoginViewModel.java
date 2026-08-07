@@ -25,7 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginViewModel extends AndroidViewModel {
-    private MutableLiveData<String> mToastMessage;
+    private MutableLiveData<String> mToastMessage = new MutableLiveData<>();
     private MutableLiveData<Boolean> loginExitoso = new MutableLiveData<>();
 
     public LiveData<Boolean> getLoginExitoso() {

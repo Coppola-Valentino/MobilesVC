@@ -44,6 +44,62 @@ app.get('/api/Usuario', (req, res) => {
     });
 });
 
+app.get('/api/Recordatorio', (req, res) => {
+    const token = req.headers['authorization'].replace('Bearer ', '');
+    const recordatorio = token.replace('fake-jwt-token-for-', '');
+
+    db.query("SELECT * FROM Recordatorio WHERE IDRec = ?", [recordatorio], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results[0]);
+        else res.status(404).send("Not found");
+    });
+});
+
+app.get('/api/Receta', (req, res) => {
+    const token = req.headers['authorization'].replace('Bearer ', '');
+    const receta = token.replace('fake-jwt-token-for-', '');
+
+    db.query("SELECT * FROM Receta WHERE IDReceta = ?", [receta], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results[0]);
+        else res.status(404).send("Not found");
+    });
+});
+
+app.get('/api/Medicamento', (req, res) => {
+    const token = req.headers['authorization'].replace('Bearer ', '');
+    const medicamento = token.replace('fake-jwt-token-for-', '');
+
+    db.query("SELECT * FROM Medicamento WHERE IDRec = ?", [medicamento], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results[0]);
+        else res.status(404).send("Not found");
+    });
+});
+
+app.get('/api/Usuarios/editar', (req, res) => {
+    const token = req.headers['authorization'].replace('Bearer ', '');
+    const usuario = token.replace('fake-jwt-token-for-', '');
+
+    db.query("SELECT * FROM Usuario WHERE IDRec = ?", [usuario], (err, results) => { 
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results[0]);
+        else res.status(404).send("Not found");
+    });
+});
+
 app.post('/api/Usuarios/crear', (req, res) => {
     const u = req.body;
     const query = "INSERT INTO Usuario SET ?";
@@ -54,6 +110,45 @@ app.post('/api/Usuarios/crear', (req, res) => {
         }
         if (err) res.status(500).send(err);
         else res.json({ ...u, IDUser: results.insertId });
+    });
+});
+
+app.post('/api/Recordatorio/crear', (req, res) => {
+    const u = req.body;
+    const query = "INSERT INTO Recordatorio SET ?";
+    db.query(query, u, (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (err) res.status(500).send(err);
+        else res.json({ ...u, IDRec: results.insertId });
+    });
+});
+
+app.post('/api/Receta/crear', (req, res) => {
+    const u = req.body;
+    const query = "INSERT INTO Receta SET ?";
+    db.query(query, u, (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (err) res.status(500).send(err);
+        else res.json({ ...u, IDReceta: results.insertId });
+    });
+});
+
+app.post('/api/Medicamento/crear', (req, res) => {
+    const u = req.body;
+    const query = "INSERT INTO Medicamento SET ?";
+    db.query(query, u, (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (err) res.status(500).send(err);
+        else res.json({ ...u, IDMedicamento: results.insertId });
     });
 });
 

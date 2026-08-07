@@ -33,7 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecetaCrearViewModel extends AndroidViewModel {
-    private MutableLiveData<Receta> recetaMutable;
+    private MutableLiveData<Receta> recetaMutable = new MutableLiveData<>();
 
     public RecetaCrearViewModel(@NonNull Application application) {
         super(application);

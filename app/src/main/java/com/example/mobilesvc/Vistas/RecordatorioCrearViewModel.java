@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecordatorioCrearViewModel extends AndroidViewModel {
-    private MutableLiveData<Recordatorio> recordatorioMutable;
+    private MutableLiveData<Recordatorio> recordatorioMutable = new MutableLiveData<>();
 
     public RecordatorioCrearViewModel(@NonNull Application application) {
         super(application);
