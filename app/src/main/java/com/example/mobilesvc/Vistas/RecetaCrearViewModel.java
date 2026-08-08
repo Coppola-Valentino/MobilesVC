@@ -55,6 +55,7 @@ public class RecetaCrearViewModel extends AndroidViewModel {
                 Receta nuevoReceta = new Receta();
 
                 nuevoReceta.setFecha(fecha);
+                nuevoReceta.setPacID(usuarioActual.getIDUser());
 
 //                String recetaJson = new Gson().toJson(nuevoReceta);
 //                RequestBody recetaBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recetaJson);

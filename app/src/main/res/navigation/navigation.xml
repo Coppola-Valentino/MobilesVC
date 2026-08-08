@@ -29,6 +29,9 @@
             android:id="@+id/action_mainMenuFragment_to_recetasFragment"
             app:destination="@id/recetasFragment" />
         <action
+            android:id="@+id/action_mainMenuFragment_to_recordatoriosFragment"
+            app:destination="@id/recordatoriosFragment" />
+        <action
             android:id="@+id/action_mainMenuFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/navigation"
@@ -120,9 +123,9 @@
         android:name="com.example.mobilesvc.Vistas.RecetasFragment"
         android:label="RecetasFragment"
         tools:layout="@layout/recetas_view">
-        <action
-            android:id="@+id/action_recetasFragment_to_recetaCrearFragment"
-            app:destination="@id/recetaCrearFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_recetasFragment_to_recetaCrearFragment"-->
+<!--            app:destination="@id/recetaCrearFragment" />-->
         <action
             android:id="@+id/action_recetasFragment_to_recetaFragment"
             app:destination="@id/recetaFragment" />

@@ -57,10 +57,10 @@ public class RecetasFragment extends Fragment {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();
         });
 
-        binding.vToRecetasCrear.setOnClickListener(v -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_recetasFragment_to_recetaCrearFragment);
-        });
+//        binding.vToRecetasCrear.setOnClickListener(v -> {
+//            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+//                    .navigate(R.id.action_recetasFragment_to_recetaCrearFragment);
+//        });
 
         int idUsuario = getArguments() != null ? getArguments().getInt("idUsuario") : -1;
         mViewModel.cargarRecetas(idUsuario);

@@ -86,17 +86,87 @@ app.get('/api/Medicamento', (req, res) => {
     });
 });
 
-app.get('/api/Usuarios/editar', (req, res) => {
-    const token = req.headers['authorization'].replace('Bearer ', '');
-    const usuario = token.replace('fake-jwt-token-for-', '');
+app.put('/api/Usuarios/editar', (req, res) => {
+    const usuario = req.body;
+    const id = usuario.IDUser;
 
-    db.query("SELECT * FROM Usuario WHERE IDRec = ?", [usuario], (err, results) => { 
+    const { IDUser, ...updateData } = usuario;
+
+    const query = "UPDATE Usuario SET ? WHERE IDUser = ?";
+
+    db.query(query, [updateData, id], (err, results) => {
         if (err) {
             console.error(err);
             return res.status(500).send("Database Error");
         }
-        if (results.length > 0) res.json(results[0]);
-        else res.status(404).send("Not found");
+        if (results.affectedRows > 0) {
+            res.json({ message: "Usuario actualizado", ...usuario });
+        } else {
+            res.status(404).send("Usuario no encontrado");
+        }
+    });
+});
+
+app.put('/api/Recordatorio/editar', (req, res) => {
+    const recordatorio = req.body;
+    const id = recordatorio.IDRec;
+
+    const { IDRec, ...updateData } = recordatorio;
+
+    const query = "UPDATE Recordatorio SET ? WHERE IDRec = ?";
+
+    db.query(query, [updateData, id], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.affectedRows > 0) {
+            res.json({ message: "Recordatorio actualizado", ...recordatorio });
+        } else {
+            res.status(404).send("Recordatorio no encontrado");
+        }
+    });
+});
+
+app.put('/api/Receta/editar', (req, res) => {
+    const receta = req.body;
+    const id = receta.IDReceta;
+
+    const { IDReceta, ...updateData } = receta;
+
+    const query = "UPDATE Receta SET ? WHERE IDReceta = ?";
+
+    db.query(query, [updateData, id], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.affectedRows > 0) {
+            res.json({ message: "Receta actualizado", ...receta });
+        } else {
+            res.status(404).send("Receta no encontrado");
+        }
+    });
+});
+
+app.put('/api/Medicamento/editar', (req, res) => {
+    const medicamento = req.body;
+    const id = medicamento.IDMedicamento;
+
+    const { IDMedicamento, ...updateData } = medicamento;
+
+    const query = "UPDATE Medicamento SET ? WHERE IDMedicamento = ?";
+
+    db.query(query, [updateData, id], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.affectedRows > 0) {
+            res.json({ message: "Medicamento actualizado", ...medicamento });
+        } else {
+            res.status(404).send("Medicamento no encontrado");
+        }
     });
 });
 

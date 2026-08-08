@@ -6,21 +6,6 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/vToRecetasCrear"
-        android:layout_width="370dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="80dp"
-        android:backgroundTint="#015A75"
-        android:paddingVertical="14dp"
-        android:text="Recetar"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/vVolverRecetas"
         android:layout_width="370dp"
         android:layout_height="53dp"
@@ -40,8 +25,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vRecetasList"
-        android:layout_width="411dp"
-        android:layout_height="591dp"
+        android:layout_width="409dp"
+        android:layout_height="636dp"
         android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

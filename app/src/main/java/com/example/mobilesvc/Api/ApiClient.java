@@ -45,6 +45,12 @@ public class ApiClient {
         return retrofit.create(MiServicio.class);
     }
     public interface MiServicio {
+        public static void guardarUsuarioId(Context ctx, int id) {
+            ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).edit().putInt("userId", id).apply();
+        }
+        public static int obtenerUsuarioId(Context ctx) {
+            return ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).getInt("userId", -1);
+        }
         @FormUrlEncoded
         @POST("api/Usuarios/login")
         Call<String> iniciarSesion(@Field("Nombre") String Nombre, @Field("Password") String Password);

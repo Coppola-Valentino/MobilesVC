@@ -46,7 +46,7 @@ public class MedicamentoCrearViewModel extends AndroidViewModel {
         }
         return medicamentoMutable;
     }
-    public void crearNuevoMedicamento(String nombre,int cantidad,double intervalo,double dosis){
+    public void crearNuevoMedicamento(String nombre,int cantidad,double intervalo,double dosis, int RecID){
 
         try {
             if (nombre.isBlank() || cantidad == 0 || intervalo == 0 || dosis == 0) {
@@ -58,6 +58,7 @@ public class MedicamentoCrearViewModel extends AndroidViewModel {
                 nuevoMedicamento.setDosis(dosis);
                 nuevoMedicamento.setCantidad(cantidad);
                 nuevoMedicamento.setIntervalo(intervalo);
+                nuevoMedicamento.setRecID(RecID);
 
 //                String medicamentoJson = new Gson().toJson(nuevoMedicamento);
 //                RequestBody medicamentoBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), medicamentoJson);

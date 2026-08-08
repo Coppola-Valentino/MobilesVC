@@ -37,6 +37,10 @@ public class mainMenuFragment extends Fragment {
             Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_recetasFragment);
         });
 
+        binding.vRecordatorios.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_recordatoriosFragment);
+        });
+
         binding.vLogOut.setOnClickListener( v ->{
             Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_loginFragment);
         });

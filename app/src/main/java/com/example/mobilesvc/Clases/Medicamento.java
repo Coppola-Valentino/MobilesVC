@@ -44,6 +44,12 @@ public class Medicamento implements Serializable{
     public void setDosis(Double dosis) {
         this.dosis = dosis;
     }
+    public int getRecID() {
+        return RecID;
+    }
+    public void setRecID(int recID) {
+        this.RecID = recID;
+    }
 
 
     @Override

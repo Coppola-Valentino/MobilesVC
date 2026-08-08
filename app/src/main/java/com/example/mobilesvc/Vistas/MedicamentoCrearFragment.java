@@ -35,6 +35,7 @@ public class MedicamentoCrearFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = MedicamentoCrearViewBinding.inflate(inflater, container, false);
         mViewModel = new ViewModelProvider(this).get(MedicamentoCrearViewModel.class);
+        int RecID = getArguments().getInt("idReceta");
 
         mViewModel.getMedicamentoMutable().observe(getViewLifecycleOwner(), medicamento -> {
             Bundle bundle = new Bundle();
@@ -57,7 +58,7 @@ public class MedicamentoCrearFragment extends Fragment {
                 double dosis = Dosis.isEmpty() ? 0 : Integer.parseInt(Dosis);
 
                 //mViewModel.evaluarChipSeleccionado(chipsId);
-                mViewModel.crearNuevoMedicamento(nombre, cantidad, intervalo, dosis);
+                mViewModel.crearNuevoMedicamento(nombre, cantidad, intervalo, dosis, RecID);
 
             }
         });

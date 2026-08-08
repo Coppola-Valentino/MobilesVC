@@ -12,7 +12,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="73dp"
-        android:hint="Intervalo"
+        android:hint="Intervalo (hrs)"
         app:layout_constraintBottom_toTopOf="@+id/vCantidadEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

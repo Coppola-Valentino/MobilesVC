@@ -10,18 +10,31 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/vRecetar"
+            android:layout_width="170dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="80dp"
+            android:backgroundTint="#015A75"
+            android:paddingVertical="14dp"
+            android:text="Recetar"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.862"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
             android:id="@+id/vToEditUsuario"
-            android:layout_width="370dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="88dp"
+            android:layout_width="170dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="80dp"
             android:backgroundTint="#015A75"
             android:paddingVertical="14dp"
             android:text="Editar Usuario"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintHorizontal_bias="0.064"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
