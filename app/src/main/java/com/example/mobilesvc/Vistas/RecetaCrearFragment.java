@@ -14,10 +14,14 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.text.ParseException;
 
+import com.example.mobilesvc.Api.ApiClient;
+import com.example.mobilesvc.Clases.Receta;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.RecetaCrearViewBinding;
 
@@ -36,7 +40,7 @@ public class RecetaCrearFragment extends Fragment {
         binding = RecetaCrearViewBinding.inflate(inflater, container, false);
         mViewModel = new ViewModelProvider(this).get(RecetaCrearViewModel.class);
 
-        mViewModel.getRecetaMutable().observe(getViewLifecycleOwner(), receta -> {
+            mViewModel.getRecetaMutable().observe(getViewLifecycleOwner(), receta -> {
             Bundle bundle = new Bundle();
             bundle.putInt("Receta ID", receta.getIDReceta());
 
@@ -48,12 +52,17 @@ public class RecetaCrearFragment extends Fragment {
         binding.vCrearReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int PacID = ApiClient.obtenerUsuarioId(requireContext());
+                Receta nueva = new Receta();
+                nueva.setPacID(PacID);
+
                 String fechaString = binding.vFechaCrear.getText().toString();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
                 try {
                     Date fecha = dateFormat.parse(fechaString);
-                    mViewModel.crearNuevoReceta(fecha);
+                    nueva.setFecha(fecha);
+                    mViewModel.crearNuevoReceta(nueva);
                 } catch (ParseException e) {
                     binding.vFechaCrear.setError("Formato inválido (usar dd/MM/yyyy)");
                 }

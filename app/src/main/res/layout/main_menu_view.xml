@@ -12,17 +12,16 @@
         android:layout_width="370dp"
         android:layout_height="66dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="15dp"
         android:backgroundTint="#505050"
         android:paddingVertical="14dp"
         android:text="Recordatorios"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/vLogOut"
@@ -46,31 +45,34 @@
         android:layout_height="66dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginBottom="240dp"
         android:backgroundTint="#505050"
         android:paddingVertical="14dp"
         android:text="Lista de Pacientes"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vRecetas"
         android:layout_width="370dp"
         android:layout_height="64dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#575757"
         android:paddingVertical="14dp"
         android:text="Recetas"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/vPacientes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.658"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.476" />
+        app:layout_constraintTop_toBottomOf="@+id/vRecordatorios"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"

@@ -29,7 +29,12 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public class ApiClient {
-
+    public static void guardarUsuarioId(Context ctx, int id) {
+        ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).edit().putInt("UserID", id).apply();
+    }
+    public static int obtenerUsuarioId(Context ctx) {
+        return ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).getInt("UserID", -1);
+    }
     public static MiServicio getServicio() {
         Gson gson = new GsonBuilder().setLenient().create();
 
@@ -45,12 +50,6 @@ public class ApiClient {
         return retrofit.create(MiServicio.class);
     }
     public interface MiServicio {
-        public static void guardarUsuarioId(Context ctx, int id) {
-            ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).edit().putInt("userId", id).apply();
-        }
-        public static int obtenerUsuarioId(Context ctx) {
-            return ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).getInt("userId", -1);
-        }
         @FormUrlEncoded
         @POST("api/Usuarios/login")
         Call<String> iniciarSesion(@Field("Nombre") String Nombre, @Field("Password") String Password);

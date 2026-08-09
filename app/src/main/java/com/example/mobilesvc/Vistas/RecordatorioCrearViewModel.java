@@ -2,6 +2,7 @@ package com.example.mobilesvc.Vistas;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,9 +34,11 @@ import retrofit2.Response;
 
 public class RecordatorioCrearViewModel extends AndroidViewModel {
     private MutableLiveData<Recordatorio> recordatorioMutable = new MutableLiveData<>();
+    private Context context;
 
     public RecordatorioCrearViewModel(@NonNull Application application) {
         super(application);
+        context = application.getApplicationContext();
 
     }
 
@@ -55,6 +58,7 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
 
                 nuevoRecordatorio.setCantidad(cantidad);
                 nuevoRecordatorio.setIntervalo(intervalo);
+                nuevoRecordatorio.setUserID(ApiClient.obtenerUsuarioId(context));
 
 //                String recordatorioJson = new Gson().toJson(nuevoRecordatorio);
 //                RequestBody recordatorioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recordatorioJson);
@@ -79,6 +83,7 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
 
                     @Override
                     public void onFailure(Call<Recordatorio> call, Throwable t) {
+                        Log.e("LOGIN_FAILURE", t.getMessage(), t);
                         Toast.makeText(getApplication(), "Error del servidor.", Toast.LENGTH_LONG).show();
                     }
                 });

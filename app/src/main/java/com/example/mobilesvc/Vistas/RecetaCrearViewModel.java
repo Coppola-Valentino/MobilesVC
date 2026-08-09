@@ -2,6 +2,7 @@ package com.example.mobilesvc.Vistas;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,10 +35,11 @@ import retrofit2.Response;
 
 public class RecetaCrearViewModel extends AndroidViewModel {
     private MutableLiveData<Receta> recetaMutable = new MutableLiveData<>();
+    private Context context;
 
     public RecetaCrearViewModel(@NonNull Application application) {
         super(application);
-
+        context = application.getApplicationContext();
     }
 
     public MutableLiveData<Receta> getRecetaMutable() {
@@ -46,16 +48,17 @@ public class RecetaCrearViewModel extends AndroidViewModel {
         }
         return recetaMutable;
     }
-    public void crearNuevoReceta(Date fecha){
+    public void crearNuevoReceta(Receta Rec){
 
         try {
-            if (fecha == null) {
+            if (Rec.getFecha() == null) {
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
-            }else{
-                Receta nuevoReceta = new Receta();
-
-                nuevoReceta.setFecha(fecha);
-                nuevoReceta.setPacID(usuarioActual.getIDUser());
+            }else{;
+//                Receta nuevoReceta = new Receta();
+//
+//                nuevoReceta.setFecha(fecha);
+//                nuevoReceta.setMedID(ApiClient.obtenerUsuarioId(context));
+//                nuevoReceta.setPacID(pacID);
 
 //                String recetaJson = new Gson().toJson(nuevoReceta);
 //                RequestBody recetaBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recetaJson);
@@ -65,7 +68,7 @@ public class RecetaCrearViewModel extends AndroidViewModel {
 
                   ApiClient.MiServicio servicio = ApiClient.getServicio();
                   String token = ApiClient.obtenerToken(getApplication());
-                  Call<Receta> call = servicio.CrearReceta(nuevoReceta);
+                  Call<Receta> call = servicio.CrearReceta(Rec);
 
                 call.enqueue(new Callback<Receta>() {
                     @Override
