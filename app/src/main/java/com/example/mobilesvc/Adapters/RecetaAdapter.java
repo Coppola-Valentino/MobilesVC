@@ -41,6 +41,7 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
     @Override
     public void onBindViewHolder(@NonNull RecetaViewHolder holder, int position) {
         Receta recetaActual = receta.get(position);
+        holder.fecha.setText(recetaActual.getFecha().toString());
 
         holder.toReceta.setOnClickListener(v -> {
             Bundle bundle = new Bundle();

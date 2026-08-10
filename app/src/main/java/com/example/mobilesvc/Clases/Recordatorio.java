@@ -3,14 +3,14 @@ package com.example.mobilesvc.Clases;
 import java.io.Serializable;
 
 public class Recordatorio implements Serializable {
-    private int IDRec, UserID, MedicamentoID, cantidad, intervalo;
+    private int IDRec, UserID, MedicamentoID, Cantidad, Intervalo;
     public Recordatorio() {}
     public Recordatorio(int IDRec, int UserID, int MedicamentoID, int cantidad, int intervalo) {
         this.IDRec = IDRec;
         this.UserID = UserID;
         this.MedicamentoID = MedicamentoID;
-        this.cantidad = cantidad;
-        this.intervalo = intervalo;
+        this.Cantidad = cantidad;
+        this.Intervalo = intervalo;
 
     }
     public int getIDRec() {
@@ -32,24 +32,24 @@ public class Recordatorio implements Serializable {
         this.MedicamentoID = MedicamentoID;
     }
     public int getCantidad() {
-        return cantidad;
+        return Cantidad;
     }
     public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+        this.Cantidad = cantidad;
     }
     public int getIntervalo() {
-        return intervalo;
+        return Intervalo;
     }
     public void setIntervalo(int intervalo) {
-        this.intervalo = intervalo;
+        this.Intervalo = intervalo;
     }
 
 
     @Override
     public String toString() {
         return "Recordatorio{" +
-                "cantidad='" + cantidad + '\'' +
-                "intervalo='" + intervalo + '\'' +
+                "cantidad='" + Cantidad + '\'' +
+                "intervalo='" + Intervalo + '\'' +
                 '}';
     }
 }

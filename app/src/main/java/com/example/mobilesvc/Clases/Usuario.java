@@ -3,20 +3,20 @@ package com.example.mobilesvc.Clases;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
-    private int IDUser, telefono, edad;
-    private String nombre, rol, password, direccion, genero, email, dni;
+    private int IDUser, Telefono, Edad;
+    private String Nombre, Rol, Password, Direccion, Genero, Email, Dni;
     public Usuario() {}
     public Usuario(int IDUser, int telefono, int edad, String nombre, String dni, String email, String rol, String password, String direccion, String genero) {
         this.IDUser = IDUser;
-        this.telefono = telefono;
-        this.edad = edad;
-        this.nombre = nombre;
-        this.rol = rol;
-        this.email = email;
-        this.password = password;
-        this.dni = dni;
-        this.direccion = direccion;
-        this.genero = genero;
+        this.Telefono = telefono;
+        this.Edad = edad;
+        this.Nombre = nombre;
+        this.Rol = rol;
+        this.Email = email;
+        this.Password = password;
+        this.Dni = dni;
+        this.Direccion = direccion;
+        this.Genero = genero;
     }
     public int getIDUser() {
         return IDUser;
@@ -25,70 +25,70 @@ public class Usuario implements Serializable {
         this.IDUser = IDUser;
     }
     public int getTelefono() {
-        return telefono;
+        return Telefono;
     }
     public void setTelefono(int telefono) {
-        this.telefono = telefono;
+        this.Telefono = telefono;
     }
     public int getEdad() {
-        return edad;
+        return Edad;
     }
     public void setEdad(int edad) {
-        this.edad = edad;
+        this.Edad = edad;
     }
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.Nombre = nombre;
     }
     public String getRol() {
-        return rol;
+        return Rol;
     }
     public void setRol(String rol) {
-        this.rol = rol;
+        this.Rol = rol;
     }
     public String getDni() {
-        return dni;
+        return Dni;
     }
     public void setDni(String dni) {
-        this.dni = dni;
+        this.Dni = dni;
     }
     public String getPassword() {
-        return password;
+        return Password;
     }
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
     public String getDireccion() {
-        return direccion;
+        return Direccion;
     }
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.Direccion = direccion;
     }
     public String getEmail() {
-        return email;
+        return Email;
     }
     public void setEmail(String email) {
-        this.email = email;
+        this.Email = email;
     }
     public String getGenero() {
-        return genero;
+        return Genero;
     }
     public void setGenero(String genero) {
-        this.genero = genero;
+        this.Genero = genero;
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-                "Rol='" + rol + '\'' +
-                "Nombre='" + nombre + '\'' +
-                "Edad='" + edad + '\'' +
-                "Telefono='" + telefono + '\'' +
-                "Genero='" + genero + '\'' +
-                "Direccion='" + direccion + '\'' +
-                "Email='" + email + '\'' +
+                "Rol='" + Rol + '\'' +
+                "Nombre='" + Nombre + '\'' +
+                "Edad='" + Edad + '\'' +
+                "Telefono='" + Telefono + '\'' +
+                "Genero='" + Genero + '\'' +
+                "Direccion='" + Direccion + '\'' +
+                "Email='" + Email + '\'' +
                 '}';
     }
 }

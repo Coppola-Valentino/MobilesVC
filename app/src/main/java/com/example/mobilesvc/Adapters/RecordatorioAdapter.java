@@ -41,6 +41,8 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
     @Override
     public void onBindViewHolder(@NonNull RecordatorioViewHolder holder, int position) {
         Recordatorio recordatorioActual = recordatorios.get(position);
+        holder.cantidad.setText(String.valueOf(recordatorioActual.getCantidad()));
+        holder.intervalo.setText(String.valueOf(recordatorioActual.getIntervalo()));
 
         holder.toRecordatorio.setOnClickListener(v -> {
             Bundle bundle = new Bundle();

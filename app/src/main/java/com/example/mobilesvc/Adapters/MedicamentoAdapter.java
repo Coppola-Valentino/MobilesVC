@@ -41,6 +41,10 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
     @Override
     public void onBindViewHolder(@NonNull MedicamentoViewHolder holder, int position) {
         Medicamento medicamentoActual = medicamentos.get(position);
+        holder.cantidad.setText(String.valueOf(medicamentoActual.getCantidad()));
+        holder.dosis.setText(String.valueOf(medicamentoActual.getDosis()));
+        holder.intervalo.setText(String.valueOf(medicamentoActual.getIntervalo()));
+        holder.nombre.setText(medicamentoActual.getNombre());
 
         holder.toMedicamento.setOnClickListener(v -> {
             Bundle bundle = new Bundle();

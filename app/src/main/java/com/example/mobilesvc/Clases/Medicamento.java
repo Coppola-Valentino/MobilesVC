@@ -1,17 +1,17 @@
 package com.example.mobilesvc.Clases;
 import java.io.Serializable;
 public class Medicamento implements Serializable{
-    private int IDMedicamento, RecID, cantidad;
-    private String nombre;
-    private Double intervalo, dosis;
+    private int IDMedicamento, RecID, Cantidad;
+    private String Nombre;
+    private Double Intervalo, Dosis;
     public Medicamento() {}
     public Medicamento(int IDMedicamento, int RecID, int cantidad, String nombre, Double intervalo, Double dosis) {
         this.IDMedicamento = IDMedicamento;
         this.RecID = RecID;
-        this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.intervalo = intervalo;
-        this.dosis = dosis;
+        this.Nombre = nombre;
+        this.Cantidad = cantidad;
+        this.Intervalo = intervalo;
+        this.Dosis = dosis;
 
     }
     public int getIDMedicamento() {
@@ -21,28 +21,28 @@ public class Medicamento implements Serializable{
         this.IDMedicamento = IDMedicamento;
     }
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.Nombre = nombre;
     }
     public int getCantidad() {
-        return cantidad;
+        return Cantidad;
     }
     public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+        this.Cantidad = cantidad;
     }
     public Double getIntervalo() {
-        return intervalo;
+        return Intervalo;
     }
     public void setIntervalo(Double intervalo) {
-        this.intervalo = intervalo;
+        this.Intervalo = intervalo;
     }
     public Double getDosis() {
-        return dosis;
+        return Dosis;
     }
     public void setDosis(Double dosis) {
-        this.dosis = dosis;
+        this.Dosis = dosis;
     }
     public int getRecID() {
         return RecID;
@@ -55,10 +55,10 @@ public class Medicamento implements Serializable{
     @Override
     public String toString() {
         return "Medicamento{" +
-                "nombre='" + nombre + '\'' +
-                ", Cantidad='" + cantidad + '\'' +
-                ", Intervalo='" + intervalo + '\'' +
-                ", Dosis='" + dosis + '\'' +
+                "nombre='" + Nombre + '\'' +
+                ", Cantidad='" + Cantidad + '\'' +
+                ", Intervalo='" + Intervalo + '\'' +
+                ", Dosis='" + Dosis + '\'' +
                 '}';
     }
 }

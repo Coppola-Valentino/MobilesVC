@@ -5,13 +5,13 @@ import java.util.Date;
 
 public class Receta implements Serializable {
     private int IDReceta, PacID, MedID;
-    private Date fecha;
+    private Date Fecha;
     public Receta() {}
     public Receta(int IDReceta, int PacID, int MedID, Date fecha) {
         this.IDReceta = IDReceta;
         this.PacID = PacID;
         this.MedID = MedID;
-        this.fecha = fecha;
+        this.Fecha = fecha;
 
     }
     public int getIDReceta() {
@@ -33,17 +33,17 @@ public class Receta implements Serializable {
         this.MedID = MedID;
     }
     public Date getFecha() {
-        return fecha;
+        return Fecha;
     }
     public void setFecha(Date fecha) {
-        this.fecha = fecha;
+        this.Fecha = fecha;
     }
 
 
     @Override
     public String toString() {
         return "Receta{" +
-                "Fecha='" + fecha + '\'' +
+                "Fecha='" + Fecha + '\'' +
                 '}';
     }
 

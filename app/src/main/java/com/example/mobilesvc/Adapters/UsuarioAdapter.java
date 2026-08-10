@@ -40,6 +40,10 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
     @Override
     public void onBindViewHolder(@NonNull UsuariosViewHolder holder, int position) {
         Usuario usuarioActual = usuarios.get(position);
+        holder.dni.setText(usuarioActual.getDni());
+        holder.nombre.setText(usuarioActual.getNombre());
+        holder.telefono.setText(String.valueOf(usuarioActual.getTelefono()));
+        holder.email.setText(usuarioActual.getEmail());
 
         holder.toUser.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -63,7 +67,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
 
         public UsuariosViewHolder(@NonNull View itemView) {
             super(itemView);
-            telefono = itemView.findViewById(R.id.vCantidadCard);
+            telefono = itemView.findViewById(R.id.vTelefonoCard);
             nombre = itemView.findViewById(R.id.vNombreCard);
             dni = itemView.findViewById(R.id.vDniCard);
             email = itemView.findViewById(R.id.vEmailCard);

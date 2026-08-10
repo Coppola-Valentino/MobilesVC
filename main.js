@@ -30,6 +30,53 @@ app.post('/api/Usuarios/login', (req, res) => {
     });
 });
 
+app.get('/api/Usuarios', (req, res) => {
+    db.query("SELECT * FROM Usuario", (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
+
+    });
+});
+
+app.get('/api/Recetas', (req, res) => {
+    db.query("SELECT * FROM Receta", (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
+    });
+});
+
+app.get('/api/Recordatorios', (req, res) => {
+    db.query("SELECT * FROM Recordatorios", (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
+
+    });
+});
+
+app.get('/api/Medicamentos', (req, res) => {
+    db.query("SELECT * FROM Medicamentos", (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
+
+    });
+});
+
 app.get('/api/Usuario', (req, res) => {
     const token = req.headers['authorization'].replace('Bearer ', '');
     const user = token.replace('fake-jwt-token-for-', '');
