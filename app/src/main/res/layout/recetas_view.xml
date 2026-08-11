@@ -25,7 +25,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vRecetasList"
-        android:layout_width="409dp"
+        android:layout_width="384dp"
         android:layout_height="636dp"
         android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent"

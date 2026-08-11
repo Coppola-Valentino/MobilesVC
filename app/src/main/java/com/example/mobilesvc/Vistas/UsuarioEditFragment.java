@@ -40,8 +40,8 @@ public class UsuarioEditFragment extends Fragment {
                 b.vPasswordEdit.setText(m.getPassword());
                 b.vDireccionEdit.setText(m.getDireccion());
                 b.vDniEdit.setText(m.getDni());
-                b.vEdadEdit.setText(m.getEdad());
-                b.vTelefonoEdit.setText(m.getTelefono());
+                b.vEdadEdit.setText(String.valueOf(m.getEdad()));
+                b.vTelefonoEdit.setText(String.valueOf(m.getTelefono()));
                 b.vGeneroEdit.setText(m.getGenero());
                 b.vEmailEdit.setText(m.getEmail());
             }
@@ -52,8 +52,7 @@ public class UsuarioEditFragment extends Fragment {
         });
 
         vm.getDatosCambiados().observe(getViewLifecycleOwner(), result -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_usuarioEditFragment_to_usuarioFragment);
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
         });
 
 

@@ -12,32 +12,30 @@
         android:layout_width="370dp"
         android:layout_height="66dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginBottom="37dp"
         android:backgroundTint="#505050"
         android:paddingVertical="14dp"
         android:text="Recordatorios"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/vRecetas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vLogOut"
         android:layout_width="370dp"
         android:layout_height="64dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="72dp"
         android:backgroundTint="#575757"
         android:paddingVertical="14dp"
         android:text="Log Out"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.658"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vPacientes"
@@ -45,14 +43,14 @@
         android:layout_height="66dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="104dp"
         android:backgroundTint="#505050"
         android:paddingVertical="14dp"
         android:text="Lista de Pacientes"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/vLogOut"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -60,7 +58,6 @@
         android:layout_width="370dp"
         android:layout_height="64dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="#575757"
@@ -70,38 +67,36 @@
         app:layout_constraintBottom_toTopOf="@+id/vPacientes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vRecordatorios"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="131dp"
         android:layout_height="33dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="100dp"
         android:text="Bienvenido"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/vRecordatorios"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/vCurrentUser"
         android:layout_width="157dp"
         android:layout_height="34dp"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="100dp"
         android:hint="Usuario"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/vRecordatorios"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

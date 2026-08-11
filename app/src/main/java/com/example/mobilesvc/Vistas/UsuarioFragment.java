@@ -30,7 +30,7 @@ public class UsuarioFragment extends Fragment {
 
         mViewModel.getUsuarioMutable().observe(getViewLifecycleOwner(), u -> {
                 binding.vNombre.setText(u.getNombre());
-                binding.vPassword.setText(u.getPassword());
+                //binding.vPassword.setText(u.getPassword());
                 binding.vDireccion.setText(u.getDireccion());
                 binding.vTelefono.setText(String.valueOf(u.getTelefono()));
                 binding.vEmail.setText(u.getEmail());
@@ -50,6 +50,11 @@ public class UsuarioFragment extends Fragment {
         binding.vToEditUsuario.setOnClickListener(v -> {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
+        });
+
+        binding.vRecetar.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_usuarioFragment_to_recetaCrearFragment, bundle);
         });
 
         return binding.getRoot();

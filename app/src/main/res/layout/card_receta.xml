@@ -15,6 +15,13 @@
         android:padding="12dp">
 
         <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Finalizacion:"
+            android:textSize="10sp" />
+
+        <TextView
             android:id="@+id/vFechaCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,8 +33,7 @@
             android:id="@+id/vToReceta"
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="108dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#015A75"
             android:paddingVertical="14dp"
             android:text="Ver Mas"

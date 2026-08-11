@@ -10,9 +10,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="238dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="12dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/vNombreCard"
@@ -29,13 +36,11 @@
             android:layout_marginTop="6dp" />
 
         <TextView
-            android:id="@+id/vDniCard"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="-"
-            android:textSize="16sp"
-            android:textStyle="italic" />
+            android:text="Telefono:"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/vTelefonoCard"
@@ -44,7 +49,14 @@
             android:layout_marginTop="4dp"
             android:text="-"
             android:textSize="16sp"
-            android:textStyle="italic" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/vEmailCard"
@@ -60,8 +72,7 @@
             android:id="@+id/vToUsuario"
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="108dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#015A75"
             android:paddingVertical="14dp"
             android:text="Ver Datos"

@@ -40,7 +40,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
     @Override
     public void onBindViewHolder(@NonNull UsuariosViewHolder holder, int position) {
         Usuario usuarioActual = usuarios.get(position);
-        holder.dni.setText(usuarioActual.getDni());
+        //holder.dni.setText(usuarioActual.getDni());
         holder.nombre.setText(usuarioActual.getNombre());
         holder.telefono.setText(String.valueOf(usuarioActual.getTelefono()));
         holder.email.setText(usuarioActual.getEmail());
@@ -69,7 +69,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
             super(itemView);
             telefono = itemView.findViewById(R.id.vTelefonoCard);
             nombre = itemView.findViewById(R.id.vNombreCard);
-            dni = itemView.findViewById(R.id.vDniCard);
+            //dni = itemView.findViewById(R.id.vDniCard);
             email = itemView.findViewById(R.id.vEmailCard);
             toUser = itemView.findViewById(R.id.vToUsuario);
         }

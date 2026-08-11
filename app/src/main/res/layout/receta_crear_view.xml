@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="200dp"
+        android:layout_height="22dp"
+        android:text="Fecha de Finalizacion:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vFechaCrear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/vVolverCrearReceta"
         android:layout_width="383dp"

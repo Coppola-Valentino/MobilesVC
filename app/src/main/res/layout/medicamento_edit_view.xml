@@ -5,6 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Dosis:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vDosisEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="200dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="2dp"
+        android:text="Intervalo entre Dosis:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vIntervaloMedicamentoEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="200dp"
+        android:layout_height="22dp"
+        android:text="Cantidad de Dosis:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vCantidadMedicamentoEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="1dp"
+        android:text="Nombre:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vNombreMedicamentoEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/vEditMedicamento"
         android:layout_width="387dp"
@@ -52,7 +98,7 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="226dp"
+        android:layout_width="240dp"
         android:layout_height="35dp"
         android:layout_marginStart="93dp"
         android:layout_marginTop="68dp"

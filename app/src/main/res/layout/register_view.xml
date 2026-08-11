@@ -5,6 +5,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Edad:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vEdadRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Genero:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vGeneroRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Dni:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vDniRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Email:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vEmailRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Telefono:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vTelefonoRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Direccion:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vDireccionRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Contraseña:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vPasswordRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="65dp"
+        android:layout_height="22dp"
+        android:text="Nombre:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vNombreRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vGeneroRegister"
         android:layout_width="364dp"

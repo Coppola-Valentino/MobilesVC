@@ -10,9 +10,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="232dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="12dp">
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/vNombreMedCard"
@@ -29,6 +36,13 @@
             android:layout_marginTop="6dp" />
 
         <TextView
+            android:id="@+id/textView31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intervalo:"
+            android:textSize="10sp" />
+
+        <TextView
             android:id="@+id/vIntervaloMedCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,6 +52,13 @@
             android:textStyle="italic" />
 
         <TextView
+            android:id="@+id/textView32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dosis:"
+            android:textSize="10sp" />
+
+        <TextView
             android:id="@+id/vDosisMedCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +66,13 @@
             android:text="-"
             android:textSize="16sp"
             android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cantidad:"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/vCantidadMedCard"
@@ -59,8 +87,7 @@
             android:id="@+id/vToMedicamento"
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="108dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#015A75"
             android:paddingVertical="14dp"
             android:text="Ver Datos"

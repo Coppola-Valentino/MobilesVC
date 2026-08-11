@@ -7,60 +7,114 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-40dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/vEdad"
+            android:layout_width="364dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:text="Edad"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vGenero" />
+
+        <TextView
+            android:id="@+id/vGenero"
+            android:layout_width="364dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:text="Genero"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vDni" />
+
+        <TextView
+            android:id="@+id/vDni"
+            android:layout_width="364dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:text="Dni"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vEmail" />
+
+        <TextView
+            android:id="@+id/vEmail"
+            android:layout_width="364dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:text="Email"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vTelefono" />
+
+        <TextView
+            android:id="@+id/vTelefono"
+            android:layout_width="364dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:text="Numero de Telefono"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vDireccion" />
+
+        <TextView
+            android:id="@+id/vDireccion"
+            android:layout_width="364dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="Direccion"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vNombre" />
 
         <Button
             android:id="@+id/vRecetar"
             android:layout_width="170dp"
             android:layout_height="54dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="11dp"
             android:backgroundTint="#015A75"
             android:paddingVertical="14dp"
             android:text="Recetar"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/vVolverPerfil"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.862"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/vToEditUsuario" />
 
         <Button
             android:id="@+id/vToEditUsuario"
             android:layout_width="170dp"
             android:layout_height="54dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="11dp"
             android:backgroundTint="#015A75"
             android:paddingVertical="14dp"
             android:text="Editar Usuario"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.064"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/vGenero"
-            android:layout_width="364dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="15dp"
-            android:clickable="false"
-            android:hint="Genero"
-            app:layout_constraintBottom_toTopOf="@+id/vEdad"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/vEdad"
-            android:layout_width="364dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="29dp"
-            android:clickable="false"
-            android:hint="Edad"
-            app:layout_constraintBottom_toTopOf="@+id/vToEditUsuario"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/vVolverPerfil"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -70,12 +124,11 @@
             android:layout_marginStart="174dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="175dp"
-            android:layout_marginBottom="32dp"
             android:fontFamily="sans-serif"
             android:text="Perfil"
             android:textColor="#000000"
+            android:textSize="34sp"
             android:textStyle="bold|italic"
-            app:layout_constraintBottom_toTopOf="@+id/vNombre"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -87,9 +140,8 @@
             android:layout_height="53dp"
             android:layout_marginHorizontal="24dp"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="30dp"
             android:backgroundTint="#4E4E4E"
             android:paddingVertical="10dp"
             android:text="Volver"
@@ -98,86 +150,110 @@
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vToEditUsuario" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
             android:id="@+id/vNombre"
             android:layout_width="364dp"
             android:layout_height="50dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="17dp"
-            android:clickable="false"
-            android:hint="Usuario"
-            app:layout_constraintBottom_toTopOf="@+id/vPassword"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="36dp"
+            android:text="Nombre"
+            android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/vPassword"
-            android:layout_width="364dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="12dp"
-            android:clickable="false"
-            android:hint="Contraseña"
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="65dp"
+            android:layout_height="22dp"
+            android:text="Nombre:"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/vNombre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="75dp"
+            android:layout_height="22dp"
+            android:text="Direccion:"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/vDireccion"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/vDireccion"
-            android:layout_width="364dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="26dp"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="19dp"
-            android:clickable="false"
-            android:hint="Direccion"
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="66dp"
+            android:layout_height="22dp"
+            android:text="Telefono:"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/vTelefono"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/vTelefono"
-            android:layout_width="364dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginBottom="11dp"
-            android:clickable="false"
-            android:hint="Numero de Telefono"
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="50dp"
+            android:layout_height="22dp"
+            android:text="Email:"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/vEmail"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.036"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/vEmail"
-            android:layout_width="364dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="7dp"
-            android:clickable="false"
-            android:hint="Email"
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="27dp"
+            android:layout_height="22dp"
+            android:text="Dni:"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/vDni"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.041"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/vDni"
-            android:layout_width="364dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="13dp"
-            android:clickable="false"
-            android:hint="Dni"
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="55dp"
+            android:layout_height="22dp"
+            android:text="Genero:"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/vGenero"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="40dp"
+            android:layout_height="22dp"
+            android:text="Edad:"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/vEdad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

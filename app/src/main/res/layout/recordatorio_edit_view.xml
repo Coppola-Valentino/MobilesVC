@@ -5,6 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="200dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="296dp"
+        android:text="Cantidad de Repeticiones:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vCantidadEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="130dp"
+        android:layout_height="22dp"
+        android:text="Intervalo (hrs):"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vIntervaloEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vIntervaloEdit"
         android:layout_width="364dp"
