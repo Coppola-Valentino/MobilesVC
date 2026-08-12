@@ -3,6 +3,7 @@ package com.example.mobilesvc.Vistas;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -22,6 +23,7 @@ import java.text.ParseException;
 
 import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Clases.Receta;
+import com.example.mobilesvc.Clases.Usuario;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.RecetaCrearViewBinding;
 
@@ -43,28 +45,31 @@ public class RecetaCrearFragment extends Fragment {
             mViewModel.getRecetaMutable().observe(getViewLifecycleOwner(), receta -> {
             Bundle bundle = new Bundle();
             bundle.putInt("Receta ID", receta.getIDReceta());
+            bundle.putSerializable("receta", receta);
 
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_recetaCrearFragment_to_recetasFragment, bundle);
+                    .navigate(R.id.action_recetaCrearFragment_to_recetaFragment, bundle);
         });
 
 
         binding.vCrearReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int PacID = ApiClient.obtenerUsuarioId(requireContext());
+                int MedID = ApiClient.obtenerUsuarioId(requireContext());
+                mViewModel.cargarUsuario(getArguments());
                 Receta nueva = new Receta();
-                nueva.setPacID(PacID);
+                nueva.setMedID(MedID);
+                nueva.setPacID(mViewModel.getUsuario().getValue().getIDUser());
 
                 String fechaString = binding.vFechaCrear.getText().toString();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
 
                 try {
                     Date fecha = dateFormat.parse(fechaString);
                     nueva.setFecha(fecha);
                     mViewModel.crearNuevoReceta(nueva);
                 } catch (ParseException e) {
-                    binding.vFechaCrear.setError("Formato inválido (usar dd/MM/yyyy)");
+                    binding.vFechaCrear.setError("Formato inválido (usar yyyy/MM/dd)");
                 }
                 //mViewModel.evaluarChipSeleccionado(chipsId);
 

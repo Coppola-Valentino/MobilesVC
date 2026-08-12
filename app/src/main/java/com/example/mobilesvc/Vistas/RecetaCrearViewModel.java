@@ -7,15 +7,18 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mobilesvc.Clases.Usuario;
 import com.google.gson.Gson;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.Clases.Receta;
@@ -35,6 +38,7 @@ import retrofit2.Response;
 
 public class RecetaCrearViewModel extends AndroidViewModel {
     private MutableLiveData<Receta> recetaMutable = new MutableLiveData<>();
+    private MutableLiveData<Usuario> mUsuario = new MutableLiveData<>();
     private Context context;
 
     public RecetaCrearViewModel(@NonNull Application application) {
@@ -42,11 +46,24 @@ public class RecetaCrearViewModel extends AndroidViewModel {
         context = application.getApplicationContext();
     }
 
+    public LiveData<Usuario> getUsuario() {
+        if (mUsuario==null) {
+            mUsuario = new MutableLiveData<>();
+        }
+        return mUsuario;
+    }
+
     public MutableLiveData<Receta> getRecetaMutable() {
         if (recetaMutable == null) {
             recetaMutable = new MutableLiveData<>();
         }
         return recetaMutable;
+    }
+
+    public void cargarUsuario(Bundle bundle) {
+        if (bundle != null && bundle.containsKey("usuario")) {
+            mUsuario.setValue((Usuario) bundle.getSerializable("usuario"));
+        }
     }
     public void crearNuevoReceta(Receta Rec){
 

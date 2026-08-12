@@ -94,8 +94,8 @@
         android:label="RecetaCrearFragment"
         tools:layout="@layout/receta_crear_view">
         <action
-            android:id="@+id/action_recetaCrearFragment_to_recetasFragment"
-            app:destination="@id/recetasFragment" />
+            android:id="@+id/action_recetaCrearFragment_to_recetaFragment"
+            app:destination="@id/recetaFragment" />
     </fragment>
     <fragment
         android:id="@+id/recetaEditFragment"
@@ -111,6 +111,9 @@
         android:name="com.example.mobilesvc.Vistas.RecetaFragment"
         android:label="RecetaFragment"
         tools:layout="@layout/receta_view">
+        <action
+            android:id="@+id/action_recetaFragment_to_recetasFragment"
+            app:destination="@id/recetasFragment" />
         <action
             android:id="@+id/action_recetaFragment_to_recetaEditFragment"
             app:destination="@id/recetaEditFragment" />

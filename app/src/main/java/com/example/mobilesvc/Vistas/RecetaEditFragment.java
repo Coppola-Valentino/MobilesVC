@@ -53,14 +53,14 @@ public class RecetaEditFragment extends Fragment {
 
         b.vEditReceta.setOnClickListener(v -> {
             String Fecha = b.vFechaEdit.getText().toString();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
             try {
             Date fecha = dateFormat.parse(Fecha);
                 vm.cambiarDatos(
                         fecha
                 );
             } catch (ParseException e) {
-                b.vFechaEdit.setError("Formato inválido (usar dd/MM/yyyy)");
+                b.vFechaEdit.setError("Formato inválido (usar yyyy/MM/dd)");
             }
         });
 

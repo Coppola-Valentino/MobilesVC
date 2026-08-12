@@ -244,8 +244,11 @@ app.post('/api/Recordatorio/crear', (req, res) => {
 });
 
 app.post('/api/Receta/crear', (req, res) => {
-    const u = req.body;
+    let u = req.body;
     const query = "INSERT INTO Receta SET ?";
+    if (u.Fecha) {
+        u.Fecha = new Date(u.Fecha).toISOString().slice(0, 10);
+    }
     db.query(query, u, (err, results) => {
         if (err) {
             console.error(err);
@@ -266,6 +269,18 @@ app.post('/api/Medicamento/crear', (req, res) => {
         }
         if (err) res.status(500).send(err);
         else res.json({ ...u, IDMedicamento: results.insertId });
+    });
+});
+
+app.get('/api/Receta/Usuario/:id', (req, res) => {
+    const UserID = req.params.id;
+    db.query("SELECT * FROM Receta Where PacID = ?", [UserID], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
     });
 });
 

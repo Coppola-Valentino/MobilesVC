@@ -37,7 +37,8 @@ public class RecetaFragment extends Fragment {
         mViewModel.cargarReceta(getArguments());
 
         binding.vVolverReceta.setOnClickListener(v -> {
-            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_recetaFragment_to_recetasFragment);
         });
 
         binding.vToRecetaEdit.setOnClickListener(v -> {

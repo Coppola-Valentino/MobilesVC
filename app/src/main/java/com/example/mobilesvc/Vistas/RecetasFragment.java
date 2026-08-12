@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mobilesvc.Adapters.RecetaAdapter;
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.RecetasViewBinding;
 
@@ -32,14 +33,23 @@ public class RecetasFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(RecetasViewModel.class);
 
+        GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
+        binding.vRecetasList.setLayoutManager(glm);
+
         mViewModel.getRecetas().observe(getViewLifecycleOwner(), recetas -> {
             recetaAdapter = new RecetaAdapter(recetas,getContext(), getLayoutInflater());
 
-            GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
-
-            binding.vRecetasList.setLayoutManager(glm);
             binding.vRecetasList.setAdapter(recetaAdapter);
         });
+
+        int idUsuario = -1;
+        if (getArguments() != null && getArguments().containsKey("idUsuario")) {
+            idUsuario = getArguments().getInt("idUsuario");
+        } else {
+            idUsuario = ApiClient.obtenerUsuarioId(requireContext());
+        }
+
+        mViewModel.cargarRecetas(idUsuario);
 
         mViewModel.getToastMessage().observe(getViewLifecycleOwner(), message -> {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
@@ -62,8 +72,6 @@ public class RecetasFragment extends Fragment {
 //                    .navigate(R.id.action_recetasFragment_to_recetaCrearFragment);
 //        });
 
-        int idUsuario = getArguments() != null ? getArguments().getInt("idUsuario") : -1;
-        mViewModel.cargarRecetas(idUsuario);
 
         return binding.getRoot();
     }
