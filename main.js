@@ -284,4 +284,28 @@ app.get('/api/Receta/Usuario/:id', (req, res) => {
     });
 });
 
+app.get('/api/Medicamento/Receta/:id', (req, res) => {
+    const RecID = req.params.id;
+    db.query("SELECT * FROM Medicamento Where RecID = ?", [RecID], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
+    });
+});
+
+app.get('/api/Recordatorio/Usuario/:id', (req, res) => {
+    const UserID = req.params.id;
+    db.query("SELECT * FROM Recordatorio Where UserID = ?", [UserID], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
+    });
+});
+
 app.listen(3000, () => console.log("Server running on port 3000"));

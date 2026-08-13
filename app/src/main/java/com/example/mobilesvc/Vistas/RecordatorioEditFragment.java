@@ -46,8 +46,7 @@ public class RecordatorioEditFragment extends Fragment {
         });
 
         vm.getDatosCambiados().observe(getViewLifecycleOwner(), result -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_recordatorioEditFragment_to_recordatorioFragment);
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
         });
 
 

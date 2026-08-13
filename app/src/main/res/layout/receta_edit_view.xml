@@ -41,6 +41,7 @@
         android:fontFamily="sans-serif"
         android:text="Editar Receta"
         android:textColor="#000000"
+        android:textSize="34sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/vFechaEdit"
         app:layout_constraintEnd_toEndOf="parent"

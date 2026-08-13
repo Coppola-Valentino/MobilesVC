@@ -46,19 +46,19 @@ public class MedicamentoCrearViewModel extends AndroidViewModel {
         }
         return medicamentoMutable;
     }
-    public void crearNuevoMedicamento(String nombre,int cantidad,double intervalo,double dosis, int RecID){
+    public void crearNuevoMedicamento(Medicamento med){
 
         try {
-            if (nombre.isBlank() || cantidad == 0 || intervalo == 0 || dosis == 0) {
+            if (med.getNombre().isBlank() || med.getCantidad() == 0 || med.getDosis() == 0 || med.getIntervalo() == 0) {
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
             }else{
-                Medicamento nuevoMedicamento = new Medicamento();
-
-                nuevoMedicamento.setNombre(nombre);
-                nuevoMedicamento.setDosis(dosis);
-                nuevoMedicamento.setCantidad(cantidad);
-                nuevoMedicamento.setIntervalo(intervalo);
-                nuevoMedicamento.setRecID(RecID);
+//                Medicamento nuevoMedicamento = new Medicamento();
+//
+//                nuevoMedicamento.setNombre(nombre);
+//                nuevoMedicamento.setDosis(dosis);
+//                nuevoMedicamento.setCantidad(cantidad);
+//                nuevoMedicamento.setIntervalo(intervalo);
+//                nuevoMedicamento.setRecID(RecID);
 
 //                String medicamentoJson = new Gson().toJson(nuevoMedicamento);
 //                RequestBody medicamentoBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), medicamentoJson);
@@ -68,7 +68,7 @@ public class MedicamentoCrearViewModel extends AndroidViewModel {
 
                 ApiClient.MiServicio servicio = ApiClient.getServicio();
                 String token = ApiClient.obtenerToken(getApplication());
-                Call<Medicamento> call = servicio.CrearMedicamento(nuevoMedicamento);
+                Call<Medicamento> call = servicio.CrearMedicamento(med);
 
                 call.enqueue(new Callback<Medicamento>() {
                     @Override

@@ -34,12 +34,11 @@ public class RecordatoriosFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(RecordatoriosViewModel.class);
 
+        GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
+        binding.vRecordatoriosList.setLayoutManager(glm);
+
         mViewModel.getRecordatorios().observe(getViewLifecycleOwner(), recordatorios -> {
             recordatorioAdapter = new RecordatorioAdapter(recordatorios,getContext(), getLayoutInflater());
-
-            GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
-
-            binding.vRecordatoriosList.setLayoutManager(glm);
             binding.vRecordatoriosList.setAdapter(recordatorioAdapter);
         });
 

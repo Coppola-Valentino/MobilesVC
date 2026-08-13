@@ -23,6 +23,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mobilesvc.Api.ApiClient;
+import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.RecordatorioCrearViewBinding;
 
@@ -51,13 +53,25 @@ public class RecordatorioCrearFragment extends Fragment {
         binding.vCrearRecordatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Recordatorio rec = new Recordatorio();
                 String Cantidad = binding.vCantidadCrear.getText().toString();
                 int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
                 String Intervalo = binding.vIntervaloCrear.getText().toString();
                 int intervalo = Intervalo.isEmpty() ? 0 : Integer.parseInt(Intervalo);
+                int UserID = ApiClient.obtenerUsuarioId(requireContext());
+                int MedID = -1;
+                if (getArguments() != null && getArguments().containsKey("idMedicamento")) {
+                    MedID = getArguments().getInt("idMedicamento");
+                }
+
+                rec.setCantidad(cantidad);
+                rec.setIntervalo(intervalo);
+                rec.setUserID(UserID);
+                rec.setMedicamentoID(MedID);
 
                 //mViewModel.evaluarChipSeleccionado(chipsId);
-                mViewModel.crearNuevoRecordatorio(cantidad, intervalo);
+                mViewModel.crearNuevoRecordatorio(rec);
 
             }
         });

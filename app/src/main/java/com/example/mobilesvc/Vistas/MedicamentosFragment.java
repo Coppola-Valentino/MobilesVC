@@ -32,12 +32,11 @@ public class MedicamentosFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(MedicamentosViewModel.class);
 
+        GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
+        binding.vMedicamentosList.setLayoutManager(glm);
+
         mViewModel.getMedicamentos().observe(getViewLifecycleOwner(), medicamentos -> {
             recetaAdapter = new MedicamentoAdapter(medicamentos,getContext(), getLayoutInflater());
-
-            GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL,false);
-
-            binding.vMedicamentosList.setLayoutManager(glm);
             binding.vMedicamentosList.setAdapter(recetaAdapter);
         });
 
@@ -58,8 +57,11 @@ public class MedicamentosFragment extends Fragment {
         });
 
         binding.vToMedicamentoCrear.setOnClickListener(v -> {
+            int idReceta = getArguments() != null ? getArguments().getInt("idReceta") : -1;
+            Bundle bundle = new Bundle();
+            bundle.putInt("idReceta", idReceta);
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_medicamentosFragment_to_medicamentoCrearFragment);
+                    .navigate(R.id.action_medicamentosFragment_to_medicamentoCrearFragment, bundle);
         });
 
         int idReceta = getArguments() != null ? getArguments().getInt("idReceta") : -1;

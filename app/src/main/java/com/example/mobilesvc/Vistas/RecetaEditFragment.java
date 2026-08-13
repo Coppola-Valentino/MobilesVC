@@ -37,7 +37,8 @@ public class RecetaEditFragment extends Fragment {
 
         vm.getReceta().observe(getViewLifecycleOwner(), m -> {
             if (m != null) {
-                b.vFechaEdit.setText(m.getFecha().toString());
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+                b.vFechaEdit.setText(dateFormat.format(m.getFecha()));
             }
         });
 
@@ -46,8 +47,7 @@ public class RecetaEditFragment extends Fragment {
         });
 
         vm.getDatosCambiados().observe(getViewLifecycleOwner(), result -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_recetaEditFragment_to_recetaFragment);
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
         });
 
 

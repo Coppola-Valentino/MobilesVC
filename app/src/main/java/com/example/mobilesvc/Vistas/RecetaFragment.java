@@ -16,6 +16,9 @@ import com.example.mobilesvc.Clases.Receta;
 import com.example.mobilesvc.databinding.RecetaViewBinding;
 import com.example.mobilesvc.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class RecetaFragment extends Fragment {
 
     private RecetaViewModel mViewModel;
@@ -29,8 +32,10 @@ public class RecetaFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(RecetaViewModel.class);
 
         mViewModel.getRecetaMutable().observe(getViewLifecycleOwner(), r -> {
-                binding.vFecha.setText(String.valueOf(r.getFecha()));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+            binding.vFecha.setText(dateFormat.format(r.getFecha()));
                 bundle.putSerializable("receta", r);
+                bundle.putInt("idReceta", r.getIDReceta());
 
         });
 

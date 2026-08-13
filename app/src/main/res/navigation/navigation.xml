@@ -55,8 +55,8 @@
         android:label="MedicamentoCrearFragment"
         tools:layout="@layout/medicamento_crear_view">
         <action
-            android:id="@+id/action_medicamentoCrearFragment_to_medicamentosFragment"
-            app:destination="@id/medicamentosFragment" />
+            android:id="@+id/action_medicamentoCrearFragment_to_medicamentoFragment"
+            app:destination="@id/medicamentoFragment" />
     </fragment>
     <fragment
         android:id="@+id/medicamentoEditFragment"

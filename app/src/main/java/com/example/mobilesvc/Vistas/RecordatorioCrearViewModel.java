@@ -48,17 +48,17 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
         }
         return recordatorioMutable;
     }
-    public void crearNuevoRecordatorio(int cantidad,int intervalo){
+    public void crearNuevoRecordatorio(Recordatorio rec){
 
         try {
-            if (cantidad == 0 || intervalo == 0) {
+            if (rec.getCantidad() == 0 || rec.getIntervalo() == 0) {
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
             }else{
-                Recordatorio nuevoRecordatorio = new Recordatorio();
-
-                nuevoRecordatorio.setCantidad(cantidad);
-                nuevoRecordatorio.setIntervalo(intervalo);
-                nuevoRecordatorio.setUserID(ApiClient.obtenerUsuarioId(context));
+//                Recordatorio nuevoRecordatorio = new Recordatorio();
+//
+//                nuevoRecordatorio.setCantidad(cantidad);
+//                nuevoRecordatorio.setIntervalo(intervalo);
+//                nuevoRecordatorio.setUserID(ApiClient.obtenerUsuarioId(context));
 
 //                String recordatorioJson = new Gson().toJson(nuevoRecordatorio);
 //                RequestBody recordatorioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), recordatorioJson);
@@ -68,7 +68,7 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
 
                   ApiClient.MiServicio servicio = ApiClient.getServicio();
                   String token = ApiClient.obtenerToken(getApplication());
-                  Call<Recordatorio> call = servicio.CrearRecordatorio(nuevoRecordatorio);
+                  Call<Recordatorio> call = servicio.CrearRecordatorio(rec);
 
                 call.enqueue(new Callback<Recordatorio>() {
                     @Override

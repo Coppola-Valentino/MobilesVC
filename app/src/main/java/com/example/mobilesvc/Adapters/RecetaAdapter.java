@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobilesvc.Clases.Receta;
 import com.example.mobilesvc.R;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaViewHolder> {
     private List<Receta> receta;
@@ -41,7 +43,8 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
     @Override
     public void onBindViewHolder(@NonNull RecetaViewHolder holder, int position) {
         Receta recetaActual = receta.get(position);
-        holder.fecha.setText(recetaActual.getFecha().toString());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+        holder.fecha.setText(dateFormat.format(recetaActual.getFecha()));
 
         holder.toReceta.setOnClickListener(v -> {
             Bundle bundle = new Bundle();

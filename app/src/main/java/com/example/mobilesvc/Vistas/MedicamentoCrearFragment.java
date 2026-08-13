@@ -18,6 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.text.ParseException;
 
+import com.example.mobilesvc.Api.ApiClient;
+import com.example.mobilesvc.Clases.Medicamento;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.MedicamentoCrearViewBinding;
 
@@ -35,20 +37,26 @@ public class MedicamentoCrearFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = MedicamentoCrearViewBinding.inflate(inflater, container, false);
         mViewModel = new ViewModelProvider(this).get(MedicamentoCrearViewModel.class);
-        int RecID = getArguments().getInt("idReceta");
 
         mViewModel.getMedicamentoMutable().observe(getViewLifecycleOwner(), medicamento -> {
             Bundle bundle = new Bundle();
             bundle.putInt("Medicamento ID", medicamento.getIDMedicamento());
+            bundle.putSerializable("medicamento", medicamento);
 
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_medicamentoCrearFragment_to_medicamentosFragment, bundle);
+                    .navigate(R.id.action_medicamentoCrearFragment_to_medicamentoFragment, bundle);
         });
 
 
         binding.vCrearMedicamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Medicamento med = new Medicamento();
+                int RecID = -1;
+                if (getArguments() != null && getArguments().containsKey("idReceta")) {
+                    RecID = getArguments().getInt("idReceta");
+                }
+                //int RecID = getArguments().getInt("idReceta");
                 String nombre = binding.vNombreMedicamentoCrear.getText().toString();
                 String Cantidad = binding.vCantidadMedicamentoCrear.getText().toString();
                 int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
@@ -57,8 +65,14 @@ public class MedicamentoCrearFragment extends Fragment {
                 String Dosis = binding.vDosisCrear.getText().toString();
                 double dosis = Dosis.isEmpty() ? 0 : Integer.parseInt(Dosis);
 
+                med.setNombre(nombre);
+                med.setCantidad(cantidad);
+                med.setRecID(RecID);
+                med.setDosis(dosis);
+                med.setIntervalo(intervalo);
+
                 //mViewModel.evaluarChipSeleccionado(chipsId);
-                mViewModel.crearNuevoMedicamento(nombre, cantidad, intervalo, dosis, RecID);
+                mViewModel.crearNuevoMedicamento(med);
 
             }
         });
