@@ -45,7 +45,7 @@ public class MedicamentoFragment extends Fragment {
 
         binding.vToMedicamentoEdit.setOnClickListener(v -> {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
+                    .navigate(R.id.action_medicamentoFragment_to_medicamentoEditFragment, bundle);
         });
 
         return binding.getRoot();

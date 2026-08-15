@@ -81,7 +81,7 @@ public class ApiClient {
 
         @PUT("api/Usuarios/editar")
         Call<Usuario> editarUsuario(@Header("Authorization") String token, @Body Usuario usuario);
-        @PUT("api/Medicamentos/editar")
+        @PUT("api/Medicamento/editar")
         Call<Medicamento> editarMedicamento(@Header("Authorization") String token, @Body Medicamento medicamento);
         @PUT("api/Receta/editar")
         Call<Receta> editarReceta(@Header("Authorization") String token, @Body Receta receta);

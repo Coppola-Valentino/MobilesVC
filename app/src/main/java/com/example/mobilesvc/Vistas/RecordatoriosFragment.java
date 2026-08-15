@@ -55,7 +55,8 @@ public class RecordatoriosFragment extends Fragment {
         //);
 
         binding.vVolverRecordatoriosList.setOnClickListener(v -> {
-            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_recordatoriosFragment_to_mainMenuFragment);
         });
 
         binding.vToRecordatorioCrear.setOnClickListener(v -> {

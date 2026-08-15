@@ -52,9 +52,9 @@ public class MedicamentoEditFragment extends Fragment {
             String Cantidad = b.vCantidadMedicamentoEdit.getText().toString();
             int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
             String Dosis = b.vDosisEdit.getText().toString();
-            double dosis = Dosis.isEmpty() ? 0 : Integer.parseInt(Dosis);
+            double dosis = Dosis.isEmpty() ? 0 : Double.parseDouble(Dosis);
             String Intervalo = b.vIntervaloMedicamentoEdit.getText().toString();
-            double intervalo = Intervalo.isEmpty() ? 0 : Integer.parseInt(Intervalo);
+            double intervalo = Intervalo.isEmpty() ? 0 : Double.parseDouble(Intervalo);
             vm.cambiarDatos(
                     b.vNombreMedicamentoEdit.getText().toString(),
                     cantidad,

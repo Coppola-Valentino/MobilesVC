@@ -178,6 +178,9 @@ app.put('/api/Recordatorio/editar', (req, res) => {
 app.put('/api/Receta/editar', (req, res) => {
     const receta = req.body;
     const id = receta.IDReceta;
+    if (receta.Fecha) {
+        receta.Fecha = new Date(receta.Fecha).toISOString().slice(0, 10);
+    }
 
     const { IDReceta, ...updateData } = receta;
 

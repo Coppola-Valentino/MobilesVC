@@ -64,7 +64,8 @@ public class RecetasFragment extends Fragment {
         //);
 
         binding.vVolverRecetas.setOnClickListener(v -> {
-            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_recetasFragment_to_mainMenuFragment);
         });
 
 //        binding.vToRecetasCrear.setOnClickListener(v -> {

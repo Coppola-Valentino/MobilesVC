@@ -45,14 +45,13 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/vToRecetaEdit"
             android:layout_width="370dp"
             android:layout_height="53dp"
-            android:layout_marginTop="48dp"
             android:layout_marginBottom="108dp"
             android:backgroundTint="#015A75"
             android:paddingVertical="14dp"
@@ -60,7 +59,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView

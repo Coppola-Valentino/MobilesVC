@@ -61,9 +61,9 @@ public class MedicamentoCrearFragment extends Fragment {
                 String Cantidad = binding.vCantidadMedicamentoCrear.getText().toString();
                 int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
                 String Intervalo = binding.vIntervaloMedicamentoCrear.getText().toString();
-                double intervalo = Intervalo.isEmpty() ? 0 : Integer.parseInt(Intervalo);
+                double intervalo = Intervalo.isEmpty() ? 0 : Double.parseDouble(Intervalo);
                 String Dosis = binding.vDosisCrear.getText().toString();
-                double dosis = Dosis.isEmpty() ? 0 : Integer.parseInt(Dosis);
+                double dosis = Dosis.isEmpty() ? 0 : Double.parseDouble(Dosis);
 
                 med.setNombre(nombre);
                 med.setCantidad(cantidad);

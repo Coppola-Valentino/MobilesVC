@@ -53,7 +53,8 @@ public class MedicamentosFragment extends Fragment {
         //);
 
         binding.vVolverMedicamentosList.setOnClickListener(v -> {
-            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_medicamentosFragment_to_mainMenuFragment);
         });
 
         binding.vToMedicamentoCrear.setOnClickListener(v -> {

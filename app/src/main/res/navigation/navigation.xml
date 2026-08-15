@@ -85,6 +85,9 @@
             android:id="@+id/action_medicamentosFragment_to_medicamentoCrearFragment"
             app:destination="@id/medicamentoCrearFragment" />
         <action
+            android:id="@+id/action_medicamentosFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+        <action
             android:id="@+id/action_medicamentosFragment_to_medicamentoFragment"
             app:destination="@id/medicamentoFragment" />
     </fragment>
@@ -126,9 +129,9 @@
         android:name="com.example.mobilesvc.Vistas.RecetasFragment"
         android:label="RecetasFragment"
         tools:layout="@layout/recetas_view">
-<!--        <action-->
-<!--            android:id="@+id/action_recetasFragment_to_recetaCrearFragment"-->
-<!--            app:destination="@id/recetaCrearFragment" />-->
+        <action
+            android:id="@+id/action_recetasFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
         <action
             android:id="@+id/action_recetasFragment_to_recetaFragment"
             app:destination="@id/recetaFragment" />
@@ -165,6 +168,9 @@
         android:name="com.example.mobilesvc.Vistas.RecordatoriosFragment"
         android:label="RecordatoriosFragment"
         tools:layout="@layout/recordatorios_view">
+        <action
+            android:id="@+id/action_recordatoriosFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
         <action
             android:id="@+id/action_recordatoriosFragment_to_recordatorioCrearFragment"
             app:destination="@id/recordatorioCrearFragment" />
