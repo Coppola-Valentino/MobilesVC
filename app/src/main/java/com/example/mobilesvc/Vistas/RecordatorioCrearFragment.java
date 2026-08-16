@@ -44,6 +44,7 @@ public class RecordatorioCrearFragment extends Fragment {
         mViewModel.getRecordatorioMutable().observe(getViewLifecycleOwner(), recordatorio -> {
             Bundle bundle = new Bundle();
             bundle.putInt("Recordatorio ID", recordatorio.getIDRec());
+            bundle.putInt("idUsuario", recordatorio.getUserID());
 
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_recordatorioCrearFragment_to_recordatoriosFragment, bundle);

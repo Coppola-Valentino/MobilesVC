@@ -73,6 +73,9 @@
         android:label="MedicamentoFragment"
         tools:layout="@layout/medicamento_view">
         <action
+            android:id="@+id/action_medicamentoFragment_to_recordatorioCrearFragment"
+            app:destination="@id/recordatorioCrearFragment" />
+        <action
             android:id="@+id/action_medicamentoFragment_to_medicamentoEditFragment"
             app:destination="@id/medicamentoEditFragment" />
     </fragment>

@@ -55,7 +55,7 @@ public class UsuarioCrearFragment extends Fragment {
                 String direccion = binding.vDireccionRegister.getText().toString();
                 String dni = binding.vDniRegister.getText().toString();
                 String email = binding.vEmailRegister.getText().toString();
-                String genero = binding.vGeneroRegister.getText().toString();
+                //String genero = binding.vGeneroRegister.getText().toString();
                 String Telefono = binding.vTelefonoRegister.getText().toString();
                 int telefono = Telefono.isEmpty() ? 0 : Integer.parseInt(Telefono);
                 String Edad = binding.vEdadRegister.getText().toString();
@@ -63,7 +63,8 @@ public class UsuarioCrearFragment extends Fragment {
 
                 //mViewModel.evaluarChipSeleccionado(chipsId);
                 mViewModel.crearNuevoUsuario(nombre, password, direccion, dni, email,
-                        genero, telefono, edad);
+                        //genero,
+                        telefono, edad);
 
             }
         });

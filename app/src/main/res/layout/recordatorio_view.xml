@@ -56,6 +56,7 @@
             android:fontFamily="sans-serif"
             android:text="Recordatorio"
             android:textColor="#000000"
+            android:textSize="34sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toTopOf="@+id/vCantidad"
             app:layout_constraintEnd_toEndOf="parent"

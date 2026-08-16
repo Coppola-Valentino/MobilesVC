@@ -47,11 +47,12 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
         return usuarioMutable;
     }
     public void crearNuevoUsuario(String nombre,String password,String direccion,String dni,String email,
-                                  String genero,int telefono,int edad){
+                                  int telefono,int edad){ //String Genero
 
         try {
             if (nombre.isBlank() || password.isEmpty() || direccion.isEmpty() || dni.isEmpty() ||
-                    email.isEmpty() || genero.isEmpty() || telefono == 0 || edad == 0) {
+                    email.isEmpty() || telefono == 0 || edad == 0) {
+                // generoisEmpty()
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
             }else{
                 Usuario nuevoUsuario = new Usuario();
@@ -60,7 +61,7 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
                 nuevoUsuario.setPassword(password);
                 nuevoUsuario.setDni(dni);
                 nuevoUsuario.setDireccion(direccion);
-                nuevoUsuario.setGenero(genero);
+                //nuevoUsuario.setGenero(genero);
                 nuevoUsuario.setEdad(edad);
                 nuevoUsuario.setEmail(email);
                 nuevoUsuario.setTelefono(telefono);

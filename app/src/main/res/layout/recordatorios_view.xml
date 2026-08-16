@@ -6,26 +6,11 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/vToRecordatorioCrear"
-        android:layout_width="370dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="76dp"
-        android:backgroundTint="#015A75"
-        android:paddingVertical="14dp"
-        android:text="Añadir Recordatorio"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/vVolverRecordatoriosList"
         android:layout_width="370dp"
         android:layout_height="53dp"
         android:layout_marginHorizontal="24dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#4E4E4E"
@@ -36,13 +21,12 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vToRecordatorioCrear" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vRecordatoriosList"
-        android:layout_width="384dp"
-        android:layout_height="576dp"
+        android:layout_width="387dp"
+        android:layout_height="644dp"
         android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

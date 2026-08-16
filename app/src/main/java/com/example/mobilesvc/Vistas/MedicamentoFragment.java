@@ -34,6 +34,7 @@ public class MedicamentoFragment extends Fragment {
                 binding.vIntervaloMedicamento.setText(String.valueOf(m.getIntervalo()));
                 binding.vDosis.setText(String.valueOf(m.getDosis()));
                 bundle.putSerializable("medicamento", m);
+                bundle.putInt("idMedicamento", m.getIDMedicamento());
 
         });
 
@@ -46,6 +47,11 @@ public class MedicamentoFragment extends Fragment {
         binding.vToMedicamentoEdit.setOnClickListener(v -> {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_medicamentoFragment_to_medicamentoEditFragment, bundle);
+        });
+
+        binding.vToRecordatorioCrear2.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_medicamentoFragment_to_recordatorioCrearFragment, bundle);
         });
 
         return binding.getRoot();

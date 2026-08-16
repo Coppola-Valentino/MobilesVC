@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mobilesvc.Adapters.RecordatorioAdapter;
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.databinding.LoginViewBinding;
 import com.example.mobilesvc.databinding.RecordatoriosViewBinding;
 import com.example.mobilesvc.Clases.Recordatorio;
@@ -59,12 +60,13 @@ public class RecordatoriosFragment extends Fragment {
                     .navigate(R.id.action_recordatoriosFragment_to_mainMenuFragment);
         });
 
-        binding.vToRecordatorioCrear.setOnClickListener(v -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_recordatoriosFragment_to_recordatorioCrearFragment);
-        });
+//        binding.vToRecordatorioCrear.setOnClickListener(v -> {
+//            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+//                    .navigate(R.id.action_recordatoriosFragment_to_recordatorioCrearFragment);
+//        });
 
-        int idUsuario = getArguments() != null ? getArguments().getInt("idUsuario") : -1;
+//        int idUsuario = getArguments() != null ? getArguments().getInt("idUsuario") : -1;
+        int idUsuario = ApiClient.obtenerUsuarioId(requireContext());
         mViewModel.cargarRecordatorios(idUsuario);
 
         return binding.getRoot();

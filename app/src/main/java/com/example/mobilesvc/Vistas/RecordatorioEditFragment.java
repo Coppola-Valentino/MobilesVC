@@ -36,8 +36,8 @@ public class RecordatorioEditFragment extends Fragment {
 
         vm.getRecordatorio().observe(getViewLifecycleOwner(), m -> {
             if (m != null) {
-                b.vCantidadEdit.setText(m.getCantidad());
-                b.vIntervaloEdit.setText(m.getIntervalo());
+                b.vCantidadEdit.setText(String.valueOf(m.getCantidad()));
+                b.vIntervaloEdit.setText(String.valueOf(m.getIntervalo()));
             }
         });
 
