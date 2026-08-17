@@ -18,7 +18,7 @@
             android:id="@+id/textView26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cantidad:"
+            android:text="Cantidad de Repeticiones:"
             android:textSize="10sp" />
 
         <TextView
@@ -47,20 +47,59 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/vToRecordatorio"
+        <TextView
+            android:id="@+id/textView44"
             android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#015A75"
-            android:paddingVertical="14dp"
-            android:text="Ver Mas"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.243"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etClave" />
+            android:layout_height="wrap_content"
+            android:text="Estado:"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/vEstadoCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="-"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/vToRecordatorio"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50sp"
+                android:backgroundTint="#015A75"
+                android:paddingVertical="14dp"
+                android:text="Ver Mas"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.243"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etClave" />
+
+            <Button
+                android:id="@+id/vCambiaEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#015A75"
+                android:paddingVertical="14dp"
+                android:text="Activar/Desactivar"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.243"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        </LinearLayout>
 
     </LinearLayout>
 

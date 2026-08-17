@@ -36,10 +36,11 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="172dp"
         android:hint="Intervalo (hrs)"
-        app:layout_constraintBottom_toTopOf="@+id/vCantidadEdit"
+        app:layout_constraintBottom_toTopOf="@+id/vEditRecordatorio"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -48,15 +49,16 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="67dp"
         android:hint="Cantidad de Repeticiones"
-        app:layout_constraintBottom_toTopOf="@+id/vEditRecordatorio"
+        app:layout_constraintBottom_toTopOf="@+id/vIntervaloEdit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/vEditRecordatorio"
-        android:layout_width="387dp"
+        android:layout_width="370dp"
         android:layout_height="64dp"
         android:layout_marginBottom="92dp"
         android:paddingVertical="14dp"
@@ -74,11 +76,13 @@
         android:layout_marginStart="97dp"
         android:layout_marginTop="58dp"
         android:layout_marginEnd="97dp"
+        android:layout_marginBottom="143dp"
         android:fontFamily="sans-serif"
         android:text="Editar Recordatorio"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/vCantidadEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -86,7 +90,7 @@
 
     <Button
         android:id="@+id/vVolverRecordatorioEdit"
-        android:layout_width="387dp"
+        android:layout_width="370dp"
         android:layout_height="53dp"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"

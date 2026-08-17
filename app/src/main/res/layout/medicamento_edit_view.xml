@@ -53,7 +53,7 @@
 
     <Button
         android:id="@+id/vEditMedicamento"
-        android:layout_width="387dp"
+        android:layout_width="370dp"
         android:layout_height="64dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="#000000"
@@ -110,7 +110,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/vNombreMedicamentoEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:textSize="26sp" />

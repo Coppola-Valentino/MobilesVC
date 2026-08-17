@@ -43,6 +43,7 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
         Recordatorio recordatorioActual = recordatorios.get(position);
         holder.cantidad.setText(String.valueOf(recordatorioActual.getCantidad()));
         holder.intervalo.setText(String.valueOf(recordatorioActual.getIntervalo()));
+        holder.estado.setText(String.valueOf(recordatorioActual.getEstado()));
 
         holder.toRecordatorio.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -60,12 +61,14 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
     public class RecordatorioViewHolder extends RecyclerView.ViewHolder {
         TextView cantidad;
         TextView intervalo;
+        TextView estado;
         Button toRecordatorio;
 
         public RecordatorioViewHolder(@NonNull View itemView) {
             super(itemView);
             cantidad = itemView.findViewById(R.id.vCantidadCard);
             intervalo = itemView.findViewById(R.id.vIntervaloCard);
+            estado = itemView.findViewById(R.id.vEstadoCard);
             toRecordatorio = itemView.findViewById(R.id.vToRecordatorio);
         }
     }

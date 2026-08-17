@@ -53,7 +53,7 @@
 
     <Button
         android:id="@+id/vVolverCrearRecordatorio"
-        android:layout_width="383dp"
+        android:layout_width="370dp"
         android:layout_height="53dp"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"
@@ -70,7 +70,7 @@
 
     <Button
         android:id="@+id/vCrearRecordatorio"
-        android:layout_width="387dp"
+        android:layout_width="370dp"
         android:layout_height="64dp"
         android:layout_marginBottom="84dp"
         android:backgroundTint="#2C6D01"

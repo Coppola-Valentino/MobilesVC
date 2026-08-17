@@ -70,6 +70,7 @@ public class RecordatorioCrearFragment extends Fragment {
                 rec.setIntervalo(intervalo);
                 rec.setUserID(UserID);
                 rec.setMedicamentoID(MedID);
+                rec.setEstado(1);
 
                 //mViewModel.evaluarChipSeleccionado(chipsId);
                 mViewModel.crearNuevoRecordatorio(rec);
