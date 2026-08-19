@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.mobilesvc.R;
@@ -37,7 +38,7 @@ public class UsuarioEditFragment extends Fragment {
         vm.getUsuario().observe(getViewLifecycleOwner(), m -> {
             if (m != null) {
                 b.vNombreEdit.setText(m.getNombre());
-                b.vPasswordEdit.setText(m.getPassword());
+//                b.vPasswordEdit.setText(m.getPassword());
                 b.vDireccionEdit.setText(m.getDireccion());
                 b.vDniEdit.setText(m.getDni());
                 b.vEdadEdit.setText(String.valueOf(m.getEdad()));
@@ -61,17 +62,31 @@ public class UsuarioEditFragment extends Fragment {
             int telefono = Telefono.isEmpty() ? 0 : Integer.parseInt(Telefono);
             String Edad = b.vEdadEdit.getText().toString();
             int edad = Edad.isEmpty() ? 0 : Integer.parseInt(Edad);
+            String rol = b.vRolEdit.getText().toString();
             vm.cambiarDatos(
                     edad,
                     telefono,
                     b.vNombreEdit.getText().toString(),
-                    b.vPasswordEdit.getText().toString(),
+//                    b.vPasswordEdit.getText().toString(),
                     b.vDireccionEdit.getText().toString(),
                     b.vGeneroEdit.getText().toString(),
                     b.vEmailEdit.getText().toString(),
-                    b.vDniEdit.getText().toString()
+                    b.vDniEdit.getText().toString(),
+                    rol
             );
         });
+
+        String[] roles = new String[] {"Paciente", "Medico", "Admin"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                roles
+        );
+
+        b.vRolEdit.setAdapter(adapter);
+
+        b.vRolEdit.setText(roles[0], false);
 
         b.vVolverUserEdit.setOnClickListener(v -> {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();

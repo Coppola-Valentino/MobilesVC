@@ -37,6 +37,7 @@ public class UsuarioFragment extends Fragment {
                 binding.vDni.setText(u.getDni());
                 binding.vGenero.setText(u.getGenero());
                 binding.vEdad.setText(String.valueOf(u.getEdad()));
+                binding.textRol.setText(u.getRol());
 
                 bundle.putSerializable("usuario", u);
         });

@@ -44,6 +44,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
         holder.nombre.setText(usuarioActual.getNombre());
         holder.telefono.setText(String.valueOf(usuarioActual.getTelefono()));
         holder.email.setText(usuarioActual.getEmail());
+        holder.rol.setText(usuarioActual.getRol());
 
         holder.toUser.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -63,12 +64,14 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
         TextView nombre;
         TextView email;
         TextView dni;
+        TextView rol;
         Button toUser;
 
         public UsuariosViewHolder(@NonNull View itemView) {
             super(itemView);
             telefono = itemView.findViewById(R.id.vTelefonoCard);
             nombre = itemView.findViewById(R.id.vNombreCard);
+            rol = itemView.findViewById(R.id.vRolCard);
             //dni = itemView.findViewById(R.id.vDniCard);
             email = itemView.findViewById(R.id.vEmailCard);
             toUser = itemView.findViewById(R.id.vToUsuario);

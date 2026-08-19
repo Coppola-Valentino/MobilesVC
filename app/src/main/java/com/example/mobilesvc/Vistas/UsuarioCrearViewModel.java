@@ -65,6 +65,7 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
                 nuevoUsuario.setEdad(edad);
                 nuevoUsuario.setEmail(email);
                 nuevoUsuario.setTelefono(telefono);
+                nuevoUsuario.setRol("Paciente");
 
 //                String usuarioJson = new Gson().toJson(nuevoUsuario);
 //                RequestBody usuarioBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), usuarioJson);

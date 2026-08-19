@@ -52,22 +52,23 @@ public class UsuarioEditViewModel extends AndroidViewModel {
             mUsuario.setValue((Usuario) bundle.getSerializable("usuario"));
         }
     }
-    public void cambiarDatos(int edad, int telefono, String nombre, String password, String direccion, String genero, String email, String dni) {
+    public void cambiarDatos(int edad, int telefono, String nombre, String direccion, String genero, String email, String dni, String rol) {
         Usuario current = mUsuario.getValue();
         if (current == null) return;
 
-        if (edad <= 0 || telefono <= 0 || nombre.isBlank() || password.isBlank() || direccion.isBlank() || genero.isBlank() || email.isBlank() || dni.isBlank()) {
+        if (edad <= 0 || telefono <= 0 || nombre.isBlank() || direccion.isBlank() || genero.isBlank() || email.isBlank() || dni.isBlank()) {
             mToastMessage.postValue("Todos los campos son obligatorios");
             return;
         }
         current.setEdad(edad);
         current.setTelefono(telefono);
         current.setNombre(nombre);
-        current.setPassword(password);
+//        current.setPassword(password);
         current.setDireccion(direccion);
         current.setGenero(genero);
         current.setEmail(email);
         current.setDni(dni);
+        current.setRol(rol);
 
         ApiClient.MiServicio servicio = ApiClient.getServicio();
         String token = ApiClient.obtenerToken(getApplication());

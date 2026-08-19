@@ -42,8 +42,8 @@ public class UsuarioCrearFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putInt("User ID", usuario.getIDUser());
 
-//            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-//                    .navigate(R.id.action_usuarioCrearFragment_to_usuariosFragment, bundle);
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main);
+                requireActivity().getOnBackPressedDispatcher().onBackPressed();
         });
 
 
