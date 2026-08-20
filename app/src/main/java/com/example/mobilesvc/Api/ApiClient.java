@@ -35,6 +35,12 @@ public class ApiClient {
     public static int obtenerUsuarioId(Context ctx) {
         return ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).getInt("UserID", -1);
     }
+    public static void guardarUsuarioRol(Context ctx, String rol) {
+        ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).edit().putString("Rol", rol).apply();
+    }
+    public static String obtenerUsuarioRol(Context ctx) {
+        return ctx.getSharedPreferences("user_prefs", Context.MODE_PRIVATE).getString("Rol", "Paciente");
+    }
     public static MiServicio getServicio() {
         Gson gson = new GsonBuilder().setLenient().create();
 

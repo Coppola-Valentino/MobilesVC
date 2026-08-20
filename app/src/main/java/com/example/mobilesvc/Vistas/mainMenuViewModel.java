@@ -55,6 +55,7 @@ public class mainMenuViewModel extends AndroidViewModel {
                     Usuario user = response.body();
                     mUsuario.postValue(user);
                     ApiClient.guardarUsuarioId(getApplication(), user.getIDUser());
+                    ApiClient.guardarUsuarioRol(getApplication(), user.getRol());
 
                     Log.d("LOG_PERFIL", "Propietario obtenido");
                     mUsuario.postValue(response.body());

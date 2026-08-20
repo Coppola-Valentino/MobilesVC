@@ -26,6 +26,9 @@
             android:id="@+id/action_mainMenuFragment_to_usuariosFragment"
             app:destination="@id/usuariosFragment" />
         <action
+            android:id="@+id/action_mainMenuFragment_to_usuarioFragment"
+            app:destination="@id/usuarioFragment" />
+        <action
             android:id="@+id/action_mainMenuFragment_to_recetasFragment"
             app:destination="@id/recetasFragment" />
         <action

@@ -8,6 +8,19 @@
     tools:layout_editor_absoluteY="186dp">
 
     <Button
+        android:id="@+id/vPerfil"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#575757"
+        android:paddingVertical="14dp"
+        android:text="Perfil"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/vRecordatorios"
         android:layout_width="370dp"
         android:layout_height="66dp"

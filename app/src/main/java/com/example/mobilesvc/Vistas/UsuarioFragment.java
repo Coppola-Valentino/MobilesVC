@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Clases.Usuario;
 import com.example.mobilesvc.databinding.UserViewBinding;
 import com.example.mobilesvc.R;
@@ -53,10 +54,16 @@ public class UsuarioFragment extends Fragment {
                     .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
         });
 
-        binding.vRecetar.setOnClickListener(v -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico") || ApiClient.obtenerUsuarioRol(requireContext()).equals("Admin")) {
+            binding.vRecetar.setVisibility(View.VISIBLE);
+            binding.vRecetar.setOnClickListener(v -> {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_usuarioFragment_to_recetaCrearFragment, bundle);
         });
+        } else {
+            binding.vRecetar.setVisibility(View.GONE);
+            binding.vRecetar.setClickable(false);
+        }
 
         return binding.getRoot();
     }
