@@ -56,8 +56,8 @@ public class UsuarioEditViewModel extends AndroidViewModel {
         Usuario current = mUsuario.getValue();
         if (current == null) return;
 
-        if (edad <= 0 || telefono <= 0 || nombre.isBlank() || direccion.isBlank() || genero.isBlank() || email.isBlank() || dni.isBlank()) {
-            mToastMessage.postValue("Todos los campos son obligatorios");
+        if (edad <= 0 || telefono <= 0 || nombre.isBlank() || email.isBlank() || dni.isBlank()) {
+            mToastMessage.postValue("Llenar campos obligatorios");
             return;
         }
         current.setEdad(edad);

@@ -50,7 +50,7 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
                                   int telefono,int edad){ //String Genero
 
         try {
-            if (nombre.isBlank() || password.isEmpty() || direccion.isEmpty() || dni.isEmpty() ||
+            if (nombre.isBlank() || password.isEmpty() || dni.isEmpty() ||
                     email.isEmpty() || telefono == 0 || edad == 0) {
                 // generoisEmpty()
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();

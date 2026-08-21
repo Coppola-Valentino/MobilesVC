@@ -7,9 +7,9 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="65dp"
+        android:layout_width="165dp"
         android:layout_height="22dp"
-        android:text="Edad:"
+        android:text="Edad: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vEdadEdit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,9 +51,9 @@
 
     <TextView
         android:id="@+id/textView36"
-        android:layout_width="65dp"
+        android:layout_width="165dp"
         android:layout_height="22dp"
-        android:text="Dni:"
+        android:text="Dni: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vDniEdit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,9 +62,9 @@
 
     <TextView
         android:id="@+id/textView35"
-        android:layout_width="65dp"
+        android:layout_width="165dp"
         android:layout_height="22dp"
-        android:text="Email:"
+        android:text="Email: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vEmailEdit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,9 +73,9 @@
 
     <TextView
         android:id="@+id/textView30"
-        android:layout_width="90dp"
+        android:layout_width="165dp"
         android:layout_height="22dp"
-        android:text="Telefono:"
+        android:text="Telefono: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vTelefonoEdit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,9 +95,9 @@
 
     <TextView
         android:id="@+id/textView28"
-        android:layout_width="65dp"
+        android:layout_width="165dp"
         android:layout_height="22dp"
-        android:text="Nombre:"
+        android:text="Nombre: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vNombreEdit"
         app:layout_constraintEnd_toEndOf="parent"

@@ -7,9 +7,9 @@
 
     <TextView
         android:id="@+id/textView45"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="22dp"
-        android:text="Edad:"
+        android:text="Edad:(Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vEdadRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,9 +18,9 @@
 
     <TextView
         android:id="@+id/textView43"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="22dp"
-        android:text="Dni:"
+        android:text="Dni: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vDniRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,9 +29,9 @@
 
     <TextView
         android:id="@+id/textView42"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="22dp"
-        android:text="Email:"
+        android:text="Email: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vEmailRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,9 +40,9 @@
 
     <TextView
         android:id="@+id/textView41"
-        android:layout_width="100dp"
+        android:layout_width="170dp"
         android:layout_height="22dp"
-        android:text="Telefono:"
+        android:text="Telefono: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vTelefonoRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,9 +62,9 @@
 
     <TextView
         android:id="@+id/textView39"
-        android:layout_width="100dp"
+        android:layout_width="180dp"
         android:layout_height="22dp"
-        android:text="Contraseña:"
+        android:text="Contraseña: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vPasswordRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,9 +73,9 @@
 
     <TextView
         android:id="@+id/textView24"
-        android:layout_width="65dp"
+        android:layout_width="165dp"
         android:layout_height="22dp"
-        android:text="Nombre:"
+        android:text="Nombre: (Obligatorio)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vNombreRegister"
         app:layout_constraintEnd_toEndOf="parent"

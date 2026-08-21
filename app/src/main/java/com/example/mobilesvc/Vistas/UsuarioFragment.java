@@ -41,6 +41,14 @@ public class UsuarioFragment extends Fragment {
                 binding.textRol.setText(u.getRol());
 
                 bundle.putSerializable("usuario", u);
+                int usId = ApiClient.obtenerUsuarioId(requireContext());
+                if (usId ==  u.getIDUser()|| ApiClient.obtenerUsuarioRol(requireContext()).equals("Admin")) {
+                    binding.vToEditUsuario.setVisibility(View.VISIBLE);
+                } else {
+                    binding.vToEditUsuario.setVisibility(View.GONE);
+                    binding.vToEditUsuario.setClickable(false);
+                }
+
         });
 
         mViewModel.cargarUsuario(getArguments());
@@ -54,7 +62,7 @@ public class UsuarioFragment extends Fragment {
                     .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
         });
 
-        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico") || ApiClient.obtenerUsuarioRol(requireContext()).equals("Admin")) {
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")) {
             binding.vRecetar.setVisibility(View.VISIBLE);
             binding.vRecetar.setOnClickListener(v -> {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.UserEditViewBinding;
 
@@ -45,8 +46,36 @@ public class UsuarioEditFragment extends Fragment {
                 b.vTelefonoEdit.setText(String.valueOf(m.getTelefono()));
                 b.vGeneroEdit.setText(m.getGenero());
                 b.vEmailEdit.setText(m.getEmail());
+                String[] roles = new String[] {"Paciente", "Medico", "Admin"};
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                        requireContext(),
+                        android.R.layout.simple_dropdown_item_1line,
+                        roles
+                );
+
+                b.vRolEdit.setAdapter(adapter);
+                switch(m.getRol()){
+                        case "Admin":
+                            b.vRolEdit.setText(roles[2], false);
+                            break;
+                        case "Medico":
+                            b.vRolEdit.setText(roles[1], false);
+                            break;
+                        case "Paciente":
+                            b.vRolEdit.setText(roles[0], false);
+                            break;
+                }
+
             }
         });
+
+        if(ApiClient.obtenerUsuarioRol(requireContext()).equals("Paciente") ||ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")){
+            b.vRolEdit.setVisibility(View.GONE);
+            b.textInputLayout.setVisibility(View.GONE);
+            b.vRolEdit.setClickable(false);
+            b.textInputLayout.setClickable(false);
+        }
 
         vm.getToastMessage().observe(getViewLifecycleOwner(), message -> {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
@@ -75,18 +104,6 @@ public class UsuarioEditFragment extends Fragment {
                     rol
             );
         });
-
-        String[] roles = new String[] {"Paciente", "Medico", "Admin"};
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                requireContext(),
-                android.R.layout.simple_dropdown_item_1line,
-                roles
-        );
-
-        b.vRolEdit.setAdapter(adapter);
-
-        b.vRolEdit.setText(roles[0], false);
 
         b.vVolverUserEdit.setOnClickListener(v -> {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();
