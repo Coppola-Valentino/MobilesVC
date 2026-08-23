@@ -62,6 +62,11 @@ public class UsuarioFragment extends Fragment {
                     .navigate(R.id.action_usuarioFragment_to_usuarioEditFragment, bundle);
         });
 
+        binding.vToEditPass.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_usuarioFragment_to_usuarioPassFragment, bundle);
+        });
+
         if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")) {
             binding.vRecetar.setVisibility(View.VISIBLE);
             binding.vRecetar.setOnClickListener(v -> {

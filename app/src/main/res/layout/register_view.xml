@@ -159,7 +159,8 @@
         android:hint="Contraseña"
         app:layout_constraintBottom_toTopOf="@+id/vDireccionRegister"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:inputType="textPassword" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vNombreRegister"

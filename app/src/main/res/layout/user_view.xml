@@ -11,6 +11,19 @@
         tools:layout_editor_absoluteX="-40dp"
         tools:layout_editor_absoluteY="0dp">
 
+        <Button
+            android:id="@+id/vToEditPass"
+            android:layout_width="370dp"
+            android:layout_height="54dp"
+            android:backgroundTint="#015A75"
+            android:paddingVertical="14dp"
+            android:text="Cambiar Contraseña"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vToEditUsuario"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vEdad" />
+
         <TextView
             android:id="@+id/textView70"
             android:layout_width="wrap_content"

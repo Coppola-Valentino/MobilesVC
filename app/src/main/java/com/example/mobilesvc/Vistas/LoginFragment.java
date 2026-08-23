@@ -62,6 +62,10 @@ public class LoginFragment extends Fragment {
             Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_usuarioCrearFragment);
         });
 
+//        b.vToCambiarPass.setOnClickListener(v -> {
+//            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_usuarioPassFragment);
+//        });
+
         return b.getRoot();
     }
 

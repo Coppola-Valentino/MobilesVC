@@ -208,6 +208,9 @@
         android:label="UsuarioFragment"
         tools:layout="@layout/user_view">
         <action
+            android:id="@+id/action_usuarioFragment_to_usuarioPassFragment"
+            app:destination="@id/usuarioPassFragment" />
+        <action
             android:id="@+id/action_usuarioFragment_to_usuarioEditFragment"
             app:destination="@id/usuarioEditFragment" />
         <action
@@ -223,4 +226,9 @@
             android:id="@+id/action_usuariosFragment_to_usuarioFragment"
             app:destination="@id/usuarioFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/usuarioPassFragment"
+        android:name="com.example.mobilesvc.Vistas.UsuarioPassFragment"
+        android:label="UsuarioPassFragment"
+        tools:layout="@layout/user_pass_view"/>
 </navigation>
