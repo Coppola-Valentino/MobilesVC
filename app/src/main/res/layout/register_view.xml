@@ -157,6 +157,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="30dp"
         android:hint="Contraseña"
+        android:inputType="text|textPassword"
         app:layout_constraintBottom_toTopOf="@+id/vDireccionRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

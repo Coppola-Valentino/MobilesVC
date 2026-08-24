@@ -46,16 +46,17 @@ public class UsuarioEditFragment extends Fragment {
                 b.vTelefonoEdit.setText(String.valueOf(m.getTelefono()));
                 b.vGeneroEdit.setText(m.getGenero());
                 b.vEmailEdit.setText(m.getEmail());
-                String[] roles = new String[] {"Paciente", "Medico", "Admin"};
+                if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Admin")) {
+                    String[] roles = new String[]{"Paciente", "Medico", "Admin"};
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                        requireContext(),
-                        android.R.layout.simple_dropdown_item_1line,
-                        roles
-                );
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                            requireContext(),
+                            android.R.layout.simple_dropdown_item_1line,
+                            roles
+                    );
 
-                b.vRolEdit.setAdapter(adapter);
-                switch(m.getRol()){
+                    b.vRolEdit.setAdapter(adapter);
+                    switch (m.getRol()) {
                         case "Admin":
                             b.vRolEdit.setText(roles[2], false);
                             break;
@@ -65,6 +66,12 @@ public class UsuarioEditFragment extends Fragment {
                         case "Paciente":
                             b.vRolEdit.setText(roles[0], false);
                             break;
+                    }
+                } else {
+                    b.vRolEdit.setVisibility(View.GONE);
+                    b.textInputLayout.setVisibility(View.GONE);
+                    b.vRolEdit.setClickable(false);
+                    b.textInputLayout.setClickable(false);
                 }
 
             }

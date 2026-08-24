@@ -42,7 +42,7 @@ public class UsuarioPassFragment extends Fragment {
                 if(m.getPassword().equals(b.vActPass.getText().toString())) {
                     vm.cambiarPass(b.vActPass.getText().toString(), b.vPass1.getText().toString(), b.vPass2.getText().toString());
                 } else {
-                    b.vActPass.setText("");
+                    b.vActPass.setText("Contraseña Incorrecta");
                 }
             });
         });
