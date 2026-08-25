@@ -141,6 +141,9 @@
         <action
             android:id="@+id/action_recetasFragment_to_recetaFragment"
             app:destination="@id/recetaFragment" />
+        <action
+            android:id="@+id/action_recetasFragment_to_recetaCrearFragment"
+            app:destination="@id/recetaCrearFragment" />
     </fragment>
     <fragment
         android:id="@+id/recordatorioCrearFragment"
@@ -214,8 +217,8 @@
             android:id="@+id/action_usuarioFragment_to_usuarioEditFragment"
             app:destination="@id/usuarioEditFragment" />
         <action
-            android:id="@+id/action_usuarioFragment_to_recetaCrearFragment"
-            app:destination="@id/recetaCrearFragment" />
+            android:id="@+id/action_usuarioFragment_to_recetasFragment"
+            app:destination="@id/recetasFragment" />
     </fragment>
     <fragment
         android:id="@+id/usuariosFragment"

@@ -85,20 +85,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etClave" />
 
-            <Button
-                android:id="@+id/vCambiaEstado"
-                android:layout_width="wrap_content"
-                android:layout_height="53dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#015A75"
-                android:paddingVertical="14dp"
-                android:text="Activar/Desactivar"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.243"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etClave" />
         </LinearLayout>
 
     </LinearLayout>

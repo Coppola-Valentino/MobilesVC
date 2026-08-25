@@ -1,5 +1,7 @@
 package com.example.mobilesvc.Adapters;
 
+import static androidx.lifecycle.AndroidViewModel_androidKt.getApplication;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.R;
 
@@ -43,7 +46,11 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
         Recordatorio recordatorioActual = recordatorios.get(position);
         holder.cantidad.setText(String.valueOf(recordatorioActual.getCantidad()));
         holder.intervalo.setText(String.valueOf(recordatorioActual.getIntervalo()));
-        holder.estado.setText(String.valueOf(recordatorioActual.getEstado()));
+        if(recordatorioActual.getEstado() == 1){
+            holder.estado.setText("Activado");
+        } else {
+            holder.estado.setText("Desactivado");
+        }
 
         holder.toRecordatorio.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -51,6 +58,12 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
             Navigation.findNavController(v)
                     .navigate(R.id.action_recordatoriosFragment_to_recordatorioFragment, bundle);
         });
+
+//        holder.cambiaEstado.setOnClickListener(v -> { idea horrible
+//            ApiClient.MiServicio servicio = ApiClient.getServicio();
+//            String token = ApiClient.obtenerToken(getApplication());
+//            servicio.editarRecordatorio()
+//        });
     }
 
     @Override
@@ -63,6 +76,7 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
         TextView intervalo;
         TextView estado;
         Button toRecordatorio;
+        //Button cambiaEstado;
 
         public RecordatorioViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,6 +84,7 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
             intervalo = itemView.findViewById(R.id.vIntervaloCard);
             estado = itemView.findViewById(R.id.vEstadoCard);
             toRecordatorio = itemView.findViewById(R.id.vToRecordatorio);
+            //cambiaEstado = itemView.findViewById(R.id.vCambiaEstado);
         }
     }
 }

@@ -52,7 +52,7 @@ public class RecordatorioEditViewModel extends AndroidViewModel {
             mRecordatorio.setValue((Recordatorio) bundle.getSerializable("recordatorio"));
         }
     }
-    public void cambiarDatos(int intervalo, int cantidad) {
+    public void cambiarDatos(int intervalo, int cantidad, int estado) {
         Recordatorio current = mRecordatorio.getValue();
         if (current == null) return;
 
@@ -62,6 +62,7 @@ public class RecordatorioEditViewModel extends AndroidViewModel {
         }
         current.setIntervalo(intervalo);
         current.setCantidad(cantidad);
+        current.setEstado(estado);
 
         ApiClient.MiServicio servicio = ApiClient.getServicio();
         String token = ApiClient.obtenerToken(getApplication());

@@ -36,6 +36,7 @@ public class RecetaFragment extends Fragment {
             binding.vFecha.setText(dateFormat.format(r.getFecha()));
                 bundle.putSerializable("receta", r);
                 bundle.putInt("idReceta", r.getIDReceta());
+                bundle.putInt("idUsuario", r.getPacID());
 
         });
 
@@ -43,7 +44,7 @@ public class RecetaFragment extends Fragment {
 
         binding.vVolverReceta.setOnClickListener(v -> {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_recetaFragment_to_recetasFragment);
+                    .navigate(R.id.action_recetaFragment_to_recetasFragment, bundle);
         });
 
         binding.vToRecetaEdit.setOnClickListener(v -> {

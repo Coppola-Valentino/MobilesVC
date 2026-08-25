@@ -9,15 +9,12 @@
         android:id="@+id/textView49"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:layout_marginTop="296dp"
         android:text="Cantidad de Repeticiones:"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vCantidadEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView48"
@@ -36,9 +33,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="45dp"
         android:hint="Intervalo (hrs)"
-        app:layout_constraintBottom_toTopOf="@+id/vEditRecordatorio"
+        app:layout_constraintBottom_toTopOf="@+id/vEditEstado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -53,7 +50,7 @@
         android:hint="Cantidad de Repeticiones"
         app:layout_constraintBottom_toTopOf="@+id/vIntervaloEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -104,5 +101,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/vEditEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="112dp"
+        android:text="Activar"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/vEditRecordatorio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:textSize="20sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,7 @@ public class mainMenuFragment extends Fragment {
             if (usuario != null) {
                 binding.vCurrentUser.setText(usuario.getNombre());
                 bundle.putSerializable("usuario", usuario);
+                bundle.putInt("idUsuario", usuario.getIDUser());
             }
         });
 
@@ -47,7 +48,7 @@ public class mainMenuFragment extends Fragment {
         });
 
         binding.vRecetas.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_recetasFragment);
+            Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_recetasFragment, bundle);
         });
 
         binding.vRecordatorios.setOnClickListener(v -> {

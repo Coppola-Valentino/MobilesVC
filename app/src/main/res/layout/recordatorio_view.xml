@@ -10,6 +10,29 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/vEstado"
+            android:layout_width="364dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="152dp"
+            android:text="Estado"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/vToEditRecordatorio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="100dp"
+            android:layout_height="22dp"
+            android:text="Estado:"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/vEstado"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.061"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
             android:id="@+id/textView46"
             android:layout_width="200dp"
             android:layout_height="22dp"
@@ -24,10 +47,10 @@
             android:id="@+id/vIntervalo"
             android:layout_width="364dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="241dp"
+            android:layout_marginBottom="45dp"
             android:text="Intervalo"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/vToEditRecordatorio"
+            app:layout_constraintBottom_toTopOf="@+id/vEstado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

@@ -41,12 +41,16 @@ public class UsuarioFragment extends Fragment {
                 binding.textRol.setText(u.getRol());
 
                 bundle.putSerializable("usuario", u);
+                bundle.putInt("idUsuario", u.getIDUser());
                 int usId = ApiClient.obtenerUsuarioId(requireContext());
                 if (usId ==  u.getIDUser()|| ApiClient.obtenerUsuarioRol(requireContext()).equals("Admin")) {
                     binding.vToEditUsuario.setVisibility(View.VISIBLE);
+                    binding.vToEditPass.setVisibility(View.VISIBLE);
                 } else {
                     binding.vToEditUsuario.setVisibility(View.GONE);
                     binding.vToEditUsuario.setClickable(false);
+                    binding.vToEditPass.setVisibility(View.GONE);
+                    binding.vToEditPass.setClickable(false);
                 }
 
         });
@@ -68,14 +72,14 @@ public class UsuarioFragment extends Fragment {
         });
 
         if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")) {
-            binding.vRecetar.setVisibility(View.VISIBLE);
-            binding.vRecetar.setOnClickListener(v -> {
+            binding.vToRecetas.setVisibility(View.VISIBLE);
+            binding.vToRecetas.setOnClickListener(v -> {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_usuarioFragment_to_recetaCrearFragment, bundle);
+                    .navigate(R.id.action_usuarioFragment_to_recetasFragment, bundle);
         });
         } else {
-            binding.vRecetar.setVisibility(View.GONE);
-            binding.vRecetar.setClickable(false);
+            binding.vToRecetas.setVisibility(View.GONE);
+            binding.vToRecetas.setClickable(false);
         }
 
         return binding.getRoot();

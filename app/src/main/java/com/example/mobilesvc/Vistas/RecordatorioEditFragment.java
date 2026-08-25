@@ -38,6 +38,12 @@ public class RecordatorioEditFragment extends Fragment {
             if (m != null) {
                 b.vCantidadEdit.setText(String.valueOf(m.getCantidad()));
                 b.vIntervaloEdit.setText(String.valueOf(m.getIntervalo()));
+                if (m.getEstado() == 1){
+                    b.vEditEstado.setChecked(true);
+                } else {
+                    b.vEditEstado.setChecked(false);
+                }
+
             }
         });
 
@@ -55,9 +61,16 @@ public class RecordatorioEditFragment extends Fragment {
             int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
             String Intervalo = b.vIntervaloEdit.getText().toString();
             int intervalo = Intervalo.isEmpty() ? 0 : Integer.parseInt(Intervalo);
+            int estado;
+            if (b.vEditEstado.isChecked()){
+                estado = 1;
+            } else {
+                estado = 0;
+            }
             vm.cambiarDatos(
                     intervalo,
-                    cantidad
+                    cantidad,
+                    estado
             );
         });
 

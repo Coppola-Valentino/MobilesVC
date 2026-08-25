@@ -56,10 +56,11 @@ public class RecetaCrearFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int MedID = ApiClient.obtenerUsuarioId(requireContext());
-                mViewModel.cargarUsuario(getArguments());
+                //mViewModel.cargarUsuario(getArguments());
                 Receta nueva = new Receta();
                 nueva.setMedID(MedID);
-                nueva.setPacID(mViewModel.getUsuario().getValue().getIDUser());
+//                nueva.setPacID(mViewModel.getUsuario().getValue().getIDUser());
+                nueva.setPacID(getArguments().getInt("idUsuario", -1));
 
                 String fechaString = binding.vFechaCrear.getText().toString();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());

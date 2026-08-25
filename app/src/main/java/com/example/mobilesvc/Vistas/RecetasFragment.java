@@ -41,12 +41,14 @@ public class RecetasFragment extends Fragment {
 
             binding.vRecetasList.setAdapter(recetaAdapter);
         });
-
+        Bundle bundle = new Bundle();
         int idUsuario = -1;
         if (getArguments() != null && getArguments().containsKey("idUsuario")) {
             idUsuario = getArguments().getInt("idUsuario");
+            bundle.putInt("idUsuario", idUsuario);
         } else {
             idUsuario = ApiClient.obtenerUsuarioId(requireContext());
+            bundle.putInt("idUsuario", idUsuario);
         }
 
         mViewModel.cargarRecetas(idUsuario);
@@ -54,6 +56,18 @@ public class RecetasFragment extends Fragment {
         mViewModel.getToastMessage().observe(getViewLifecycleOwner(), message -> {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         });
+
+        //String rl = ApiClient.obtenerUsuarioRol(requireContext());
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")) {
+            binding.vRecetar.setVisibility(View.VISIBLE);
+            binding.vRecetar.setOnClickListener(v -> {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                        .navigate(R.id.action_recetasFragment_to_recetaCrearFragment, bundle);
+            });
+        } else {
+            binding.vRecetar.setVisibility(View.GONE);
+            binding.vRecetar.setClickable(false);
+        }
 
         //mViewModel.getMessage().observe(getViewLifecycleOwner(), message -> {
         //    binding.vMensajeCargandoRecordatorios.setText(message);

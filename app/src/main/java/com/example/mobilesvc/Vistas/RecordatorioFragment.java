@@ -30,8 +30,14 @@ public class RecordatorioFragment extends Fragment {
         mViewModel.getRecordatorioMutable().observe(getViewLifecycleOwner(), r -> {
                 binding.vCantidad.setText(String.valueOf(r.getCantidad()));
                 binding.vIntervalo.setText(String.valueOf(r.getIntervalo()));
+                if (r.getEstado() == 1){
+                    binding.vEstado.setText("Activado");
+                } else {
+                    binding.vEstado.setText("Desactivado");
+                }
 
-                bundle.putSerializable("recordatorio", r);
+
+            bundle.putSerializable("recordatorio", r);
 
         });
 

@@ -6,6 +6,19 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/vRecetar"
+        android:layout_width="370dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="14dp"
+        android:backgroundTint="#015A75"
+        android:paddingVertical="14dp"
+        android:text="Recetar"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/vVolverRecetas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/vVolverRecetas"
         android:layout_width="370dp"
         android:layout_height="53dp"
@@ -25,12 +38,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vRecetasList"
-        android:layout_width="384dp"
-        android:layout_height="636dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/vVolverRecetas"
+        android:layout_width="387dp"
+        android:layout_height="700dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/vRecetar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
