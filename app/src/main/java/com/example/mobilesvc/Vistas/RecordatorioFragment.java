@@ -15,7 +15,7 @@ import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.databinding.RecordatorioViewBinding;
 import com.example.mobilesvc.R;
 
-public class RecordatorioFragment extends Fragment {
+public class RecordatorioFragment extends Fragment { //creo que solo queda lo del recordatorio(hacerlo funcionar)
 
     private RecordatorioViewModel mViewModel;
     private RecordatorioViewBinding binding;
@@ -35,7 +35,6 @@ public class RecordatorioFragment extends Fragment {
                 } else {
                     binding.vEstado.setText("Desactivado");
                 }
-
 
             bundle.putSerializable("recordatorio", r);
 

@@ -1,7 +1,11 @@
 package com.example.mobilesvc.Vistas;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,6 +20,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mobilesvc.Api.AlarmReceiver;
 import com.google.gson.Gson;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.Clases.Recordatorio;
@@ -51,7 +56,7 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
     public void crearNuevoRecordatorio(Recordatorio rec){
 
         try {
-            if (rec.getCantidad() == 0 || rec.getIntervalo() == 0) {
+            if (rec.getCantidad() == 0 || rec.getIntervalo() == null) {
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
             }else{
 //                Recordatorio nuevoRecordatorio = new Recordatorio();
@@ -70,17 +75,34 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
                   String token = ApiClient.obtenerToken(getApplication());
                   Call<Recordatorio> call = servicio.CrearRecordatorio(rec);
 
+
                 call.enqueue(new Callback<Recordatorio>() {
                     @Override
                     public void onResponse(Call<Recordatorio> call, Response<Recordatorio> response) {
                         if (response.isSuccessful()) {
                             recordatorioMutable.postValue(response.body());
+                            Recordatorio rec = response.body();
+                            startAlarm(getApplication(), rec);
                             Toast.makeText(getApplication(), "recordatorio creado", Toast.LENGTH_LONG).show();
                         }else {
                             Toast.makeText(getApplication(), "Error al crear el recordatorio", Toast.LENGTH_LONG).show();
                         }
                     }
+                    @SuppressLint("ScheduleExactAlarm")
+                    private void startAlarm(Context context, Recordatorio rec) {
+                        AlarmManager alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
+                        Intent intent = new Intent(context, AlarmReceiver.class);
+                        intent.putExtra("Recordatorio", rec);
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                                context, rec.getIDRec(), intent,
+                                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
+                        long triggerAt = System.currentTimeMillis() + rec.getIntervaloTime();
+
+                        if (alarmManager != null) {
+                            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent);
+                        }
+                    }
                     @Override
                     public void onFailure(Call<Recordatorio> call, Throwable t) {
                         Log.e("LOGIN_FAILURE", t.getMessage(), t);
