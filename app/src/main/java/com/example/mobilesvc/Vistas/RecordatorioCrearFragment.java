@@ -27,6 +27,15 @@ import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.RecordatorioCrearViewBinding;
+import com.google.android.material.timepicker.TimeFormat;
+
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.SimpleTimeZone;
 
 public class RecordatorioCrearFragment extends Fragment {
 
@@ -59,7 +68,7 @@ public class RecordatorioCrearFragment extends Fragment {
                 String Cantidad = binding.vCantidadCrear.getText().toString();
                 int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
                 String Intervalo = binding.vIntervaloCrear.getText().toString();
-                int intervalo = Intervalo.isEmpty() ? 0 : Integer.parseInt(Intervalo);
+                //Time intervalo = Intervalo.isEmpty() ? null : Time.valueOf(Intervalo);
                 int UserID = ApiClient.obtenerUsuarioId(requireContext());
                 int MedID = -1;
                 if (getArguments() != null && getArguments().containsKey("idMedicamento")) {
@@ -67,13 +76,19 @@ public class RecordatorioCrearFragment extends Fragment {
                 }
 
                 rec.setCantidad(cantidad);
-                rec.setIntervalo(intervalo);
+                rec.setIntervalo(binding.vIntervaloCrear.getText().toString());
+                //arreglar el cambio de int a time, testear, poder deshabilitar/cambiar alarma con edit
                 rec.setUserID(UserID);
                 rec.setMedicamentoID(MedID);
                 rec.setEstado(1);
-
                 //mViewModel.evaluarChipSeleccionado(chipsId);
-                mViewModel.crearNuevoRecordatorio(rec);
+                SimpleDateFormat a = new SimpleDateFormat("hh:mm:dd", Locale.getDefault());;
+                try {
+                    a.parse(Intervalo);
+                    mViewModel.crearNuevoRecordatorio(rec);
+                }catch(ParseException e){
+                    binding.vIntervaloCrear.setError("Formato inválido (usar hh:mm:ss)");
+                }
 
             }
         });

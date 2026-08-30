@@ -6,9 +6,9 @@ import java.util.Calendar;
 
 public class Recordatorio implements Serializable {
     private int IDRec, UserID, MedicamentoID, Cantidad, Estado;
-    private Time Intervalo;
+    private String Intervalo;
     public Recordatorio() {}
-    public Recordatorio(int IDRec, int UserID, int MedicamentoID, int cantidad, Time intervalo, int estado) {
+    public Recordatorio(int IDRec, int UserID, int MedicamentoID, int cantidad, String intervalo, int estado) {
         this.IDRec = IDRec;
         this.UserID = UserID;
         this.MedicamentoID = MedicamentoID;
@@ -41,10 +41,10 @@ public class Recordatorio implements Serializable {
     public void setCantidad(int cantidad) {
         this.Cantidad = cantidad;
     }
-    public Time getIntervalo() {
+    public String getIntervalo() {
         return Intervalo;
     }
-    public void setIntervalo(Time intervalo) {
+    public void setIntervalo(String intervalo) {
         this.Intervalo = intervalo;
     }
     public int getEstado() {
@@ -59,7 +59,7 @@ public class Recordatorio implements Serializable {
             return null;
         }
         Calendar cal = Calendar.getInstance();
-        cal.setTime(this.Intervalo);
+        cal.setTime(Time.valueOf(this.Intervalo));
 
         int hours = cal.get(Calendar.HOUR_OF_DAY);
         int minutes = cal.get(Calendar.MINUTE);

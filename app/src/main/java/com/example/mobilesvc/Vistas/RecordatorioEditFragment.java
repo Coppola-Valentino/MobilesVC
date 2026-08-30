@@ -16,7 +16,11 @@ import android.widget.Toast;
 
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.RecordatorioEditViewBinding;
+import com.google.android.material.timepicker.TimeFormat;
 
+import java.sql.Time;
+import java.text.Format;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -60,18 +64,25 @@ public class RecordatorioEditFragment extends Fragment {
             String Cantidad = b.vCantidadEdit.getText().toString();
             int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
             String Intervalo = b.vIntervaloEdit.getText().toString();
-            int intervalo = Intervalo.isEmpty() ? 0 : Integer.parseInt(Intervalo);
+            //Time intervalo = Intervalo.isEmpty() ? null : Time.valueOf(Intervalo);
             int estado;
             if (b.vEditEstado.isChecked()){
                 estado = 1;
             } else {
                 estado = 0;
             }
-            vm.cambiarDatos(
-                    intervalo,
-                    cantidad,
-                    estado
-            );
+
+            SimpleDateFormat a = new SimpleDateFormat("hh:mm:dd", Locale.getDefault());
+            try {
+                a.parseObject(Intervalo);
+                vm.cambiarDatos(
+                        b.vIntervaloEdit.getText().toString(),
+                        cantidad,
+                        estado
+                );
+            }catch(ParseException e){
+                b.vIntervaloEdit.setError("Formato inválido (usar hh:mm:ss)");
+            }
         });
 
         b.vVolverRecordatorioEdit.setOnClickListener(v -> {

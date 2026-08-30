@@ -92,7 +92,7 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
                     private void startAlarm(Context context, Recordatorio rec) {
                         AlarmManager alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
                         Intent intent = new Intent(context, AlarmReceiver.class);
-                        intent.putExtra("Recordatorio", rec);
+                        intent.putExtra("recordatorio", rec);
                         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                                 context, rec.getIDRec(), intent,
                                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);

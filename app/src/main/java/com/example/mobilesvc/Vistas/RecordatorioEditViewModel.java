@@ -13,6 +13,7 @@ import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.Api.ApiClient;
 
 import java.io.IOException;
+import java.sql.Time;
 import java.util.Date;
 
 import retrofit2.Call;
@@ -52,11 +53,11 @@ public class RecordatorioEditViewModel extends AndroidViewModel {
             mRecordatorio.setValue((Recordatorio) bundle.getSerializable("recordatorio"));
         }
     }
-    public void cambiarDatos(int intervalo, int cantidad, int estado) {
+    public void cambiarDatos(String intervalo, int cantidad, int estado) {
         Recordatorio current = mRecordatorio.getValue();
         if (current == null) return;
 
-        if (intervalo <= 0 || cantidad <= 0) {
+        if (intervalo == null || cantidad <= 0) {
             mToastMessage.postValue("Todos los campos son obligatorios");
             return;
         }
