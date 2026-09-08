@@ -75,6 +75,11 @@ public class RecordatorioCrearFragment extends Fragment {
                     MedID = getArguments().getInt("idMedicamento");
                 }
 
+                if (cantidad < 1 || cantidad > 99) {
+                    binding.vCantidadCrear.setError("la Cantidad no puede ser menor que 1 o mayor que 99");
+                    return;
+                }
+
                 rec.setCantidad(cantidad);
                 rec.setIntervalo(binding.vIntervaloCrear.getText().toString());
                 //arreglar el cambio de int a time, testear, poder deshabilitar/cambiar alarma con edit

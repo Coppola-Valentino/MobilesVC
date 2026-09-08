@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="149dp"
+        android:layout_height="175dp"
         android:orientation="vertical"
         android:padding="12dp">
 
@@ -18,11 +18,26 @@
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fecha de Finalizacion:"
+            android:text="Fecha de Creacion:"
             android:textSize="10sp" />
 
         <TextView
             android:id="@+id/vFechaCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView74"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Matricula:"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/vMatriculaCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"

@@ -5,15 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/vMatriculaCrear"
+        android:layout_width="373dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="206dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="Matricula"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
     <TextView
         android:id="@+id/textView54"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:text="Fecha de Finalizacion:"
+        android:text="Matricula:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/vFechaCrear"
+        app:layout_constraintBottom_toTopOf="@+id/vMatriculaCrear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -64,19 +78,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:textSize="26sp" />
 
-    <EditText
-        android:id="@+id/vFechaCrear"
-        android:layout_width="373dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="278dp"
-        android:ems="10"
-        android:hint="Fecha de Finalizacion"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/vCrearReceta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 </androidx.constraintlayout.widget.ConstraintLayout>

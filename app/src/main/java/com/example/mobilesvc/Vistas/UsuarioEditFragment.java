@@ -99,6 +99,30 @@ public class UsuarioEditFragment extends Fragment {
             String Edad = b.vEdadEdit.getText().toString();
             int edad = Edad.isEmpty() ? 0 : Integer.parseInt(Edad);
             String rol = b.vRolEdit.getText().toString();
+            if (Telefono.length() < 6 || Telefono.length() > 12) {
+                b.vTelefonoEdit.setError("Telefono Invalido");
+                return;
+            }
+            if (edad < 1 || edad > 100) {
+                b.vEdadEdit.setError("Edad Invalida");
+                return;
+            }
+            if (b.vNombreEdit.getText().toString().length() < 3 || b.vNombreEdit.getText().toString().length() > 30) {
+                b.vNombreEdit.setError("Nombre Invalido, debe ser entre 3 y 30 caracteres");
+                return;
+            }
+            if (b.vDireccionEdit.getText().toString().length() < 4 || b.vDireccionEdit.getText().toString().length() > 100) {
+                b.vDireccionEdit.setError("Direccion Invalida");
+                return;
+            }
+            if (b.vDniEdit.getText().toString().length() != 8) {
+                b.vDniEdit.setError("Dni Invalido");
+                return;
+            }
+            if (!b.vEmailEdit.getText().toString().contains("@Gmail.com") || !b.vEmailEdit.getText().toString().contains("@Hotmail.com")) {
+                b.vEmailEdit.setError("Email debe ser Gmail o Hotmail");
+                return;
+            }
             vm.cambiarDatos(
                     edad,
                     telefono,

@@ -1,6 +1,11 @@
 package com.example.mobilesvc.Vistas;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -9,6 +14,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.mobilesvc.Api.AlarmReceiver;
 import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.Api.ApiClient;
 
@@ -76,8 +82,42 @@ public class RecordatorioEditViewModel extends AndroidViewModel {
                 if (response.isSuccessful()) {
                     mToastMessage.postValue("Actualizado correctamente");
                     mDatosCambiados.postValue(true);
+                    if(current.getEstado() == 0) {
+                        cancelAlarm(getApplication(), current);
+                    } else {
+                        startAlarm(getApplication(), current);
+                    }
                 } else {
                     mToastMessage.postValue("Error en el servidor");
+                }
+            }
+            @SuppressLint("ScheduleExactAlarm")
+            public void cancelAlarm(Context context, Recordatorio rec) {
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+                Intent intent = new Intent(context, AlarmReceiver.class);
+
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        context, rec.getIDRec(), intent,
+                        PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_IMMUTABLE);
+
+                if (pendingIntent != null && alarmManager != null) {
+                    alarmManager.cancel(pendingIntent);
+                    pendingIntent.cancel();
+                }
+            }
+            @SuppressLint("ScheduleExactAlarm")
+            private void startAlarm(Context context, Recordatorio rec) {
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
+                Intent intent = new Intent(context, AlarmReceiver.class);
+                intent.putExtra("recordatorio", rec);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        context, rec.getIDRec(), intent,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+                long triggerAt = System.currentTimeMillis() + rec.getIntervaloTime();
+
+                if (alarmManager != null) {
+                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent);
                 }
             }
             @Override

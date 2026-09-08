@@ -55,6 +55,18 @@ public class MedicamentoEditFragment extends Fragment {
             double dosis = Dosis.isEmpty() ? 0 : Double.parseDouble(Dosis);
             String Intervalo = b.vIntervaloMedicamentoEdit.getText().toString();
             double intervalo = Intervalo.isEmpty() ? 0 : Double.parseDouble(Intervalo);
+            if (cantidad < 1 || cantidad > 99) {
+                b.vCantidadMedicamentoEdit.setError("la Cantidad no puede ser menor que 1 o mayor que 99");
+                return;
+            }
+            if (dosis < 1 || dosis > 9999) {
+                b.vDosisEdit.setError("la Dosis no puede ser menor que 1 o mayor que 9999");
+                return;
+            }
+            if (intervalo < 0.5 || intervalo > 168) {
+                b.vIntervaloMedicamentoEdit.setError("el Intervalo no puede ser menor que media hora o mayor que una semana");
+                return;
+            }
             vm.cambiarDatos(
                     b.vNombreMedicamentoEdit.getText().toString(),
                     cantidad,

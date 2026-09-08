@@ -64,6 +64,22 @@ public class MedicamentoCrearFragment extends Fragment {
                 double intervalo = Intervalo.isEmpty() ? 0 : Double.parseDouble(Intervalo);
                 String Dosis = binding.vDosisCrear.getText().toString();
                 double dosis = Dosis.isEmpty() ? 0 : Double.parseDouble(Dosis);
+                if (nombre.length() < 3 || nombre.length() > 30) {
+                    binding.vNombreMedicamentoCrear.setError("Nombre invalido");
+                    return;
+                }
+                if (cantidad < 1 || cantidad > 99) {
+                    binding.vCantidadMedicamentoCrear.setError("la Cantidad no puede ser menor que 1 o mayor que 99");
+                    return;
+                }
+                if (dosis < 1 || dosis > 9999) {
+                    binding.vDosisCrear.setError("la Dosis no puede ser menor que 1 o mayor que 9999");
+                    return;
+                }
+                if (intervalo < 0.5 || intervalo > 168) {
+                    binding.vIntervaloMedicamentoCrear.setError("el Intervalo no puede ser menor que media hora o mayor que una semana");
+                    return;
+                }
 
                 med.setNombre(nombre);
                 med.setCantidad(cantidad);

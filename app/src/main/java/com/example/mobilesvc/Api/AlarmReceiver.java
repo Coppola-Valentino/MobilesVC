@@ -12,6 +12,7 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 
 import com.example.mobilesvc.Clases.Recordatorio;
+import com.example.mobilesvc.MainActivity;
 import com.example.mobilesvc.R;
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -23,7 +24,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Recordatorio rec = (Recordatorio) intent.getSerializableExtra("recordatorio");
         showNotification(context, rec);
 
-        if (rec != null && rec.getCantidad() > 1) {
+        if (rec.getIntervalo() != null && rec.getCantidad() > 1) {
             rec.setCantidad(rec.getCantidad() - 1);
 
             long triggerAt = System.currentTimeMillis() + rec.getIntervaloTime();
@@ -43,16 +44,24 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     private void showNotification(Context context, Recordatorio rec) {
+        //la alarma se crea, y se activa cuando pasa el tiempo, pero no muestra/hace nada, arreglar
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Recordatorios de Medicamentos", NotificationManager.IMPORTANCE_HIGH);
         notificationManager.createNotificationChannel(channel);
+        Intent notifyIntent = new Intent(context, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                context, 0, notifyIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentTitle("Hora de Tomar tu Medicamento")
                 .setContentText("Es momento de tomar tu dosis. Quedan " + (rec.getCantidad() - 1) + " restantes.")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true);
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(false);
 
         notificationManager.notify(rec.getIDRec(), builder.build());
     }

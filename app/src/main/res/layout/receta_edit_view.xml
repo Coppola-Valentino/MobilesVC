@@ -5,15 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/vMatriculaEdit"
+        android:layout_width="373dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="Matricula"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vFechaEdit" />
+
+    <TextView
+        android:id="@+id/textView72"
+        android:layout_width="200dp"
+        android:layout_height="22dp"
+        android:text="Matricula:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vMatriculaEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textView53"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:text="Fecha de Finalizacion:"
+        android:text="Fecha de inicio:"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vFechaEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -36,13 +62,11 @@
         android:layout_marginStart="130dp"
         android:layout_marginTop="85dp"
         android:layout_marginEnd="131dp"
-        android:layout_marginBottom="76dp"
         android:fontFamily="sans-serif"
         android:text="Editar Receta"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/vFechaEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -65,17 +89,14 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/vFechaEdit"
-        android:layout_width="366dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="331dp"
-        android:ems="10"
-        android:hint="Fecha de Finalizacion"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/vEditReceta"
+        android:layout_width="366sp"
+        android:layout_height="48sp"
+        android:layout_marginTop="76dp"
+        android:text="TextView"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

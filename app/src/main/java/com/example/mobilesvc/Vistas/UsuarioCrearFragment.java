@@ -61,6 +61,35 @@ public class UsuarioCrearFragment extends Fragment {
                 String Edad = binding.vEdadRegister.getText().toString();
                 int edad = Edad.isEmpty() ? 0 : Integer.parseInt(Edad);
 
+                if (Telefono.length() < 6 || Telefono.length() > 12) {
+                    binding.vTelefonoRegister.setError("Telefono Invalido");
+                    return;
+                }
+                if (edad < 1 || edad > 100) {
+                    binding.vEdadRegister.setError("Edad Invalida");
+                    return;
+                }
+                if (nombre.length() < 3 || nombre.length() > 30) {
+                    binding.vNombreRegister.setError("Nombre Invalido, debe ser entre 3 y 30 caracteres");
+                    return;
+                }
+                if (password.length() < 8 || password.length() > 30) {
+                    binding.vPasswordRegister.setError("La Contraseña debe tener entre 8 y 30 caracteres");
+                    return;
+                }
+                if (direccion.length() < 4 || direccion.length() > 100) {
+                    binding.vDireccionRegister.setError("Direccion Invalida");
+                    return;
+                }
+                if (dni.length() != 8) {
+                    binding.vTelefonoRegister.setError("Dni Invalido");
+                    return;
+                }
+                if (!email.contains("@Gmail.com") || !email.contains("@Hotmail.com")) {
+                    binding.vTelefonoRegister.setError("Email debe ser Gmail o Hotmail");
+                    return;
+                }
+
                 //mViewModel.evaluarChipSeleccionado(chipsId);
                 mViewModel.crearNuevoUsuario(nombre, password, direccion, dni, email,
                         //genero,

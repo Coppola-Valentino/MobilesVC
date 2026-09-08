@@ -71,7 +71,10 @@ public class RecordatorioEditFragment extends Fragment {
             } else {
                 estado = 0;
             }
-
+            if (cantidad < 1 || cantidad > 99) {
+                b.vCantidadEdit.setError("la Cantidad no puede ser menor que 1 o mayor que 99");
+                return;
+            }
             SimpleDateFormat a = new SimpleDateFormat("hh:mm:dd", Locale.getDefault());
             try {
                 a.parseObject(Intervalo);

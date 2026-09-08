@@ -40,9 +40,13 @@ public class UsuarioPassFragment extends Fragment {
         vm.getUsuario().observe(getViewLifecycleOwner(), m -> {
             b.vEditPass.setOnClickListener(v -> {
                 if(m.getPassword().equals(b.vActPass.getText().toString())) {
+                    if (b.vEditPass.length() < 8 || b.vEditPass.length() > 30) {
+                        b.vEditPass.setError("La Contraseña debe tener entre 8 y 30 caracteres");
+                        return;
+                    }
                     vm.cambiarPass(b.vActPass.getText().toString(), b.vPass1.getText().toString(), b.vPass2.getText().toString());
                 } else {
-                    b.vActPass.setText("Contraseña Incorrecta");
+                    b.vActPass.setError("Contraseña Incorrecta");
                 }
             });
         });

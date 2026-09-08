@@ -34,6 +34,7 @@ public class RecetaFragment extends Fragment {
         mViewModel.getRecetaMutable().observe(getViewLifecycleOwner(), r -> {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
             binding.vFecha.setText(dateFormat.format(r.getFecha()));
+            binding.vMatricula.setText(r.getMatricula());
                 bundle.putSerializable("receta", r);
                 bundle.putInt("idReceta", r.getIDReceta());
                 bundle.putInt("idUsuario", r.getPacID());

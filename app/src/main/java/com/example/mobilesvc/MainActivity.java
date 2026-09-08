@@ -1,10 +1,15 @@
 package com.example.mobilesvc;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -37,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         vm.getToastMessage().observe(this, message -> {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
 
 //        vm.getUsuario().observe(this, p -> {
 //           b.vCurrentUser.setText(p.getNombre());

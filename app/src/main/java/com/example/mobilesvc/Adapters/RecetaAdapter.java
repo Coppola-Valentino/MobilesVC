@@ -44,6 +44,7 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
     public void onBindViewHolder(@NonNull RecetaViewHolder holder, int position) {
         Receta recetaActual = receta.get(position);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+        holder.matricula.setText(recetaActual.getMatricula());
         holder.fecha.setText(dateFormat.format(recetaActual.getFecha()));
 
         holder.toReceta.setOnClickListener(v -> {
@@ -61,11 +62,13 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
 
     public class RecetaViewHolder extends RecyclerView.ViewHolder {
         TextView fecha; //cambiar luego a date algo
+        TextView matricula;
         Button toReceta;
 
         public RecetaViewHolder(@NonNull View itemView) {
             super(itemView);
             fecha = itemView.findViewById(R.id.vFechaCard);
+            matricula = itemView.findViewById(R.id.vMatriculaCard);
             toReceta = itemView.findViewById(R.id.vToReceta);
         }
     }

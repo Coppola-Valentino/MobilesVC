@@ -52,15 +52,16 @@ public class RecetaEditViewModel extends AndroidViewModel {
             mReceta.setValue((Receta) bundle.getSerializable("receta"));
         }
     }
-    public void cambiarDatos(Date Fecha) {
+    public void cambiarDatos(String Matricula) {
         Receta current = mReceta.getValue();
         if (current == null) return;
 
-        if (Fecha == null) {
+        if (Matricula == null) {
             mToastMessage.postValue("Todos los campos son obligatorios");
             return;
         }
-        current.setFecha(Fecha);
+        //current.setFecha(Fecha);
+        current.setMatricula(Matricula);
 
         ApiClient.MiServicio servicio = ApiClient.getServicio();
         String token = ApiClient.obtenerToken(getApplication());
