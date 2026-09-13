@@ -44,11 +44,13 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     private void showNotification(Context context, Recordatorio rec) {
-        //la alarma se crea, y se activa cuando pasa el tiempo, pero no muestra/hace nada, arreglar
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Recordatorios de Medicamentos", NotificationManager.IMPORTANCE_HIGH);
         notificationManager.createNotificationChannel(channel);
         Intent notifyIntent = new Intent(context, MainActivity.class);
+        notifyIntent.putExtra("navigate_to", "recordatorioActivado");
+        notifyIntent.putExtra("recordatorio", rec);
+        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 context, 0, notifyIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);

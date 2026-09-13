@@ -75,6 +75,8 @@ public class ApiClient {
         Call<List<Receta>> getRecetas(@Header("Authorization") String token);
         @GET("api/Recordatorios")
         Call<List<Recordatorio>> getRecordatorios(@Header("Authorization") String token);
+        @GET("api/Medicamento/{id}")
+        Call<Medicamento> getMedicamentoPorId(@Header("Authorization") String token, @Path("id") int idMedicamento);
 
         @GET("api/Medicamento/Receta/{id}")
         Call<List<Medicamento>> getMedicamentosPorReceta(@Header("Authorization") String token, @Path("id") int idReceta);

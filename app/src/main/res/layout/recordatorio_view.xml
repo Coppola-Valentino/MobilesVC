@@ -9,6 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/vToMedicamento2"
+            android:layout_width="370dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#015A75"
+            android:paddingVertical="14dp"
+            android:text="Ver Medicamento"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vToEditRecordatorio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/vEstado"
             android:layout_width="364dp"

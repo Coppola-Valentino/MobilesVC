@@ -311,4 +311,16 @@ app.get('/api/Recordatorio/Usuario/:id', (req, res) => {
     });
 });
 
+app.get('/api/Medicamento/:id', (req, res) => {
+    const IDMedicamento = req.params.id;
+    db.query("SELECT * FROM Medicamento Where IDMedicamento = ?", [IDMedicamento], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results[0]);
+        else res.status(404).send("Not found");
+    });
+});
+
 app.listen(3000, () => console.log("Server running on port 3000"));

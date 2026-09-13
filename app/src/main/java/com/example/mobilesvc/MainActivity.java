@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.databinding.ContentMainBinding;
 import com.example.mobilesvc.databinding.MainMenuViewBinding;
 import com.example.mobilesvc.Api.ApiClient;
@@ -46,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
+
+        // Check if we arrived here from a notification click
+        if (getIntent() != null && "recordatorioActivado".equals(getIntent().getStringExtra("navigate_to"))) {
+            Recordatorio rec = (Recordatorio) getIntent().getSerializableExtra("recordatorio");
+            if (rec != null && navController != null) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("recordatorio", rec);
+
+                // Navigate straight to the detail fragment
+                navController.navigate(R.id.recordatorioFragment, bundle);
             }
         }
 

@@ -171,6 +171,9 @@
         <action
             android:id="@+id/action_recordatorioFragment_to_recordatorioEditFragment"
             app:destination="@id/recordatorioEditFragment" />
+        <action
+            android:id="@+id/action_recordatorioFragment_to_medicamentoFragment"
+            app:destination="@id/medicamentoFragment" />
     </fragment>
     <fragment
         android:id="@+id/recordatoriosFragment"

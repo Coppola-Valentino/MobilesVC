@@ -13,7 +13,7 @@ public class Medicamento implements Serializable{
         this.Intervalo = intervalo;
         this.Dosis = dosis;
 
-    }
+    } //quizas añadir un campo de estado? o algo pa saber cuando el usuario termino el medicamento?
     public int getIDMedicamento() {
         return IDMedicamento;
     }

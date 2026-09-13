@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.example.mobilesvc.Clases.Medicamento;
 import com.example.mobilesvc.Clases.Recordatorio;
 import com.example.mobilesvc.databinding.RecordatorioViewBinding;
 import com.example.mobilesvc.R;
@@ -35,15 +36,19 @@ public class RecordatorioFragment extends Fragment { //creo que solo queda lo de
                 } else {
                     binding.vEstado.setText("Desactivado");
                 }
-
             bundle.putSerializable("recordatorio", r);
-
+            bundle.putSerializable("IdMedicamento", r.getMedicamentoID());
         });
 
         mViewModel.cargarRecordatorio(getArguments());
 
         binding.vVolverRecordatorio.setOnClickListener(v -> {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        });
+
+        binding.vToMedicamento2.setOnClickListener(v -> {
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.action_recordatorioFragment_to_medicamentoFragment, bundle);
         });
 
         binding.vToEditRecordatorio.setOnClickListener(v -> {
