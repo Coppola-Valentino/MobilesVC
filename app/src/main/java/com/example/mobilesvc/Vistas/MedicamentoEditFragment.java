@@ -36,6 +36,7 @@ public class MedicamentoEditFragment extends Fragment {
                 b.vCantidadMedicamentoEdit.setText(String.valueOf(m.getCantidad()));
                 b.vDosisEdit.setText(String.valueOf(m.getDosis()));
                 b.vIntervaloMedicamentoEdit.setText(String.valueOf(m.getIntervalo()));
+                b.vMarcaEdit.setText(m.getMarca());
             }
         });
 
@@ -49,26 +50,37 @@ public class MedicamentoEditFragment extends Fragment {
 
 
         b.vEditMedicamento.setOnClickListener(v -> {
+            String nombre = b.vNombreMedicamentoEdit.getText().toString();
+            String marca = b.vMarcaEdit.getText().toString();
             String Cantidad = b.vCantidadMedicamentoEdit.getText().toString();
             int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
             String Dosis = b.vDosisEdit.getText().toString();
             double dosis = Dosis.isEmpty() ? 0 : Double.parseDouble(Dosis);
             String Intervalo = b.vIntervaloMedicamentoEdit.getText().toString();
             double intervalo = Intervalo.isEmpty() ? 0 : Double.parseDouble(Intervalo);
-            if (cantidad < 1 || cantidad > 99) {
-                b.vCantidadMedicamentoEdit.setError("la Cantidad no puede ser menor que 1 o mayor que 99");
+            if (nombre.length() < 2 || nombre.length() > 30) {
+                b.vNombreMedicamentoEdit.setError("Nombre Invalido");
                 return;
             }
-            if (dosis < 1 || dosis > 9999) {
-                b.vDosisEdit.setError("la Dosis no puede ser menor que 1 o mayor que 9999");
+            if (marca.length() < 2 || marca.length() > 30) {
+                b.vMarcaEdit.setError("Marca Invalida");
+                return;
+            }
+            if (cantidad < 1 || cantidad > 99) {
+                b.vCantidadMedicamentoEdit.setError("la Cantidad no puede ser menor que 1 o mayor que 99");
                 return;
             }
             if (intervalo < 0.5 || intervalo > 168) {
                 b.vIntervaloMedicamentoEdit.setError("el Intervalo no puede ser menor que media hora o mayor que una semana");
                 return;
             }
+            if (dosis < 1 || dosis > 9999) {
+                b.vDosisEdit.setError("la Dosis no puede ser menor que 1 o mayor que 9999");
+                return;
+            }
             vm.cambiarDatos(
-                    b.vNombreMedicamentoEdit.getText().toString(),
+                    nombre,
+                    marca,
                     cantidad,
                     dosis,
                     intervalo

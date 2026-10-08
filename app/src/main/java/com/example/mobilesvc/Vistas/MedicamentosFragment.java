@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mobilesvc.Adapters.MedicamentoAdapter;
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.databinding.MedicamentosViewBinding;
 
@@ -56,14 +57,19 @@ public class MedicamentosFragment extends Fragment {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_medicamentosFragment_to_mainMenuFragment);
         });
-
-        binding.vToMedicamentoCrear.setOnClickListener(v -> {
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Adulto Responsable")) {
+            binding.vToMedicamentoCrear.setVisibility(View.VISIBLE);
+            binding.vToMedicamentoCrear.setOnClickListener(v -> {
             int idReceta = getArguments() != null ? getArguments().getInt("idReceta") : -1;
             Bundle bundle = new Bundle();
             bundle.putInt("idReceta", idReceta);
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_medicamentosFragment_to_medicamentoCrearFragment, bundle);
         });
+        } else {
+            binding.vToMedicamentoCrear.setVisibility(View.GONE);
+            binding.vToMedicamentoCrear.setClickable(false);
+        }
 
         int idReceta = getArguments() != null ? getArguments().getInt("idReceta") : -1;
         mViewModel.cargarMedicamentos(idReceta);

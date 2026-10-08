@@ -46,8 +46,8 @@ public class UsuarioEditFragment extends Fragment {
                 b.vTelefonoEdit.setText(String.valueOf(m.getTelefono()));
                 b.vGeneroEdit.setText(m.getGenero());
                 b.vEmailEdit.setText(m.getEmail());
-                if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Admin")) {
-                    String[] roles = new String[]{"Paciente", "Medico", "Admin"};
+                if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Adulto Responsable")) {
+                    String[] roles = new String[]{"Paciente", "Adulto Responsable"};
 
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(
                             requireContext(),
@@ -57,10 +57,7 @@ public class UsuarioEditFragment extends Fragment {
 
                     b.vRolEdit.setAdapter(adapter);
                     switch (m.getRol()) {
-                        case "Admin":
-                            b.vRolEdit.setText(roles[2], false);
-                            break;
-                        case "Medico":
+                        case "Adulto Responsable":
                             b.vRolEdit.setText(roles[1], false);
                             break;
                         case "Paciente":
@@ -77,7 +74,7 @@ public class UsuarioEditFragment extends Fragment {
             }
         });
 
-        if(ApiClient.obtenerUsuarioRol(requireContext()).equals("Paciente") ||ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")){
+        if(ApiClient.obtenerUsuarioRol(requireContext()).equals("Paciente")){
             b.vRolEdit.setVisibility(View.GONE);
             b.textInputLayout.setVisibility(View.GONE);
             b.vRolEdit.setClickable(false);
@@ -99,14 +96,6 @@ public class UsuarioEditFragment extends Fragment {
             String Edad = b.vEdadEdit.getText().toString();
             int edad = Edad.isEmpty() ? 0 : Integer.parseInt(Edad);
             String rol = b.vRolEdit.getText().toString();
-            if (Telefono.length() < 6 || Telefono.length() > 12) {
-                b.vTelefonoEdit.setError("Telefono Invalido");
-                return;
-            }
-            if (edad < 1 || edad > 100) {
-                b.vEdadEdit.setError("Edad Invalida");
-                return;
-            }
             if (b.vNombreEdit.getText().toString().length() < 3 || b.vNombreEdit.getText().toString().length() > 30) {
                 b.vNombreEdit.setError("Nombre Invalido, debe ser entre 3 y 30 caracteres");
                 return;
@@ -115,12 +104,24 @@ public class UsuarioEditFragment extends Fragment {
                 b.vDireccionEdit.setError("Direccion Invalida");
                 return;
             }
-            if (b.vDniEdit.getText().toString().length() != 8) {
-                b.vDniEdit.setError("Dni Invalido");
+            if (Telefono.length() < 6 || Telefono.length() > 12) {
+                b.vTelefonoEdit.setError("Telefono Invalido");
                 return;
             }
             if (!b.vEmailEdit.getText().toString().contains("@Gmail.com") || !b.vEmailEdit.getText().toString().contains("@Hotmail.com")) {
                 b.vEmailEdit.setError("Email debe ser Gmail o Hotmail");
+                return;
+            }
+            if (b.vDniEdit.getText().toString().length() != 8) {
+                b.vDniEdit.setError("Dni Invalido");
+                return;
+            }
+            if (b.vGeneroEdit.getText().toString().length() < 3 || b.vGeneroEdit.getText().toString().length() > 15) {
+                b.vGeneroEdit.setError("Genero debe ser de entre 3 y 15 caracteres");
+                return;
+            }
+            if (edad < 1 || edad > 100) {
+                b.vEdadEdit.setError("Edad Invalida");
                 return;
             }
             vm.cambiarDatos(

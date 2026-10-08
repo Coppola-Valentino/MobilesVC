@@ -71,7 +71,7 @@ public class UsuarioFragment extends Fragment {
                     .navigate(R.id.action_usuarioFragment_to_usuarioPassFragment, bundle);
         });
 
-        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")) {
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Adulto Responsable")) {
             binding.vToRecetas.setVisibility(View.VISIBLE);
             binding.vToRecetas.setOnClickListener(v -> {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)

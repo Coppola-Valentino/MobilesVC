@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.example.mobilesvc.Api.ApiClient;
 import com.example.mobilesvc.Clases.Receta;
 import com.example.mobilesvc.databinding.RecetaViewBinding;
 import com.example.mobilesvc.R;
@@ -34,7 +35,8 @@ public class RecetaFragment extends Fragment {
         mViewModel.getRecetaMutable().observe(getViewLifecycleOwner(), r -> {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
             binding.vFecha.setText(dateFormat.format(r.getFecha()));
-            binding.vMatricula.setText(r.getMatricula());
+//            binding.vMatricula.setText(r.getMatricula());
+            binding.vFechaFin.setText(dateFormat.format(r.getFechaFin()));
                 bundle.putSerializable("receta", r);
                 bundle.putInt("idReceta", r.getIDReceta());
                 bundle.putInt("idUsuario", r.getPacID());
@@ -47,11 +49,16 @@ public class RecetaFragment extends Fragment {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                     .navigate(R.id.action_recetaFragment_to_recetasFragment, bundle);
         });
-
-        binding.vToRecetaEdit.setOnClickListener(v -> {
-            Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.action_recetaFragment_to_recetaEditFragment, bundle);
-        });
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Adulto Responsable")) {
+            binding.vToRecetaEdit.setVisibility(View.GONE);
+            binding.vToRecetaEdit.setOnClickListener(v -> {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
+                        .navigate(R.id.action_recetaFragment_to_recetaEditFragment, bundle);
+            });
+        } else {
+            binding.vToRecetaEdit.setVisibility(View.GONE);
+            binding.vToRecetaEdit.setClickable(false);
+        }
 
         binding.vToMedicamentosList.setOnClickListener(v -> {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)

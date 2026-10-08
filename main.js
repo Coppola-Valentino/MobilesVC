@@ -311,9 +311,34 @@ app.get('/api/Recordatorio/Usuario/:id', (req, res) => {
     });
 });
 
+app.get('/api/RecordatorioAct/Usuario/:id', (req, res) => {
+    const UserID = req.params.id;
+    db.query("SELECT * FROM Recordatorio Where UserID = ? And Estado = 1", [UserID], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results);
+        else res.status(404).send("Not found");
+    });
+});
+
+
 app.get('/api/Medicamento/:id', (req, res) => {
     const IDMedicamento = req.params.id;
     db.query("SELECT * FROM Medicamento Where IDMedicamento = ?", [IDMedicamento], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Database Error");
+        }
+        if (results.length > 0) res.json(results[0]);
+        else res.status(404).send("Not found");
+    });
+});
+
+app.get('/api/Receta/:id', (req, res) => {
+    const IDReceta = req.params.id;
+    db.query("SELECT * FROM Receta Where IDReceta = ?", [IDReceta], (err, results) => {
         if (err) {
             console.error(err);
             return res.status(500).send("Database Error");

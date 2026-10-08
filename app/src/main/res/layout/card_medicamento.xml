@@ -55,7 +55,7 @@
             android:id="@+id/textView32"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dosis:"
+            android:text="Dosis: (mg/ml)"
             android:textSize="10sp" />
 
         <TextView

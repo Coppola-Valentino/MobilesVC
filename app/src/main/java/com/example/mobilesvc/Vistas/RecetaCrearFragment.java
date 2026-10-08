@@ -64,21 +64,27 @@ public class RecetaCrearFragment extends Fragment {
                 nueva.setMedID(MedID);
 //                nueva.setPacID(mViewModel.getUsuario().getValue().getIDUser());
                 nueva.setPacID(getArguments().getInt("idUsuario", -1));
-                //String fechaString = binding.vFechaCrear.getText().toString();
+                String fechaFinString = binding.vFechaFinCrear.getText().toString();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
-                if (binding.vMatriculaCrear.getText().toString().length() > 15 || binding.vMatriculaCrear.getText().toString().length() < 3) {
-                    binding.vMatriculaCrear.setError("Matricula Invalida, Necesita entre 3 y 15 caracteres");
-                    return;
-                }
-
-//                try {
-                    //Date fecha = dateFormat.parse(fechaString);
-                    nueva.setFecha(Calendar.getInstance().getTime()); //testear
-                    nueva.setMatricula(binding.vMatriculaCrear.getText().toString());
-                    mViewModel.crearNuevoReceta(nueva);
-//                } catch (ParseException e) {
-//                    binding.vFechaCrear.setError("Formato inválido (usar yyyy/MM/dd)");
+//                if (binding.vMatriculaCrear.getText().toString().length() > 15 || binding.vMatriculaCrear.getText().toString().length() < 3) {
+//                    binding.vMatriculaCrear.setError("Matricula Invalida, Necesita entre 3 y 15 caracteres");
+//                    return;
 //                }
+
+                try {
+                    Date fechaFin = dateFormat.parse(fechaFinString);
+                    nueva.setFecha(Calendar.getInstance().getTime());
+                    if (fechaFin.after(Calendar.getInstance().getTime())) {
+                        nueva.setFechaFin(fechaFin);
+                    } else {
+                        binding.vFechaFinCrear.setError("Fecha invalida, no puede ser antes de la fecha actual");
+                        return;
+                    }
+//                    nueva.setMatricula(binding.vMatriculaCrear.getText().toString());
+                    mViewModel.crearNuevoReceta(nueva);
+                } catch (ParseException e) {
+                    binding.vFechaFinCrear.setError("Formato inválido (usar yyyy/MM/dd)");
+                }
                 //mViewModel.evaluarChipSeleccionado(chipsId);
 
             }

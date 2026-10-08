@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_medicamentoFragment_to_medicamentoEditFragment"
             app:destination="@id/medicamentoEditFragment" />
+        <action
+            android:id="@+id/action_medicamentoFragment_to_medicamentosFragment"
+            app:destination="@id/medicamentosFragment" />
     </fragment>
     <fragment
         android:id="@+id/medicamentosFragment"

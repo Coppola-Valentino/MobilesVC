@@ -58,7 +58,7 @@ public class RecetasFragment extends Fragment {
         });
 
         //String rl = ApiClient.obtenerUsuarioRol(requireContext());
-        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico")) {
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Adulto Responsable")) {
             binding.vRecetar.setVisibility(View.VISIBLE);
             binding.vRecetar.setOnClickListener(v -> {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)

@@ -44,12 +44,13 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
     public void onBindViewHolder(@NonNull RecetaViewHolder holder, int position) {
         Receta recetaActual = receta.get(position);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
-        holder.matricula.setText(recetaActual.getMatricula());
+        holder.fechaFin.setText(dateFormat.format(recetaActual.getFechaFin()));
         holder.fecha.setText(dateFormat.format(recetaActual.getFecha()));
 
         holder.toReceta.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("receta", recetaActual);
+            bundle.putInt("idUsuario", recetaActual.getPacID());
             Navigation.findNavController(v)
                     .navigate(R.id.action_recetasFragment_to_recetaFragment, bundle);
         });
@@ -61,14 +62,14 @@ public class RecetaAdapter extends RecyclerView.Adapter<RecetaAdapter.RecetaView
     }
 
     public class RecetaViewHolder extends RecyclerView.ViewHolder {
-        TextView fecha; //cambiar luego a date algo
-        TextView matricula;
+        TextView fecha;
+        TextView fechaFin;
         Button toReceta;
 
         public RecetaViewHolder(@NonNull View itemView) {
             super(itemView);
             fecha = itemView.findViewById(R.id.vFechaCard);
-            matricula = itemView.findViewById(R.id.vMatriculaCard);
+            fechaFin = itemView.findViewById(R.id.vFechaFinCard);
             toReceta = itemView.findViewById(R.id.vToReceta);
         }
     }

@@ -2,18 +2,18 @@ package com.example.mobilesvc.Clases;
 import java.io.Serializable;
 public class Medicamento implements Serializable{
     private int IDMedicamento, RecID, Cantidad;
-    private String Nombre;
+    private String Nombre, Marca;
     private Double Intervalo, Dosis;
     public Medicamento() {}
-    public Medicamento(int IDMedicamento, int RecID, int cantidad, String nombre, Double intervalo, Double dosis) {
+    public Medicamento(int IDMedicamento, int RecID, int cantidad, String nombre, String marca, Double intervalo, Double dosis) {
         this.IDMedicamento = IDMedicamento;
         this.RecID = RecID;
         this.Nombre = nombre;
         this.Cantidad = cantidad;
         this.Intervalo = intervalo;
         this.Dosis = dosis;
-
-    } //quizas añadir un campo de estado? o algo pa saber cuando el usuario termino el medicamento?
+        this.Marca = marca;
+    }
     public int getIDMedicamento() {
         return IDMedicamento;
     }
@@ -25,6 +25,12 @@ public class Medicamento implements Serializable{
     }
     public void setNombre(String nombre) {
         this.Nombre = nombre;
+    }
+    public String getMarca() {
+        return Marca;
+    }
+    public void setMarca(String marca) {
+        this.Marca = marca;
     }
     public int getCantidad() {
         return Cantidad;
@@ -51,11 +57,14 @@ public class Medicamento implements Serializable{
         this.RecID = recID;
     }
 
+// cambiar tdo a Paciente y adulto responsable, admin y medico fusionados en funciones
+    //ultimo cambio, menos distraccion (pero que mierda cambio?????)
 
     @Override
     public String toString() {
         return "Medicamento{" +
-                "nombre='" + Nombre + '\'' +
+                "Nombre='" + Nombre + '\'' +
+                ", Marca='" + Marca + '\'' +
                 ", Cantidad='" + Cantidad + '\'' +
                 ", Intervalo='" + Intervalo + '\'' +
                 ", Dosis='" + Dosis + '\'' +

@@ -33,7 +33,7 @@ public class mainMenuFragment extends Fragment {
 
         vm.cargarUsuario();
 
-        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Medico") || ApiClient.obtenerUsuarioRol(requireContext()).equals("Admin")) {
+        if (ApiClient.obtenerUsuarioRol(requireContext()).equals("Adulto Responsable")) {
             binding.vPacientes.setVisibility(View.VISIBLE);
             binding.vPacientes.setOnClickListener(v -> {
                 Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_usuariosFragment);

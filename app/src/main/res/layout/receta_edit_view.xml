@@ -6,29 +6,31 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/vMatriculaEdit"
+        android:id="@+id/vFechaFinEdit"
         android:layout_width="373dp"
         android:layout_height="51dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="120dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="Matricula"
+        android:hint="Fecha de Vencimiento"
         android:inputType="date"
+        android:maxLength="10"
+        app:layout_constraintBottom_toTopOf="@+id/vEditReceta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vFechaEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/vFechaEdit"
+        app:layout_constraintVertical_bias="0.372" />
 
     <TextView
-        android:id="@+id/textView72"
+        android:id="@+id/textView81"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:text="Matricula:"
+        android:text="Fecha de Vencimiento:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/vMatriculaEdit"
+        app:layout_constraintBottom_toTopOf="@+id/vFechaFinEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -93,10 +95,11 @@
         android:id="@+id/vFechaEdit"
         android:layout_width="366sp"
         android:layout_height="48sp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="104dp"
         android:text="TextView"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

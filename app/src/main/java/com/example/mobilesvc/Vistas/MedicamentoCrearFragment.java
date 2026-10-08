@@ -58,26 +58,31 @@ public class MedicamentoCrearFragment extends Fragment {
                 }
                 //int RecID = getArguments().getInt("idReceta");
                 String nombre = binding.vNombreMedicamentoCrear.getText().toString();
+                String marca = binding.vMarcaCrear.getText().toString();
                 String Cantidad = binding.vCantidadMedicamentoCrear.getText().toString();
                 int cantidad = Cantidad.isEmpty() ? 0 : Integer.parseInt(Cantidad);
                 String Intervalo = binding.vIntervaloMedicamentoCrear.getText().toString();
                 double intervalo = Intervalo.isEmpty() ? 0 : Double.parseDouble(Intervalo);
                 String Dosis = binding.vDosisCrear.getText().toString();
                 double dosis = Dosis.isEmpty() ? 0 : Double.parseDouble(Dosis);
-                if (nombre.length() < 3 || nombre.length() > 30) {
+                if (nombre.length() < 2 || nombre.length() > 30) {
                     binding.vNombreMedicamentoCrear.setError("Nombre invalido");
+                    return;
+                }
+                if (marca.length() < 2 || marca.length() > 30) {
+                    binding.vMarcaCrear.setError("Marca invalida");
                     return;
                 }
                 if (cantidad < 1 || cantidad > 99) {
                     binding.vCantidadMedicamentoCrear.setError("la Cantidad no puede ser menor que 1 o mayor que 99");
                     return;
                 }
-                if (dosis < 1 || dosis > 9999) {
-                    binding.vDosisCrear.setError("la Dosis no puede ser menor que 1 o mayor que 9999");
-                    return;
-                }
                 if (intervalo < 0.5 || intervalo > 168) {
                     binding.vIntervaloMedicamentoCrear.setError("el Intervalo no puede ser menor que media hora o mayor que una semana");
+                    return;
+                }
+                if (dosis < 1 || dosis > 9999) {
+                    binding.vDosisCrear.setError("la Dosis no puede ser menor que 1 o mayor que 9999");
                     return;
                 }
 
@@ -86,6 +91,7 @@ public class MedicamentoCrearFragment extends Fragment {
                 med.setRecID(RecID);
                 med.setDosis(dosis);
                 med.setIntervalo(intervalo);
+                med.setMarca(marca);
 
                 //mViewModel.evaluarChipSeleccionado(chipsId);
                 mViewModel.crearNuevoMedicamento(med);

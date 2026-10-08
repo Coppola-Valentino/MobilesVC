@@ -39,7 +39,8 @@ public class RecetaEditFragment extends Fragment {
             if (m != null) {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
                 b.vFechaEdit.setText(dateFormat.format(m.getFecha()));
-                b.vMatriculaEdit.setText(m.getMatricula());
+                b.vFechaFinEdit.setText(dateFormat.format(m.getFechaFin()));
+//                b.vMatriculaEdit.setText(m.getMatricula());
             }
         });
 
@@ -53,21 +54,21 @@ public class RecetaEditFragment extends Fragment {
 
 
         b.vEditReceta.setOnClickListener(v -> {
-//            String fecha = b.vFechaEdit.getText().toString();
+            String fechaFin = b.vFechaFinEdit.getText().toString();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
-            if (b.vMatriculaEdit.getText().toString().length() > 15 || b.vMatriculaEdit.getText().toString().length() < 3) {
-                b.vMatriculaEdit.setError("Matricula Invalida, Necesita entre 3 y 15 caracteres");
-                return;
-            }
-//            try {
-            //Date Fecha = dateFormat.parse(fecha);
-                vm.cambiarDatos(
-                        //Fecha,
-                        b.vMatriculaEdit.getText().toString()
-                );
-//            } catch (ParseException e) {
-//                b.vFechaEdit.setError("Formato inválido (usar yyyy/MM/dd)");
+//            if (b.vMatriculaEdit.getText().toString().length() > 15 || b.vMatriculaEdit.getText().toString().length() < 3) {
+//                b.vMatriculaEdit.setError("Matricula Invalida, Necesita entre 3 y 15 caracteres");
+//                return;
 //            }
+            try {
+            Date FechaFin = dateFormat.parse(fechaFin);
+                vm.cambiarDatos(
+//                        b.vMatriculaEdit.getText().toString(),
+                        FechaFin
+                );
+            } catch (ParseException e) {
+                b.vFechaEdit.setError("Formato inválido (usar yyyy/MM/dd)");
+            }
         });
 
         b.vVolverRecetaEdit.setOnClickListener(v -> {

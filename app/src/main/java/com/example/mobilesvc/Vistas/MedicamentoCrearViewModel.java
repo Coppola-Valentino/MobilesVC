@@ -49,7 +49,7 @@ public class MedicamentoCrearViewModel extends AndroidViewModel {
     public void crearNuevoMedicamento(Medicamento med){
 
         try {
-            if (med.getNombre().isBlank() || med.getCantidad() == 0 || med.getDosis() == 0 || med.getIntervalo() == 0) {
+            if (med.getNombre().isBlank() || med.getMarca().isBlank() || med.getCantidad() == 0 || med.getDosis() == 0 || med.getIntervalo() == 0) {
                 Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
             }else{
 //                Medicamento nuevoMedicamento = new Medicamento();

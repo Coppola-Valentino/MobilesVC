@@ -51,15 +51,16 @@ public class MedicamentoEditViewModel extends AndroidViewModel {
             mMedicamento.setValue((Medicamento) bundle.getSerializable("medicamento"));
         }
     }
-    public void cambiarDatos(String nombre, int cantidad, double dosis, double intervalo) {
+    public void cambiarDatos(String nombre, String marca, int cantidad, double dosis, double intervalo) {
         Medicamento current = mMedicamento.getValue();
         if (current == null) return;
 
-        if (nombre.isBlank() || cantidad <= 0 || dosis <= 0 || intervalo <= 0) {
+        if (nombre.isBlank() || marca.isBlank() || cantidad <= 0 || dosis <= 0 || intervalo <= 0) {
             mToastMessage.postValue("Todos los campos son obligatorios");
             return;
         }
         current.setNombre(nombre);
+        current.setMarca(marca);
         current.setCantidad(cantidad);
         current.setDosis(dosis);
         current.setIntervalo(intervalo);

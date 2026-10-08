@@ -33,11 +33,11 @@
             android:id="@+id/textView74"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Matricula:"
+            android:text="Fecha de Vencimiento:"
             android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/vMatriculaCard"
+            android:id="@+id/vFechaFinCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"

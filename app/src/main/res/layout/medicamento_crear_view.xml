@@ -5,11 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vMarcaCrear"
+        android:layout_width="364dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="31dp"
+        android:clickable="true"
+        android:hint="Marca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vNombreMedicamentoCrear" />
+
     <TextView
-        android:id="@+id/textView66"
+        android:id="@+id/textView71"
         android:layout_width="100dp"
         android:layout_height="22dp"
-        android:text="Dosis:"
+        android:text="Marca:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vMarcaCrear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView66"
+        android:layout_width="120dp"
+        android:layout_height="22dp"
+        android:text="Dosis: (mg/ml)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vDosisCrear"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,22 +56,11 @@
         android:id="@+id/textView64"
         android:layout_width="230dp"
         android:layout_height="22dp"
-        android:text="Cantidad de Dosis: (mg/ml)"
+        android:text="Cantidad de Dosis:"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/vCantidadMedicamentoCrear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.038"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView63"
-        android:layout_width="100dp"
-        android:layout_height="22dp"
-        android:text="Nombre:"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/vNombreMedicamentoCrear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -67,13 +81,14 @@
         android:layout_width="364dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="10dp"
         android:clickable="true"
         android:hint="Intervalo"
-        app:layout_constraintBottom_toTopOf="@+id/vDosisCrear"
+        android:inputType="number|numberDecimal"
+        android:maxLength="5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vCantidadMedicamentoCrear" />
 
@@ -82,31 +97,34 @@
         android:layout_width="364dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="50dp"
         android:clickable="true"
         android:hint="Dosis"
+        android:inputType="number|numberDecimal"
+        android:maxLength="4"
         app:layout_constraintBottom_toTopOf="@+id/vCrearMedicamento"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vIntervaloMedicamentoCrear" />
+        app:layout_constraintTop_toBottomOf="@+id/vIntervaloMedicamentoCrear"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="97dp"
-        android:layout_marginBottom="71dp"
         android:fontFamily="sans-serif"
         android:text="Crear Medicamento"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/vNombreMedicamentoCrear"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:textSize="26sp" />
@@ -136,30 +154,39 @@
         android:layout_width="364dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:hint="Cantidad"
-        app:layout_constraintBottom_toTopOf="@+id/vIntervaloMedicamentoCrear"
+        android:inputType="number"
+        android:maxLength="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vNombreMedicamentoCrear" />
+        app:layout_constraintTop_toBottomOf="@+id/vMarcaCrear" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/vNombreMedicamentoCrear"
         android:layout_width="364dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:hint="Nombre"
-        app:layout_constraintBottom_toTopOf="@+id/vCantidadMedicamentoCrear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView63"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="Nombre:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vNombreMedicamentoCrear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

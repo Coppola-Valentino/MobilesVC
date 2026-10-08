@@ -1,5 +1,6 @@
 package com.example.mobilesvc.Vistas;
 import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.util.Log;
 
@@ -57,7 +58,7 @@ public class mainMenuViewModel extends AndroidViewModel {
                     ApiClient.guardarUsuarioId(getApplication(), user.getIDUser());
                     ApiClient.guardarUsuarioRol(getApplication(), user.getRol());
 
-                    Log.d("LOG_PERFIL", "Propietario obtenido");
+                    Log.d("LOG_PERFIL", "Usuario obtenido");
                     mUsuario.postValue(response.body());
                 }else{
                     Log.d("LOG_PERFIL_ERROR","Código: " + response.code());
@@ -66,7 +67,7 @@ public class mainMenuViewModel extends AndroidViewModel {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    mToastMessage.postValue("Error al obtener el Propietario del PerfilViewModel");
+                    mToastMessage.postValue("Error al obtener el usuario");
                 }
             }
 

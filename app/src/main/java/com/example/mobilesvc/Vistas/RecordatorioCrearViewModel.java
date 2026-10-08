@@ -21,6 +21,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.mobilesvc.Api.AlarmReceiver;
+import com.example.mobilesvc.Clases.Medicamento;
+import com.example.mobilesvc.Clases.Receta;
 import com.google.gson.Gson;
 import com.example.mobilesvc.R;
 import com.example.mobilesvc.Clases.Recordatorio;
@@ -39,12 +41,13 @@ import retrofit2.Response;
 
 public class RecordatorioCrearViewModel extends AndroidViewModel {
     private MutableLiveData<Recordatorio> recordatorioMutable = new MutableLiveData<>();
+    private MutableLiveData<Receta> recetaMutable = new MutableLiveData<>();
+    private MutableLiveData<Medicamento> medicamentoMutable = new MutableLiveData<>();
     private Context context;
 
     public RecordatorioCrearViewModel(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
-
     }
 
     public MutableLiveData<Recordatorio> getRecordatorioMutable() {
@@ -52,6 +55,18 @@ public class RecordatorioCrearViewModel extends AndroidViewModel {
             recordatorioMutable = new MutableLiveData<>();
         }
         return recordatorioMutable;
+    }
+    public MutableLiveData<Receta> getRecetaMutable() {
+        if (recetaMutable == null) {
+            recetaMutable = new MutableLiveData<>();
+        }
+        return recetaMutable;
+    }
+    public MutableLiveData<Medicamento> getMedicamentoMutable() {
+        if (medicamentoMutable == null) {
+            medicamentoMutable = new MutableLiveData<>();
+        }
+        return medicamentoMutable;
     }
     public void crearNuevoRecordatorio(Recordatorio rec){
 

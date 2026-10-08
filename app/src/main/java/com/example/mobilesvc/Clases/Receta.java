@@ -5,15 +5,14 @@ import java.util.Date;
 
 public class Receta implements Serializable {
     private int IDReceta, PacID, MedID;
-    private String Matricula;
-    private Date Fecha;
+    private Date Fecha, FechaFin;
     public Receta() {}
-    public Receta(int IDReceta, int PacID, int MedID, Date fecha, String matricula) {
+    public Receta(int IDReceta, int PacID, int MedID, Date fecha, Date fechaFin) {
         this.IDReceta = IDReceta;
         this.PacID = PacID;
         this.MedID = MedID;
         this.Fecha = fecha;
-        this.Matricula = matricula;
+        this.FechaFin = fechaFin;
 
     }
     public int getIDReceta() {
@@ -35,23 +34,20 @@ public class Receta implements Serializable {
         this.MedID = MedID;
     }
     public Date getFecha() { return Fecha; }
-    //cambiar fecha final por otro campo mas util, como un nombre y/o guardar la fecha de inicio (del momento en el que se crea la receta)
-    //eso es lo unico que falta
     public void setFecha(Date fecha) {
         this.Fecha = fecha;
     }
-    public String getMatricula() {
-        return Matricula;
-    }
-    public void setMatricula(String matricula) {
-        this.Matricula = matricula;
+    public Date getFechaFin() { return FechaFin; }
+    public void setFechaFin(Date fechaFin) {
+        this.FechaFin = fechaFin;
     }
 
 
     @Override
     public String toString() {
         return "Receta{" +
-                "Fecha='" + Fecha + '\'' +
+                "Fecha ='" + Fecha + '\'' +
+                ", Fecha de Vencimiento ='" + FechaFin + '\'' +
                 '}';
     }
 

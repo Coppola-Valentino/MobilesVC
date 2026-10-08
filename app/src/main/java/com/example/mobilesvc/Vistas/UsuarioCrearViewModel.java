@@ -90,8 +90,6 @@ public class UsuarioCrearViewModel extends AndroidViewModel {
                                  throw new RuntimeException(e);
                              }
                              Toast.makeText(getApplication(), "Error al crear el usuario", Toast.LENGTH_LONG).show();
-                             //se atasca en este error al intentar crear un usuario, ta mas cerca que antes
-                             //hacer lo de la database, va a tardar decadas en hacer funcionar
                          }
                      }
 

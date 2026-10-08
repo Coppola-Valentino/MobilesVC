@@ -5,6 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/vNombreMedicamento"
+        android:layout_width="364dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="Nombre"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/vMarca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView79"
+        android:layout_width="200dp"
+        android:layout_height="22dp"
+        android:text="Nombre del Medicamento:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/vNombreMedicamento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/vToRecordatorioCrear2"
         android:layout_width="370dp"
@@ -59,9 +82,9 @@
         android:id="@+id/textView55"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:text="Nombre del Medicamento:"
+        android:text="Marca del Medicamento:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/vNombreMedicamento"
+        app:layout_constraintBottom_toTopOf="@+id/vMarca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent" />
@@ -100,11 +123,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/vNombreMedicamento"
+        android:id="@+id/vMarca"
         android:layout_width="364dp"
         android:layout_height="50dp"
         android:layout_marginBottom="24dp"
-        android:text="Nombre"
+        android:text="Marca"
         android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/vCantidadMedicamento"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +154,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="sans-serif"
         android:text="Medicamento"
         android:textColor="#000000"

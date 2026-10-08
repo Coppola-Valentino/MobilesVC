@@ -76,7 +76,7 @@ public class MedicamentosViewModel extends AndroidViewModel {
             }
             @Override
             public void onFailure(Call<List<Medicamento>> call, Throwable t) {
-                Log.e("API_ERROR", "Fallo lista recordatorios: " + t.getMessage());
+                Log.e("API_ERROR", "Fallo lista medicamentos: " + t.getMessage());
                 mToastMessage.postValue("Sin conexion con el servidor");
                 mMessage.postValue("No se encontraron los medicamentos");
             }

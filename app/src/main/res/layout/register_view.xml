@@ -90,6 +90,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="30dp"
         android:hint="Dni"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/vEdadRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -207,6 +208,7 @@
         android:ems="10"
         android:hint="Telefono"
         android:inputType="number"
+        android:maxLength="10"
         app:layout_constraintBottom_toTopOf="@+id/vEmailRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -221,6 +223,7 @@
         android:ems="10"
         android:hint="Edad"
         android:inputType="number"
+        android:maxLength="3"
         app:layout_constraintBottom_toTopOf="@+id/vCrearUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

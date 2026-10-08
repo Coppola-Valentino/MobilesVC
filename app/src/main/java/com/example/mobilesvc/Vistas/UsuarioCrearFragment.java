@@ -61,14 +61,6 @@ public class UsuarioCrearFragment extends Fragment {
                 String Edad = binding.vEdadRegister.getText().toString();
                 int edad = Edad.isEmpty() ? 0 : Integer.parseInt(Edad);
 
-                if (Telefono.length() < 6 || Telefono.length() > 12) {
-                    binding.vTelefonoRegister.setError("Telefono Invalido");
-                    return;
-                }
-                if (edad < 1 || edad > 100) {
-                    binding.vEdadRegister.setError("Edad Invalida");
-                    return;
-                }
                 if (nombre.length() < 3 || nombre.length() > 30) {
                     binding.vNombreRegister.setError("Nombre Invalido, debe ser entre 3 y 30 caracteres");
                     return;
@@ -81,12 +73,20 @@ public class UsuarioCrearFragment extends Fragment {
                     binding.vDireccionRegister.setError("Direccion Invalida");
                     return;
                 }
-                if (dni.length() != 8) {
-                    binding.vTelefonoRegister.setError("Dni Invalido");
+                if (Telefono.length() < 6 || Telefono.length() > 10) {
+                    binding.vTelefonoRegister.setError("Telefono Invalido");
                     return;
                 }
-                if (!email.contains("@Gmail.com") || !email.contains("@Hotmail.com")) {
-                    binding.vTelefonoRegister.setError("Email debe ser Gmail o Hotmail");
+                if (!email.contains("@Gmail.com") && !email.contains("@Hotmail.com") && email.length() < 3 || email.length() > 50) {
+                    binding.vEmailRegister.setError("Email debe ser @Gmail.com o @Hotmail.com y tener entre 3 y 30 caracteres");
+                    return;
+                }
+                if (dni.length() != 8) {
+                    binding.vDniRegister.setError("Dni Invalido");
+                    return;
+                }
+                if (edad < 1 || edad > 100) {
+                    binding.vEdadRegister.setError("Edad Invalida");
                     return;
                 }
 
